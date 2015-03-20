@@ -16,7 +16,7 @@
 # Configuration for the Tomcat container
 ---
 tomcat:
-  version: 8.0.+
+  version: 7.0.+
   repository_root: "https://github.com/shekhawataru/tomee/blob/master"
 lifecycle_support:
   version: 2.+
