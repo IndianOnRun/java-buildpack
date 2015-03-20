@@ -17,7 +17,7 @@
 ---
 tomcat:
   version: 8.0.+
-  repository_root: "https://github.com/shekhawataru/tomee/blob/master"
+  repository_root: "https://bitbucket.org/shekhawataru/tomcat/downloads"
 lifecycle_support:
   version: 2.+
   repository_root: "{default.repository.root}/tomcat-lifecycle-support"
