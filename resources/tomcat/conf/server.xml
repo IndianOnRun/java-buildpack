@@ -18,6 +18,9 @@
 
 <Server port='-1'>
 
+  <!-- TomEE plugin for Tomcat -->
+  <Listener className="org.apache.tomee.loader.OpenEJBListener" />
+
     <Service name='Catalina'>
         <Connector port='${http.port}' bindOnInit="false"/>
 
