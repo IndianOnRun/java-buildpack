@@ -16,7 +16,7 @@
 # Configuration for the Tomcat container
 ---
 tomcat:
-  version: 8.0.+
+  version: 1.7.+
   repository_root: "https://bitbucket.org/shekhawataru/tomcat/downloads"
 lifecycle_support:
   version: 2.+
