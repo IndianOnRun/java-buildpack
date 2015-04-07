@@ -27,6 +27,7 @@ module JavaBuildpack
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
         FileUtils.mkdir_p logs_dir
+        FileUtils.mkdir_p ssh_dir
         download_jar
         @droplet.copy_resources
       end
@@ -69,6 +70,10 @@ module JavaBuildpack
 
       def logs_dir
         @droplet.sandbox + 'logs'
+      end
+
+      def ssh_dir
+        @droplet.sandbox + '.ssh'
       end
 
     end
