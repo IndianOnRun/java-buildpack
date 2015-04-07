@@ -26,8 +26,8 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
-        FileUtils.mkdir_p logs_dir
         FileUtils.mkdir_p ssh_dir
+        FileUtils.mkdir_p logs_dir
         download_jar
         @droplet.copy_resources
       end
