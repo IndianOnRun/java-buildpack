@@ -18,12 +18,7 @@
 $stdout.sync = true
 $stderr.sync = true
 
-
-require 'java_buildpack/buildpack'
 require 'fileutils'
-
-build_dir = ARGV[0]
-
 
 def create_custom_dirs
   puts "Creating ssh folder and repository"
@@ -40,6 +35,12 @@ end
 create_custom_dirs
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+
+require 'java_buildpack/buildpack'
+
+
+build_dir = ARGV[0]
+
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
