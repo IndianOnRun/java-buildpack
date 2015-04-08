@@ -78,7 +78,7 @@ module JavaBuildpack
       FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '.ssh'
 
       puts "++++++ Changing Key Permission ..."
-      system 'chmod 600 .ssh/sshfs_rsa'
+      system 'chmod 700 .ssh/sshfs_rsa'
 
       puts "++++++ Trying SSH first ..."
       system 'ssh -i .ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts cpadmusr@160.153.90.232'
