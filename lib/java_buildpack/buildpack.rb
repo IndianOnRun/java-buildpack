@@ -77,11 +77,14 @@ module JavaBuildpack
       puts "++++++ Copying SSH Keys '.ssh'..."
       FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '.ssh'
 
+      puts "++++++ Changing Key Permission ..."
+      system 'chmod 600 .ssh/sshfs_rsa'
+
       puts "++++++ Trying SSH first ..."
       system 'ssh -i .ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts cpadmusr@160.153.90.232'
 
-      #puts "++++++ Mounting Remote Directory..."
-      #system 'sshfs -o IdentityFile=.ssh/sshfs_rsa cpadmusr@160.153.90.232:sshfs /repos'
+      puts "++++++ Mounting Remote Directory..."
+      system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts cpadmusr@160.153.90.232:sshfs /repos'
 
     end
 
