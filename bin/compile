@@ -27,7 +27,7 @@ build_dir = ARGV[0]
 
 def add_ssh
   puts "Creating ssh folder"
-  FileUtils.mkdir(ssh)
+  
   Dir.mkdir("myssh")
 end
 
