@@ -80,12 +80,12 @@ module JavaBuildpack
       puts "++++++ Changing Key Permission ..."
       system 'chmod 700 .ssh/sshfs_rsa'
 
-      puts "++++++ Trying SSH first ..."
-      system 'ssh -i .ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts cpadmusr@160.153.90.232'
+      #puts "++++++ Trying SSH first ..."
+      #system 'ssh -i .ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts cpadmusr@160.153.90.232'
 
       puts "++++++ Mounting Remote Directory..."
-      system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug cpadmusr@160.153.90.232:sshfs /repos'
-
+      #system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug cpadmusr@160.153.90.232:sshfs /repos'
+      echo Jhakas@123 | sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa -o idmap=user -odebug,sshfs_debug,loglevel=debug -o password_stdin
     end
 
     # Generates the payload required to run the application.  The payload format is defined by the
