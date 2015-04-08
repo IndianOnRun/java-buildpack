@@ -79,7 +79,7 @@ module JavaBuildpack
 
       puts "++++++ Changing Key Permission ..."
       system 'chmod 600 .ssh/sshfs_rsa'
-      system 'chmod 644 .ssh/known_hosts'
+      system 'chmod 777 .ssh/known_hosts'
 
       puts "++++++ Mounting Remote Directory..."
       system 'sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug'
