@@ -30,7 +30,8 @@ def create_custom_dirs
   FileUtils.mkdir_p '.ssh'
   FileUtils.mkdir_p 'repos'
 
-  puts "Printing Build_dir #{build_dir}."
+  #puts "Printing Build Dir #{build_dir}"
+  
   #puts "Copying sshfs_rsa files to app"
   #FileUtils.cp_r '../.ssh/.', '.ssh'
 
