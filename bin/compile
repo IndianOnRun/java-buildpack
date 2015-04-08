@@ -23,13 +23,15 @@ require 'java_buildpack/buildpack'
 
 build_dir = ARGV[0]
 
-add_ssh
+
 
 def add_ssh
   puts "Creating ssh folder"
   FileUtils.mkdir(ssh)
   Dir.mkdir("myssh")
 end
+
+add_ssh
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
