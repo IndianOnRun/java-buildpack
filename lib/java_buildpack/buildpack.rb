@@ -74,9 +74,6 @@ module JavaBuildpack
       FileUtils.mkdir_p '.ssh'
       FileUtils.mkdir_p 'repos'
       
-      puts "++++++ Changing permissions on '.ssh'..."
-      system 'chmod 700 .ssh'
-
       puts "++++++ Copying SSH Keys '.ssh'..."
       FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '.ssh'
 
