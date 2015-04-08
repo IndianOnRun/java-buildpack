@@ -78,7 +78,7 @@ module JavaBuildpack
       FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '.ssh'
 
       puts "++++++ Mounting Remote Directory..."
-      system 'sshfs cpadmusr@160.153.90.232: /repos'
+      system 'sudo sshfs cpadmusr@160.153.90.232:/sshfs /repos -o IdentityFile=.ssh/sshfs_rsa'
 
     end
 
