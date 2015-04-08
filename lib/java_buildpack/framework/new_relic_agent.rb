@@ -27,7 +27,6 @@ module JavaBuildpack
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
         FileUtils.mkdir_p logs_dir
-        FileUtils.mkdir_p ssh_dir
         download_jar
         @droplet.copy_resources
       end
@@ -40,7 +39,6 @@ module JavaBuildpack
           .add_system_property('newrelic.config.license_key', license_key)
           .add_system_property('newrelic.config.app_name', "'#{application_name}'")
           .add_system_property('newrelic.config.log_file_path', logs_dir)
-          .add_system_property('newrelic.config.ssh_file_path', ssh_dir)
         @droplet.java_opts.add_system_property('newrelic.enable.java.8', 'true') if java_8?
       end
 
@@ -71,10 +69,6 @@ module JavaBuildpack
 
       def logs_dir
         @droplet.sandbox + 'logs'
-      end
-
-      def ssh_dir
-        @@application.root + 'ssh'
       end
 
     end

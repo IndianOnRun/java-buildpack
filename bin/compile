@@ -21,25 +21,10 @@ $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'java_buildpack/buildpack'
-require 'fileutils'
+
 
 build_dir = ARGV[0]
 
-
-def create_custom_dirs
-  puts "Creating ssh folder and repository"
-  FileUtils.mkdir_p '.ssh'
-  FileUtils.mkdir_p 'repos'
-
-  puts "PWD"
-  FileUtils.pwd
-
-  puts "Copying sshfs_rsa files to app"
-  FileUtils.cp_r '.ssh/.', '.ssh'
-
-end
-
-create_custom_dirs
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile

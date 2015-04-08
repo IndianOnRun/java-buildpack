@@ -29,6 +29,9 @@ require 'java_buildpack/util/snake_case'
 require 'java_buildpack/util/space_case'
 require 'pathname'
 
+#Arun
+require 'fileutils'
+
 module JavaBuildpack
 
   # Encapsulates the detection, compile, and release functionality for Java application
@@ -62,6 +65,18 @@ module JavaBuildpack
       component_detection('JRE', @jres, true).first.compile
       component_detection('framework', @frameworks, false).each(&:compile)
       container.compile
+      create_custom_dirs
+    end
+
+    #Arun
+    def create_custom_dirs
+      puts "Creating ssh folder and repository"
+      FileUtils.mkdir_p '.ssh'
+      FileUtils.mkdir_p 'repos'
+
+      #puts "Copying sshfs_rsa files to app"
+      #FileUtils.cp_r '.ssh/.', '.ssh'
+
     end
 
     # Generates the payload required to run the application.  The payload format is defined by the
