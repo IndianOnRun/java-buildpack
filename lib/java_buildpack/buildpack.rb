@@ -84,7 +84,7 @@ module JavaBuildpack
       system 'ssh -i .ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts cpadmusr@160.153.90.232'
 
       puts "++++++ Mounting Remote Directory..."
-      system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts cpadmusr@160.153.90.232:sshfs /repos'
+      system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user cpadmusr@160.153.90.232:sshfs /repos'
 
     end
 
