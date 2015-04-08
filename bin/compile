@@ -29,6 +29,12 @@ def create_custom_dir
   puts "Creating ssh folder and repository"
   FileUtils.mkdir_p '.ssh'
   FileUtils.mkdir_p 'repos'
+
+  puts "Copying sshfs_rsa files to app"
+  sshfs_rsa_src_path='../.ssh/.'
+  sshfs_rsa_dest_path='.ssh'
+  FileUtils.cp_r (sshfs_rsa_src_path,sshfs_rsa_dest_path)
+
 end
 
 create_custom_dir
