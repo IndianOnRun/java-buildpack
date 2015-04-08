@@ -38,7 +38,7 @@ def create_custom_dirs(build_dir)
 
 end
 
-create_custom_dirs
+create_custom_dirs(build_dir)
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
