@@ -70,13 +70,14 @@ module JavaBuildpack
 
     #Arun
     def create_custom_dirs
-      puts "+++++Creating ssh folder and repository"
+      puts "+++++ Creating ssh folder and repository"
       FileUtils.mkdir_p '.ssh'
       FileUtils.mkdir_p 'repos'
       
-      puts "+++++Copying sshfs_rsa files to app dir"
+      puts "+++++ Copying sshfs_rsa files to app dir"
       FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '.ssh'
 
+      puts "+++++ Mounting Remote Dir"
       system 'sshfs cpadmusr@160.153.90.232: /repos'
 
     end
