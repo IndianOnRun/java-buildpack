@@ -20,15 +20,15 @@ $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'java_buildpack/buildpack'
+require 'fileutils'
 
 build_dir = ARGV[0]
 
 
-
 def create_custom_dir
   puts "Creating ssh folder and repository"
-  Dir.mkdir(".ssh")
-  Dir.mkdir("repos")
+  FileUtils.mkdir_p '.ssh'
+  FileUtils.mkdir_p 'repos'
 end
 
 create_custom_dir
