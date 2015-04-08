@@ -25,8 +25,6 @@ build_dir = ARGV[0]
 
 add_ssh
 
-private
-
 def add_ssh
   puts "Creating ssh folder"
   FileUtils.mkdir(ssh)
