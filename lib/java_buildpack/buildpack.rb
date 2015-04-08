@@ -74,6 +74,7 @@ module JavaBuildpack
       FileUtils.mkdir_p '.ssh'
       FileUtils.mkdir_p 'repos'
 
+      FileUtils.pwd
       #puts "Copying sshfs_rsa files to app"
       #FileUtils.cp_r '.ssh/.', '.ssh'
 
