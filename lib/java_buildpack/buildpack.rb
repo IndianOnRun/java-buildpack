@@ -85,7 +85,7 @@ module JavaBuildpack
 
       puts "++++++ Mounting Remote Directory..."
       #system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug cpadmusr@160.153.90.232:sshfs /repos'
-      system 'sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug'
+      system 'sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa StrictHostKeyChecking=no -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug'
     end
 
     # Generates the payload required to run the application.  The payload format is defined by the
