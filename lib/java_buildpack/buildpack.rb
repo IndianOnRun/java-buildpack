@@ -77,8 +77,11 @@ module JavaBuildpack
       puts "++++++ Copying SSH Keys '.ssh'..."
       FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '.ssh'
 
+      puts "++++++ Trying SSH first ..."
+      system 'ssh -i .ssh/sshfs_rsa cpadmusr@160.153.90.232'
+
       puts "++++++ Mounting Remote Directory..."
-      system 'sshfs cpadmusr@160.153.90.232:/sshfs /repos -o IdentityFile=.ssh/sshfs_rsa'
+      system 'sshfs -o IdentityFile=.ssh/sshfs_rsa cpadmusr@160.153.90.232:sshfs /repos'
 
     end
 
