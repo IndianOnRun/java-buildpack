@@ -17,7 +17,7 @@
 
 $stdout.sync = true
 $stderr.sync = true
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+
 
 require 'java_buildpack/buildpack'
 require 'fileutils'
@@ -38,6 +38,8 @@ def create_custom_dirs
 end
 
 create_custom_dirs
+
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
