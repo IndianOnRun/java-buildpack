@@ -82,7 +82,7 @@ module JavaBuildpack
       system 'chmod 777 .ssh/known_hosts'
 
       puts "++++++ Mounting Remote Directory..."
-      system 'sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug'
+      system 'sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o idmap=user -odebug,sshfs_debug,loglevel=debug'
     
     end
 
