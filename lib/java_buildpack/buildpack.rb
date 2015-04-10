@@ -82,7 +82,7 @@ module JavaBuildpack
       system 'chmod 777 .ssh/known_hosts'
 
       puts "++++++ Checking S3FS..."
-      system 's3fs'
+      system 's3fs -d'
 
       puts "++++++ Mounting Remote Directory..."
       system 'sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa -odebug,sshfs_debug,loglevel=debug'
