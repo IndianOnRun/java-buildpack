@@ -85,7 +85,7 @@ module JavaBuildpack
       system 's3fs -h'
 
       puts "++++++ Mounting Remote Directory..."
-      system 'sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa -odebug,sshfs_debug,loglevel=debug'
+      system 'sshfs cpadmusr@160.153.90.232:sshfs /repos -o IdentityFile=.ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug'
       
     
     end
