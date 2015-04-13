@@ -70,14 +70,17 @@ module JavaBuildpack
 
     #Arun
     def create_custom_dirs
-      puts "++++++ Creating 'repos' & 'knime_executor' folders..."
+      puts "++++++ Creating 'knime_executor' folder..."
       FileUtils.mkdir_p 'knime_executor'
+
+      puts "++++++ Creating 'repos' folder..."
       FileUtils.mkdir_p 'repos'
       
-      puts "++++++ Copying KNIME Server Config files"
-      FileUtils.cp_r '/tmp/buildpacks/java-buildpack/knime_server_config/.', 'repos'
+      puts "++++++ Copying KNIME Server 'config' & 'licenses' files"
+      FileUtils.cp_r '/tmp/buildpacks/java-buildpack/knime_server/.', 'repos'
 
-
+      #puts "++++++ Copying KNIME Executor files"
+      #FileUtils.cp_r '/tmp/buildpacks/java-buildpack/knime_executor/.', 'knime_executor'
     
     end
 
