@@ -70,12 +70,12 @@ module JavaBuildpack
 
     #Arun
     def create_custom_dirs
-      puts "++++++ Creating '.ssh' & 'repos' folders..."
-      FileUtils.mkdir_p '.ssh'
+      puts "++++++ Creating 'repos' & 'knime_executor' folders..."
+      FileUtils.mkdir_p 'knime_executor'
       FileUtils.mkdir_p 'repos'
       
-   #   puts "++++++ Copying SSH Keys '.ssh'..."
-   #   FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '.ssh'
+      puts "++++++ Copying KNIME Server Config files"
+      FileUtils.cp_r '/tmp/buildpacks/java-buildpack/knime_server_config/.', 'repos'
 
 
     
