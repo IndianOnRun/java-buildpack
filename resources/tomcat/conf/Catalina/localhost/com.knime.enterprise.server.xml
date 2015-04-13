@@ -1,5 +1,0 @@
-<Context>
-    <Manager pathname="" />
-    <Parameter name="com.knime.server.repository" value="/Volumes/Beta/knime_server/server-repository" override="false" />
-    <Resource name="mail/knime" auth="Container" type="javax.mail.Session" mail.smtp.host="localhost" />
-</Context>
