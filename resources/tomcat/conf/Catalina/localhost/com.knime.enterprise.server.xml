@@ -1,5 +1,5 @@
 <Context>
     <Manager pathname="" />
-    <Parameter name="com.knime.server.repository" value="../../../../../../repos" override="false" />
+    <Parameter name="com.knime.server.repository" value="../../../../../../../repos" override="false" />
     <Resource name="mail/knime" auth="Container" type="javax.mail.Session" mail.smtp.host="localhost" />
 </Context>
