@@ -1,0 +1,5 @@
+<Context>
+    <Manager pathname="" />
+    <Parameter name="com.knime.server.repository" value="/home/vcap/repos" override="false" />
+    <Resource name="mail/knime" auth="Container" type="javax.mail.Session" mail.smtp.host="localhost" />
+</Context>
