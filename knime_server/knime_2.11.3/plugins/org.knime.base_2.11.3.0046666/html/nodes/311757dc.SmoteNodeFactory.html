@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    SMOTE</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>SMOTE</h1>
+<p>
+	        <p>
+        	This node oversamples the input data (i.e. adds artificial rows) to enrich the 
+        	training data. The applied technique is called 
+        	<a href="http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume16/chawla02a.pdf">
+			SMOTE (Synthetic Minority Over-sampling Technique)</a> by 
+			Chawla et al. 
+			</p>
+			<p>
+			Some supervised learning algorithms (such as decision trees and neural nets)
+			require an equal class distribution to generalize well, i.e. to get good 
+			classification performance. In case of unbalanced input data,
+			for instance there are only few objects of the "active" but 
+			many of the "inactive" class, this node adjusts the class distribution 
+			by adding artificial rows (in the example by adding rows for the "active" class). 
+			</p>
+			<p>
+			The algorithm works roughly as follows: It creates synthetic rows by extrapolating 
+			between a real object of a given class (in the above example "active") 
+			and one of its nearest neighbors (of the same class). It then picks a point
+			along the line between these two objects and determines the attributes (cell values)
+			of the new object based on this randomly chosen point.
+			</p>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Class Column</dt>
+<dd>
+		    Pick the column that contains the class information.
+		</dd>
+<dt>Nearest neighbor</dt>
+<dd>
+			An option that determines how many nearest neighbors shall be considered.
+			The algorithm picks an object from the target class, randomly selects 
+			one of its neighbors and draws the new synthetic example along the 
+			line between the sample and the neighbor.
+		</dd>
+<dt>Oversample by</dt>
+<dd>
+			Checking this option oversamples each class equally. You need to 
+			specify how much synthetic data is introduced, e.g. a value of 2 
+			will introduce two more portions for each class (if there are 50 
+			rows in the input table labeled as "A"; the output will contain 
+			150 rows belonging to "A").  
+		</dd>
+<dt>Oversample minority classes</dt>
+<dd>
+		    This option adds synthetic examples to all classes that are
+			not the majority class. The output contains the same number
+			of rows for each of the possible classes. 
+		</dd>
+<dt>Enable static seed</dt>
+<dd>
+			Check this option if you want to use a seed for the random number 
+			generator. This will cause consecutive runs of the node to produce
+			the same output data. If unchecked, each run of the node generates
+			a new seed. Use "Draw new seed" to randomly draw a new seed.
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Table containing labeled data for oversampling.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Oversampled data (input table with appended rows).</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

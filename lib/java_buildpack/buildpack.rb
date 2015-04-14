@@ -73,9 +73,10 @@ module JavaBuildpack
       puts "++++++ Creating 'knime_executor' folder..."
       FileUtils.mkdir_p 'knime_executor'
 
-      puts "++++++ Creating 'repos' folder..."
-      FileUtils.mkdir_p 'repos'
-      
+      puts "++++++ Creating 'server-repository','config' & 'licenses' folders..."
+      FileUtils.mkdir_p 'server-repository/config'
+      FileUtils.mkdir_p 'server-repository/licenses'
+
       puts "++++++ Copying KNIME Server 'config' & 'licenses' files"
       FileUtils.cp_r '/tmp/buildpacks/java-buildpack/knime_server/.', 'repos'
 

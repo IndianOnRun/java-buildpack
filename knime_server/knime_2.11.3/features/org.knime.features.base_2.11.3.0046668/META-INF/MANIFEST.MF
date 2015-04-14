@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Created-By: 1.7.0_76 (Oracle Corporation)
+
+Name: p2.inf
+SHA1-Digest: dCdXYLkW3FGr0BB5Etegt5nf9ro=
+
+Name: icons/knime64.gif
+SHA1-Digest: N57ooIbijRHlgDhHMW2kEnbuIAE=
+
+Name: feature.xml
+SHA1-Digest: Fbo5OkMP/0V09otMOax5GlxhfAw=
+

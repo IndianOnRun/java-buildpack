@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Java Snippet</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Java Snippet</h1>
+<p>
+            <p>This node allows you to execute arbitrary java code to create
+            a new columns or to replace an existing ones. Enter the java code in 
+            the text area.</p>
+            <p>An output columns is defined by creating a java field bound to 
+            this column. The value assigned to this field will be written
+            to the output.</p>
+            <p>Note, that this node allows to add or modify flow variables
+            in the same manner.</p>
+            <p>It is also possible to use external java libraries (that is, 
+            libraries that are not part of java boot classpath). In order to 
+            include such external jar or zip files, add their location in the 
+            "Additional Libraries" tab using the control buttons.</p>
+            <p>You can define reusable templates with the "Create templates..." 
+            button. Templates are stored in the
+            users workspace by default and can be accessed via the "Templates"
+            tab.</p>
+        </p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Column List</dt>
+<dd>
+          The list contains the columns that are available in the input table.
+          Double click any of the column names to insert the respective field
+          in the expression editor. It will replace your current selection or
+          simply insert at the current caret position.
+        </dd>
+<dt>Flow Variable List</dt>
+<dd>
+          The list contains the flow variables that are currently available at
+          the node input. Double clicking any of the entries will insert the
+          respective identifier at the current cursor position (replacing the
+          selection, if any).
+        </dd>
+<dt>Snippet text area</dt>
+<dd>
+          Enter your java code here. You can access input columns or flow
+          variables by defining them in the <b>Input</b> table. A
+          second way is to use the methods <i>getCell(name, type)</i> or 
+          <i>getFlowVariable(name, type)</i> where <i>name</i> is the name of
+          the input column or the flow variable, respectively. You can use
+          the following values for the <i>type</i> parameter. <br/>          
+          <i>tString</i> : String (f)<br/>
+          <i>tInt</i>  : Integer (f)<br/>
+          <i>tDouble</i> : Double (f)<br/>
+          <i>tLong</i> : Long<br/>
+          <i>tBoolean</i> : Boolean<br/>
+          <i>tDate</i> : java.util.Date<br/>
+          <i>tCalendar</i> : java.util.Calendar<br/>
+          <i>tXML</i> : org.w3c.document<br/>
+          (f) These Types can be used for flow variables.<br/>
+          
+          <br/>
+          <b>Java Snippet Methods:</b>
+<br/>
+          <i>getCell(name, type)*</i> : Get value of a cell by column name<br/>
+          <i>isType(name, type)*</i> : Test for type by column name<br/>
+          <i>isMissing(name)*</i> : Check if missing by column name<br/>
+          <i>columnExists(name)*</i> : Check if column with given name exists<br/>
+          <i>getColumnCount(index, type)</i> : Number of columns in the input table<br/>
+          <i>getColumnName(index)</i> : Retrieve column name at index<br/>
+          <br/>
+          <i>getFlowVariable(name, type)</i> : Get value of a flow variable by name<br/>
+		  <i>getFlowVariables(type)</i> : Get all flow variables by type. A name to value map is returned.<br/>
+		  <i>flowVariableExists(name)</i> : Check if a flow variable with given name exists<br/>
+		  <i>isFlowVariableOfType(name, type)</i> : Check if a flow variable is of type<br/>          
+          * Methods exist in a variant that takes the column index instead of its name.
+          
+          <p>You can hit <i>ctrl+space</i> to get an auto completion box with all
+          available classes, methods and fields. When you select a class and hit
+          <i>enter</i> a import statement will be generated if missing.</p>          
+          <p>Note, that the snippet allows to define custom global variables and
+          custom imports.</p>
+          
+          <p>Exceptions in the snippet are caught by the framework and will 
+          result in missing values for all output columns for the row being processed unless there are
+          flow variables defined by the snippet (in which case the execution will always fail). 
+          You can force the node to fail execution by throwing an exception of class 
+          <tt>Abort</tt>.</p>
+        </dd>
+<dt>Input</dt>
+<dd>
+          Define system input fields for the snippet text area. Every field will 
+          be populated with the data of the defined input during execution. 
+        </dd>
+<dt>Output</dt>
+<dd>
+          To define output columns and flow variables by adding columns
+          to this table. Every row in the <b>Output</b> table
+          defines a java field bound to a column. Values assigned to this field
+          in the snippet will show up at the output.          
+        </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input table.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input table with additional 
+        or replaced columns.
+        </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Java Snippet Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

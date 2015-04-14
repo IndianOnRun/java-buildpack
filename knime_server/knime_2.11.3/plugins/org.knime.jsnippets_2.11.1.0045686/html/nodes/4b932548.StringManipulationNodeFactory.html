@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    String Manipulation</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>String Manipulation</h1>
+<p>
+	        <p>
+				Manipulates strings like search and replace,
+				capitalize or remove leading and trailing white spaces.
+	        </p>
+	        <b>Examples:</b>
+	        <p>
+	            To remove leading and trailing blanks from a column with name
+	            <i>c0</i> you would use the expression:<br/>
+	            <i>strip($c0$)</i>
+	        </p>
+            <p>
+                If you have your customer names in column <i>names</i>  
+                with titles Mr and Mister and you
+                want to normalize the data so that only Mr is used you could
+                use the expression: <br/>
+                <i>replace($names$, "Mister", "Mr")</i>
+<br/>
+                or you could combine it to<br/>
+                <i>replace(replace($names$, "Mister", "Mr"), "Miss", "Ms")</i>
+            </p>
+            <p>
+                Or if you want to have the number of characters of the strings
+                in a column with name <i>text</i>: <br/>
+                <i>length($text$)</i>
+            </p>
+            <p>
+               Note that strings which are part of the expression and are not from the 
+               input data (or the result of another wrapped function call) need
+               to be enclosed in double quotes ('"'). Additionally, if the string contains a 
+               quote character, it must be escaped using a backslash character ('\"'). 
+               Finally, other special characters such as single quotes and backslashes need 
+               to be escaped using a backslash. For instance, a single backslash in a string 
+               is written as two consecutive backslash characters; the first one acts as 
+               the escape character for the second.
+            </p>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Column List</dt>
+<dd>
+		  The list contains the column that are available in the input table.
+		  Double click any of the column names to insert the respective field
+		  in the expression editor. It will replace your current selection or
+		  simply insert at the current caret position.
+		</dd>
+<dt>Flow Variable List</dt>
+<dd>
+		  The list contains the flow variables that are currently available at
+		  the node input. Double clicking any of the entries will insert the
+		  respective identifier at the current cursor position (replacing the
+		  selection, if any).
+		</dd>
+<dt>Function</dt>
+<dd>
+		  Select a single function to display its description. A double click
+		  will insert the function in the expression editor. 
+		  It will replace your current selection or
+          simply insert at the current caret position.
+		  Select a category to narrow down the list of displayed functions.
+		</dd>
+<dt>Expression</dt>
+<dd>
+		  The place for your business logic. You can hit <i>ctrl+space</i> to
+		  get an auto completion box. 
+		</dd>
+<dt>Replace/Append</dt>
+<dd>
+          Specify here if you want the result to be put into a separate or 
+          existing column.
+        </dd>
+<dt>Insert Missing As Null</dt>
+<dd>
+		  If selected, missing values in the input table will be represented
+		  by <tt>null</tt> in the expression. If unselected,
+		  a missing value in the input will produce
+		  a missing output cell without evaluating the expression. 
+		</dd>
+<dt>Syntax check on close</dt>
+<dd>
+		  If unchecked the dialog can be closed even when the expression has
+		  syntax errors.
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input table.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input table with an additional calculated column
+	        or one column replaced.
+        </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Java Snippet Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

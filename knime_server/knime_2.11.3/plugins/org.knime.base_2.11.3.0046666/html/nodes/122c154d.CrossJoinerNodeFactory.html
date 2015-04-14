@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Cross Joiner</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Cross Joiner</h1>
+<p>Performs a cross join of two tables. Each row of the first table is joined with 
+        each row of the second table. Note, this is an extremely expensive operation as the number of rows in the
+        output is the product of both input table row counts, by increasing the chunk size there will be a speed up. </p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Second table column suffix</dt>
+<dd>
+        The suffix attached to a column's name if the second table contains a column with the same name.
+        The column names of the first inport are always retained. If there are duplicates found in the second table
+        the suffix is added once or multiple times to ensure uniqueness. 
+        </dd>
+<dt>Separator for new RowIds</dt>
+<dd> This string will separate the rowids in the new data table. E.g. RowID1 + sep + RowID2</dd>
+<dt>Chunk size: </dt>
+<dd>Number of rows read at once, increasing this
+		      value yields faster execution time but also increases memory consumption.</dd>
+<dt>Append left data tables RowIds</dt>
+<dd> If selected a new column will be attached to the output, containing the rowids of the left data table. </dd>
+<dt>Column name(left): </dt>
+<dd>The name of the newly generated rowkey column.</dd>
+<dt>Append right data tables RowIds </dt>
+<dd>If selected a new column will be attached to the output, containing the rowids of the right data table.</dd>
+<dt>Column name(right): </dt>
+<dd>The name of the newly generated rowkey column.</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>The first table to be joined</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>The second table to be joined</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Cross join</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

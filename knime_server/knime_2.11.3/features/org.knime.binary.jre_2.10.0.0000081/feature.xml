@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.knime.binary.jre"
+      label="Java Runtime Environment"
+      version="2.10.0.0000081"
+      provider-name="KNIME GmbH, Konstanz, Germany">
+
+   <description>
+      This feature contains the Java Runtime Environment.
+   </description>
+
+   <includes
+         id="org.knime.binary.jre.linux.gtk.x86"
+         version="1.7.0.60"
+         os="linux"
+         arch="x86"/>
+
+   <includes
+         id="org.knime.binary.jre.linux.gtk.x86_64"
+         version="1.7.0.60"
+         os="linux"
+         arch="x86_64"/>
+
+   <includes
+         id="org.knime.binary.jre.win32.win32.x86"
+         version="1.7.0.60"
+         os="win32"
+         arch="x86"/>
+
+   <includes
+         id="org.knime.binary.jre.win32.win32.x86_64"
+         version="1.7.0.60"
+         os="win32"
+         arch="x86_64"/>
+
+   <includes
+         id="org.knime.binary.jre.macosx.cocoa.x86_64"
+         version="1.7.0.60"
+         os="macosx"
+         arch="x86_64"/>
+
+</feature>

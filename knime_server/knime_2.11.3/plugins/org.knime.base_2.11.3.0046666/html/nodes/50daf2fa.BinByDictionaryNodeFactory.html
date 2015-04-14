@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Binner (Dictionary)</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Binner (Dictionary)</h1>
+<p>
+            <p>
+              Categorizes values in a column according to a dictionary table 
+              with min/max values. The table at the first input contains a
+              column with values to be categorized. The second table contains
+              a column with lower bound values, a column with upper bound
+              values and a column with label values. The latter will be used as
+              outcome in case a given value is between the corresponding lower
+              and upper bound. Each row in the second table represents a rule, 
+              whereby the rules are evaluated top-down, i.e. rules with low
+              row index have higher priority than rules in the subsequent rows.
+            </p>
+            <p>
+              Either the lower or upper bound test can be disabled by unsetting
+              the corresponding checkbox in the dialog. Missing values in the 
+              columns containing upper and lower bounds will always evaluate 
+              the bound check to true. That is, a missing value in the lower 
+              bound column will always be smaller and a missing value in the
+              upper bound column will always be larger than the value. Missing
+              values in the value column (1st input) will result in a missing
+              cell output (no categorization).
+            </p>
+            <p>
+              <b>Note:</b> The table containing bound and label information 
+              (2nd input) will be read into memory during execution; it must be
+              a relatively small table!
+            </p>
+        </p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Value Column to bin (1st port)</dt>
+<dd>
+          Select the column in the first input table containing the values
+          to be categorized.
+        </dd>
+<dt>Lower Bound Column (2nd port)</dt>
+<dd>
+          If enabled, select the column containing the lower bound values. 
+          Choose whether a value must be strictly smaller or smaller or equal
+          than the lower bound value by selecting the "Inclusive" checkbox
+          (if checked it will be smaller or equal).
+        </dd>
+<dt>Upper Bound Column (2nd port)</dt>
+<dd>
+          If enabled, select the column containing the upper bound values. 
+          Choose whether a value must be strictly larger or larger or equal
+          than the upper bound value by selecting the "Inclusive" checkbox 
+          (if checked it will be larger or equal).
+        </dd>
+<dt>Label Column (2nd port)</dt>
+<dd>
+          Select the label column from the 2nd input that will be appended as
+          category column to the output table.
+        </dd>
+<dt>If no rule matches</dt>
+<dd>
+          Choose the behavior if none of the rules in the 2nd input fires for
+          a given value: Select "Fail" to make this node fail during execution
+          (reasonable when the rule table is assumed to cover the entire domain)
+          or "Insert Missing" to insert missing values as result. 
+        </dd>
+<dt>Search Pattern</dt>
+<dd>
+          Linear Search scans all rules sequentially in the order they are defined
+          in the rule table and returns the label of the first rule that matches. 
+          Binary search only works if both limits are specified (and not missing); 
+          it sorts the rules based on their lower and upper limits and performs a
+          binary search to find the matching label. Binary search might not be
+          deterministic if rules overlap. It is much faster if there is a large
+          rule set (tens of thousands or millions). If in doubt, use linear search.
+        </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            Arbitrary input data with column to be binned.
+        </td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+            Table containing categorization rules with lower and upper bound
+            and the label column.
+        </td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            Input table amended by column with categorization values.
+        </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

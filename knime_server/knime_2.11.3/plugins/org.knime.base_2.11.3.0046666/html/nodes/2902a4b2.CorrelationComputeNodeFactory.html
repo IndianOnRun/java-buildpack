@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Linear Correlation</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Linear Correlation</h1>
+<p>
+			<p>
+				Calculates for each pair of selected columns a correlation
+				coefficient, i.e. a measure of the correlation of the two variables.
+	    </p>
+			<p>
+				Which correlation measure is applied depends on the types of the
+				underlying variables:
+				<br/>
+				<tt>numeric &lt;-&gt; numeric</tt>:
+				<a href="http://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient">
+					Pearson's product-moment coefficient</a>.
+				Missing values in a column are ignored in such a way that for the
+				computation of the correlation between two columns only complete
+				records are taken into account. For instance, if there are three
+				columns A, B and C and a row contains a missing value in column A
+				but not in B and C, then the row will be ignored for computing the
+				correlation between (A, B) and (A, C). It will not be ignored for
+				the correlation between (B, C). This corresponds to the function
+				<i>cor(&lt;data.frame&gt;, use="pairwise.complete.obs")</i>
+				in the R statistics package.
+				<br/>
+				The value of this measure ranges from -1 (strong negative 
+				correlation) to 1 (strong positive correlation). A value of 0
+				represents no linear correlation (the columns might still be
+				highly dependent on each other, though).
+				<br/>
+				<tt>nominal &lt;-&gt; nominal</tt>:
+				<a href="http://en.wikipedia.org/wiki/Pearson%27s_chi-square_test">
+					Pearson's chi square test on the contingency table</a>. 
+			    This value is then normalized to a range [0,1] using
+				<a href="http://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V">
+					Cramer's V</a>, whereby 0 represents no correlation and 1 
+			    a strong correlation. Missing values in nominal columns are
+			    treated such as they were a self-contained possible value. 
+			    If one of the two columns contains more possible values than
+			    specified in the dialog (default 50), the correlation will not
+			    be computed.
+                <br/>
+				Correlation measures for other pairs of columns are not
+				available, they are represented by missing values in the output
+				table and crosses in the accompanying view.
+			</p>
+		</p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Column Filter</div>
+<dl>	
+    
+  	    <dt>Include</dt>
+<dd>
+            This list contains the column names for which correlation values shall
+            be computed.
+        </dd>
+        
+        <dt>Enforce Inclusion</dt>
+<dd>
+            Select this option to enforce the current inclusion list to stay
+            the same even if the input table specification changes. 
+            New columns will automatically be added to the exclusion list.
+        </dd>
+	  
+        <dt>Select</dt>
+<dd>
+            Use these buttons to move columns between the Include and Exclude 
+            list.
+        </dd>
+        
+        <dt>Search</dt>
+<dd>
+            Use one of these fields to search either within the Include
+            or Exclude list for certain column names or name substrings.
+            Repeated clicking of the search button marks the next column that 
+            matches the search text. The check box 'Mark all search hits' causes
+            all matching columns to be selected making them movable between
+            the two lists.
+        </dd>
+        
+        <dt>Exclude</dt>
+<dd>
+            This list contains the column names of the input table that are 
+            left out of the calculation.
+        </dd>
+        
+        <dt>Enforce Exclusion</dt>
+<dd>
+            Select this option to enforce the current exclusion list to stay
+            the same even if the input table specification changes. 
+            New columns will automatically be added to the inclusion list.
+        </dd>
+        
+      </dl>
+</div>
+<div class="group">
+<div class="groupname"> </div>
+<dl>      
+
+		<dt>Possible Values Count</dt>
+<dd>
+			Select an upper bound for the number of possible
+			values for each
+			of the nominal columns. If more values are encountered in a nominal
+			column, the column will be ignored (no correlation values will
+			be
+			computed).
+		</dd>
+		</dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Numeric input data to evaluate</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Correlation variables in a square
+			matrix</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+			A model containing the
+			correlation measures. This model is appropriate
+			to be read by the Correlation Filter node.</td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Correlation Matrix</dt>
+<dd>Squared table view showing
+			the
+			pair-wise correlation values of all columns. The color range varies from
+			dark red (strong negative correlation), over white (no correlation) to
+			dark blue (strong positive correlation). If a correlation value for a
+			pair
+			of column is not available, the corresponding cell contains a missing
+			value
+			(shown as cross in the color view).</dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

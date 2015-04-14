@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    CSV Reader</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>CSV Reader</h1>
+<p>
+		<p>
+		  Reads CSV files. Use this node if the workflow is used in a server
+		  or batch environment and the input files structure change between
+		  different invocations. In particular, this includes a variable number
+		  of input columns. Upon executing the node will scan the input file
+		  to determine number and types of the columns and output a table with
+		  the auto-guessed structure.  
+        </p>
+        <p>
+          <b>Note:</b> If you are only using the desktop version of KNIME and
+          your workflow is not meant to be used in a batch or server environment
+          use the <b>File Reader</b> node. The file reader node has more
+          configuration options and guesses meaningful default settings as it
+          scans the input file during node configuration (in the dialog).
+        </p>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Column Delimiter</dt>
+<dd>
+		  The character string delimiting columns. Use '\t' for tab character. 
+		</dd>
+<dt>Row Delimiter</dt>
+<dd>
+          The character string delimiting rows. Use '\n' for new line character.  
+		</dd>
+<dt>Quote Char</dt>
+<dd>
+          The quote character.  
+		</dd>
+<dt>Comment Char</dt>
+<dd>
+          A character indicating line comments.  
+		</dd>
+<dt>Has Column Header</dt>
+<dd>
+          Select this box if the first row contains column name headers.  
+		</dd>
+<dt>Has Row Header</dt>
+<dd>
+          Select this box if the first column contains row name headers 
+          (no duplicates allowed).  
+		</dd>
+<dt>Support Short Lines</dt>
+<dd>
+          Select this box if some rows may be shorter than others (filled with missings).  
+		</dd>
+<dt>Skip first lines</dt>
+<dd>
+          If enabled, the specified number of lines are skipped in the input file before the parsing starts.   
+		</dd>
+<dt>Limit rows</dt>
+<dd>
+          If enabled, only the specified number of data rows are read. The column header row (if selected) is 
+          not taken into account.    
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+		  File being read with number and types of columns guessed automatically.
+		</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

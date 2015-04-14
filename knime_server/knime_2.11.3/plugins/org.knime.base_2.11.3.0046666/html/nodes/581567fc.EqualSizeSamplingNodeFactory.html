@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Equal Size Sampling</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Equal Size Sampling</h1>
+<p>
+            <p>
+	           Removes rows from the input data set such that the values in a
+	           categorical column are equally distributed. This can be useful, for instance
+	           if a learning algorithm is prone to unequal class distributions and you
+	           want to downsize the data set so that the class attributes occur equally
+	           often in the data set. 
+	        </p>
+	        <p>
+	           The node will remove random rows belonging to the majority classes. The
+	           rows returned by this node will contain all records from the minority
+	           class(es) and a random sample from each of the majority classes, 
+	           whereby each sample contains as many objects as the minority class
+	           contains.
+	        </p>
+        </p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Nominal Column</dt>
+<dd>
+            Select the class column here. The node will run over the data set once
+            to count the occurrences in this selected column and then do the filtering
+            in a second pass. Note that missing values in this column are treated as
+            a separate category (can also build the minority class).
+        </dd>
+<dt>Use exact sampling</dt>
+<dd>
+            If selected, the final output will be determined up-front. Each class will have
+            the same number of instances in the output table. This sampling is 
+            slightly more memory expensive as each class will need to be represented
+            by a bit set containing instances of the corresponding rows. In most cases 
+            it is save to select this option unless you have very large data with many
+            different class labels.
+        </dd>
+<dt>Use approximate sampling</dt>
+<dd>
+            If selected, the final output will be determined on the fly. The number 
+            of occurrences of each class may slightly differ as the final number can't
+            be determined beforehand.            
+        </dd>
+<dt>Enable static seed</dt>
+<dd>
+            If selected, the removal of rows is driven by a static seed 
+            (result is reproducable). 
+        </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Arbitrary input data.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            The input data with fewer rows.
+        </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

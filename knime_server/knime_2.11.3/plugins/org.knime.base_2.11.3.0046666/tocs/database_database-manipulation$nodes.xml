@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?NLS TYPE="org.eclipse.help.toc"?><toc label="Manipulation" link_to="../org.knime.base/tocs/database_database-manipulation.xml#database_database-manipulation">
+<topic href="PLUGINS_ROOT/org.knime.base/html/nodes/7de34f08.DBRowFilterNodeFactory.html" label="Database Row Filter"/>
+<topic href="PLUGINS_ROOT/org.knime.base/html/nodes/c919500.DBQueryNodeFactory2.html" label="Database Query"/>
+<topic href="PLUGINS_ROOT/org.knime.base/html/nodes/5a052068.DBColumnFilterNodeFactory.html" label="Database Column Filter"/>
+<topic href="PLUGINS_ROOT/org.knime.base/html/nodes/38fcc995.DBSorterNodeFactory.html" label="Database Sorter"/>
+<topic href="PLUGINS_ROOT/org.knime.base/html/nodes/7a74d43c.DBGroupByNodeFactory.html" label="Database GroupBy"/>
+<topic href="PLUGINS_ROOT/org.knime.base/html/nodes/7d20f25f.DBJoinerNodeFactory.html" label="Database Joiner"/>
+</toc>

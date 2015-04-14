@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Auto-Binner</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Auto-Binner</h1>
+<p>
+			This node allows to group numeric data in intervals - called
+			bins.
+			There are two naming options for the bins and two methods which
+			define
+			the number and the range of values that fall in a bin.
+			Please
+			use the "Numeric Binner" node if you want to define custom bins.
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Column Selection: </dt>
+<dd>
+			Columns in the include list are processed
+			separately. The columns in the
+			exclude list are omitted by the node.
+		</dd>
+<dt>Binning Method:</dt>
+<dd>
+			Use
+			<b>Fixed number of bins</b>
+			for bins with equal
+			<b>width</b>
+			over the domain range or bins that have an equal
+			<b>frequency</b>
+			of element occurrences. Use
+			<b>Sample quantiles</b>
+			to produces
+			bins corresponding to the given list of probabilities. The
+			smallest
+			element corresponds to a probability of 0 and the largest do
+			probability
+			of 1. The applied estimation method is
+			<a href="http://en.wikipedia.org/wiki/Quantile#Estimating_the_quantiles_of_a_population">Type 7</a>
+			which is the default
+			method in R, S and Excel.
+		</dd>
+<dt>Bin Naming:</dt>
+<dd>
+			Use
+			<b>Numbered</b>
+			for bins labeled by an integer with prefix "Bin",
+			<b>Borders</b>
+			for labels using '"(a,b]"' interval notation or
+			<b>Midpoints</b>
+			for labels that show the midpoint of the interval.
+		</dd>
+<dt>Force integer bounds</dt>
+<dd>
+			Forces the bounds of the interval to be integers.
+			The decimal bounds
+			will be converted so that the lower bound of the
+			first interval will
+			be the floor of the lowest value and the upper
+			bound of the last
+			interval will be the ceiling of the highest value.
+			The edges that
+			separate the intervals will be the ceiling of the
+			decimal edges.
+			Duplicates of edges will be removed.
+			<br/>
+			<br/>
+			Examples:
+			<br/>
+			[0.1,0.9], (0.9,1.8] -&gt; [0,1], (1,2]
+			<br/>
+			[3.9,4.1], (4.1,4.9], (4.9,5.1] -&gt; [3,5], (5,6]
+		</dd>
+<dt>Replace target column(s):</dt>
+<dd>
+			If set the columns in the include list are
+			replaced by the binned
+			columns
+			otherwise columns named with suffix
+			'[binned]' are appended.
+		</dd>
+<dt>Advanced formatting</dt>
+<dd>
+			If enabled the format of the doubles in the labels
+			can be configured by
+			the options in this tab.
+		</dd>
+<dt>Output format</dt>
+<dd>
+			Specify the output format. The number 0.00000035239 will be displayed
+			as 3.52E-7 with
+			<b>Standard String</b>
+			, 0.000000352 with
+			<b>Plain String (no exponent)</b>
+			and 352E-9 with
+			<b>Engineering String</b>
+			.
+		</dd>
+<dt>Precision</dt>
+<dd>
+			The scale of the double values to round to. If the
+			scale is reduced
+			the specified rounding mode is applied.
+		</dd>
+<dt>Precision mode</dt>
+<dd>
+			The type of precision to which the values are
+			rounded. Decimal
+			places, the default option rounds to the specified
+			decimal places,
+			whereas significant figures rounds to significant
+			figures or
+			numbers.
+		</dd>
+<dt>Rounding mode</dt>
+<dd>
+			The rounding mode which is applied when double values are rounded.
+			The rounding mode specifies the rounding behavior. Seven different
+			rounding modes are available:
+			<br/>
+			<ul>
+				<li>UP: Rounding mode to round away from zero.</li>
+				<li>DOWN: Rounding mode to round towards zero.</li>
+				<li>CEILING: Rounding mode to round towards positive infinity.</li>
+				<li>FLOOR: Rounding mode to round towards negative infinity.</li>
+				<li>HALF_UP: Rounding mode to round towards "nearest neighbor"
+					unless both neighbors are equidistant, in which case round up.
+				</li>
+				<li>HALF_DOWN: Rounding mode to round towards "nearest neighbor"
+					unless both neighbors are equidistant, in which case round down.
+				</li>
+				<li>HALF_EVEN: Rounding mode to round towards the "nearest neighbor"
+					unless both neighbors are equidistant, in which case, round towards
+					the even neighbor.
+				</li>
+			</ul>
+			For a detailed description of each rounding mode please see the
+			<a href="http://docs.oracle.com/javase/6/docs/api/index.html?java/math/RoundingMode.html">Java documentation</a>
+			.
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Data to be categorized</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Data with bins defined</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>The PMML Model fragment containing
+			information how to bin
+		</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

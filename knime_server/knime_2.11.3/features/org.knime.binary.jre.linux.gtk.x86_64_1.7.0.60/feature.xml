@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.knime.binary.jre.linux.gtk.x86_64"
+      label="JRE for linux.gtk.x86_64"
+      version="1.7.0.60"
+      provider-name="KNIME GmbH, Konstanz, Germany"
+      os="linux"
+      arch="x86_64">
+
+   <description>
+      This feature contains the Java Runtime Environment for Linux x86_64.
+   </description>
+
+</feature>

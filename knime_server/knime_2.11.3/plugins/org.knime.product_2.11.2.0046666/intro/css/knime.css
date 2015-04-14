@@ -1,0 +1,200 @@
+body {
+	color: #575757;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 10.5pt;
+}
+
+h1 {
+	font-style: normal;
+}
+
+h2 {
+	font-size: 120%;
+}
+
+a {
+    color: #FFB600;
+    text-decoration: none;
+}
+
+a:HOVER {
+    text-decoration: underline;;
+}
+
+
+body > h2 {
+    margin: 30px auto 20px;
+    max-width: 1000px;
+}
+
+#intro {
+	margin: 0 auto 10px auto;
+	padding-top: 13px;
+	max-width: 1000px;
+}
+
+#update {
+	max-width: 1000px;
+	font-weight: bold;
+	padding: 0.6em;
+	margin: 1em auto 1em auto;
+	background-color: #EEFFEE;
+	border-radius: 6px;
+}
+
+#checking-updates {
+	font-style: italic;
+}
+
+div#links-and-mru {
+	max-width: 1000px;
+	margin: 10px auto 20px auto;
+}
+
+
+div#links {
+    float: left;
+    width: 45%;
+	overflow: hidden;
+	padding-right: 20px;
+	margin: 0 auto;
+}
+
+a .link-label {
+	padding-left: 40px;
+	font-size: 120%;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+a .text {
+	padding-left: 75px;
+}
+
+div#mru {
+    min-width: 45%;
+    float: left;
+    margin: 10px auto 30px auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+div#mruScrollBox {
+    height: 160px;
+    width: auto;
+    overflow: auto;
+}
+
+ul#mruList {
+	padding-left: 22px;
+}
+
+ul#mruList li {
+    margin-bottom: 5px;
+}
+
+ul#mruList li a {
+    text-decoration: none;
+}
+
+
+div#news h2 {
+    border-bottom: 1px solid #888;
+}
+
+
+div#tips h2 {
+	border-bottom: 1px solid #888;
+}
+
+span.field-content {
+	font-size: 120%;
+	font-weight: bold;
+}
+
+div.floating-link {
+    max-width: 400px;
+    min-width: 250px;
+    padding-right: 20px;
+}
+
+.floating-link a {
+    height: 24px;
+	vertical-align: middle;
+	padding-top: 8px;
+    background: url(img/arrow.png) no-repeat 5px center;
+    color: #666;
+    display: block;
+    text-decoration: none;
+}
+
+.floating-link > a:hover {
+    background: #eee url(img/arrow.png) no-repeat 5px center;
+}
+
+
+#news {
+	color: #444;
+	max-width: 1000px;
+    margin: 20px auto;
+	padding: 5px 5px;
+	background: #f0f0f0;
+	border-radius: 6px;
+}
+
+#news > h2 {
+	margin-top: 5px;
+}
+
+#tips {
+	color: #444;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 5px 5px;
+    background: #f0f0f0;
+    border-radius: 6px;
+}
+
+#tips > h2 {
+    margin-top: 5px;
+}
+
+
+#properties {
+	clear: both;
+	color: #666;
+	margin-top: 1em;
+	border-top: 1px solid grey;
+}
+
+
+.hide-button {
+    float: right;
+    display: none;
+}
+
+.hide-button:hover {
+	cursor: pointer;
+}
+
+
+#intro .hide-button {
+    margin-top: -10px;
+}
+#intro:hover .hide-button {
+	display: block;
+}
+
+#update .hide-button {
+    margin-top: -9px;
+    margin-right: -6px;
+}
+#update:hover .hide-button {
+	display: block;
+}
+
+#links-and-mru .hide-button {
+}
+#links-and-mru:hover .hide-button {
+	display: block;
+}

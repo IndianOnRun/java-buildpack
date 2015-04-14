@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Database Update</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Database Update</h1>
+<p>		
+	     Updates the data rows in the database with the data values from the input tables.
+	     All selected column names need to exactly match the column names from the database. 
+	     The WHERE column values need to match the row to update; whereas the SET column values 
+	     are replaced by the input row values. 
+	     <br/>
+	     The output table contains an additional column with the number of rows affected by the UPDATE statement. 
+	     A number greater than or equal to zero -- indicates that the command was processed successfully and is 
+	     an update count giving the number of rows in the database that were affected by the command's execution
+         A value of -2 -- indicates that the command was processed successfully but that the number of rows affected 
+         is unknown.	     
+	     <br/>
+         <br/>
+          If the optional input is connected the database connection information is taken from the port, otherwise
+          you need to specify the connection information in the dialog.          
+         <br/>
+         <br/>
+	     Make sure you have your vendor-specific database driver registered in
+         the KNIME preference page (section Database Driver). By default, the 
+         sun.jdbc.odbc.JdbcOdbcDriver (Windows and Linux) is only available.
+		</p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Settings</div>
+<dl>
+	  <dt>Database Driver</dt>
+<dd>
+		Enter the database driver here; it is a Java class (including the
+		package path), for example: sun.jdbc.odbc.JdbcOdbcDriver
+		Additional driver can be registered via KNIME's preference page
+        (Database Driver).
+	  </dd>
+	  <dt>Database URL</dt>
+<dd>
+        Enter the database name here, for example: 
+        jdbc:odbc:database_name or jdbc:mysql://host:port/database_name
+	  </dd>
+	  <dt>Workflow Credentials</dt>
+<dd>
+        If checked, the credentials (user and password) are used as defined on 
+        the workflow. The credential name links to the specified user and 
+        password. Those can be replaced or edit using the 'Workflow Credentials'
+        menu available in the workflow context menu.
+      </dd>
+	  <dt>User Name</dt>
+<dd>
+        Your log-in user name for the database.
+	  </dd>
+	  <dt>Password</dt>
+<dd>
+        Your log-in password for the database. Note, the password is
+        de- and encrypted before handling it internally and is not 
+        stored inside the settings.
+	  </dd>
+      <dt>TimeZone</dt>
+<dd>
+	    Select the TimeZone to convert the date, time or timestamp field into. The current implementation can't 
+	    represent time zones. In order to support persisting those fields into a database, the time values can be 
+	    changed according to the selected time zone, which is used as the offset (including the daylight saving time)
+        for the original values: <i>No Correction (use UTC)</i> is used for workflows (created before 2.8) and doesn't
+        apply any correction, <i>Use local TimeZone</i> uses the local time zone offset to correct the date field 
+        before reading or writing, and <i>TimeZone: </i> allows selecting the time zone to covert the date values into.
+	  </dd>
+      <dt>Allow spaces in column names</dt>
+<dd>
+        Some databases do not allow whitespace characters in column names. If your database supports spaces in column
+        names you can enable this option. Otherwise whitespace characters will be replaced by underscores.
+      </dd>      
+	  <dt>Table Name</dt>
+<dd>
+        Enter the name of the table in which the data should be updated.
+	  </dd>
+    </dl>
+</div>
+<div class="group">
+<div class="groupname">Column Selection</div>
+<dl>
+	  <dt>SET columns</dt>
+<dd>
+        Select all columns used for the SET clause of the UPDATE statement; 
+        those column values are changing the data in the database. 
+	  </dd>
+	  <dt>WHERE columns</dt>
+<dd>
+        Select all columns used for the WHERE clause of the UPDATE statement; 
+        those column values need to match the corresponding value in the database 
+        in order to make the update. 
+      </dd>
+    </dl>
+</div>
+<div class="group">
+<div class="groupname">Advanced</div>
+<dl>
+        <dt>Batch Size</dt>
+<dd>
+           Enter a number greater than 0 for the number of rows updated in one batch job; 1 means on row at a time.
+        </dd>
+    </dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			Table with data to be updated in the database
+		</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+          An optional database connection that should be used instead of providing the connection information
+          in the dialog.
+         (optional)</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            Input table with additional column providing number of affected rows in the database.
+        </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

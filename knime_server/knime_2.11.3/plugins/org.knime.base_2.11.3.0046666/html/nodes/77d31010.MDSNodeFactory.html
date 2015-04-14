@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    MDS</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>MDS</h1>
+<p>
+	   This node maps data of a high dimensional space onto a lower (usually
+	   2 or 3) dimensional space. Therefore the Sammons mapping is applied,
+	   which iteratively decreases the difference of the distances of high and 
+	   low dimensional data. Each original data point is represented by
+	   a data point of a lower dimension. The Sammons mapping tries to keep
+	   the distance information of the high dimensional data by adjusting
+	   the low dimensional data points in a certain way. Each low dimensional
+	   data point is moved around a bit towards or back from the other points
+	   accordant to its high dimensional distances. This procedure is repeated
+	   a specified number of epochs or iterations respectively.
+	</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Number of rows to use</dt>
+<dd>
+	   Specifies the number of rows to apply the MDS on.
+	</dd>
+<dt>Output dimension</dt>
+<dd>
+        Specifies the dimension of the mapped output data.
+    </dd>
+<dt>Epochs</dt>
+<dd>
+        Specifies the number of epochs to train.
+    </dd>
+<dt>Learn rate</dt>
+<dd>	   
+        Specifies the learning rate to use. The learning rate
+        is decreased automatically over the trained epochs.
+	</dd>
+<dt>Random seed</dt>
+<dd>
+	   Specifies the random seed to use, which allows to reproduce a mapping 
+	   even if the initialization is done randomly.
+	</dd>
+<dt>Distance metric</dt>
+<dd>
+		The distance metric to use Euclidean or Manhattan. 
+		The Euclidean distance metric is used by default.
+	</dd>
+<dt>Input data</dt>
+<dd>
+	   Specifies the columns to use by the mapping.
+	</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			Data table containing the data to map.
+		</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			The input data and the mapped data.
+		</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

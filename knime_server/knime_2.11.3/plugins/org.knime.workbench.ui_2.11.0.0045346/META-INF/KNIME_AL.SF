@@ -1,0 +1,131 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: Wa3ygUn1vFuDD9ksnn+BXb1AoKo=
+Created-By: 1.7.0_76 (Oracle Corporation)
+SHA1-Digest-Manifest: CcGvpeodgikbbFcR33eG6agBT54=
+
+Name: icons/project_executed.png
+SHA1-Digest: YfchZgjjBIpQBRbnv7X1ZS6N3Hs=
+
+Name: icons/project_closed2.png
+SHA1-Digest: 6PXfZaaORHjNpbsjjWr6eKow+tc=
+
+Name: LICENSE.txt
+SHA1-Digest: d3jcVAEYKU6/HXkEvcZKXp+IOL8=
+
+Name: icons/sample.gif
+SHA1-Digest: mURGpp/gEzPu434WkU1WXZbyKOY=
+
+Name: icons/knime_unknown_red.png
+SHA1-Digest: rSRQgxhrslzBSL8IPB2EE3CKXlk=
+
+Name: icons/warning.gif
+SHA1-Digest: A6WDJE+2ZrhomFF5OLK2R9o1T4k=
+
+Name: schema/multipleInstanceViews.exsd
+SHA1-Digest: FDt4+NuwbI2h+TqqC4x9Cy36ieU=
+
+Name: schema/startupMessages.exsd
+SHA1-Digest: 0x/1tgrjVMh6fM05LSe9Ihv88z4=
+
+Name: icons/open_logfile.png
+SHA1-Digest: OFFaTPIx97rX0oKHbo5K9kiZXVM=
+
+Name: icons/knime_export55.png
+SHA1-Digest: Igg09FdJwsMfgPBuq6zj1ygvsjQ=
+
+Name: icons/knime_import55.png
+SHA1-Digest: Yi4QvMVlDHx+MfzeleTqNa+4IIU=
+
+Name: icons/knime_export16.png
+SHA1-Digest: GZFoUKthlW6Wibx0Rj+HDv4nkZQ=
+
+Name: icons/project_error.png
+SHA1-Digest: 9FizIGZcUSehQoNPh8WfrZtWNYM=
+
+Name: icons/fav/collapseall.png
+SHA1-Digest: bpt3vIAQ0C5tLQ9xl7KRMh3B2hQ=
+
+Name: icons/meta_info_edit.png
+SHA1-Digest: eC41n0zxJZPh5wF+a4URIEUJ3xE=
+
+Name: icons/project_executing.png
+SHA1-Digest: 4k37sHpiPF+1EwZ7ypKRIYtwrbY=
+
+Name: icons/knime_import.png
+SHA1-Digest: BqlM4xnYw0nkDT2TIw1D9m6i4vM=
+
+Name: icons/wf_set.png
+SHA1-Digest: wSKu2BwBBVYzEfHAHzyQ6J7S9d8=
+
+Name: icons/wf_group_new.png
+SHA1-Digest: 7P7bMB5DLqpdX6eIeCYEIolJue4=
+
+Name: icons/new_knime48.png
+SHA1-Digest: B5sPxdD10lmgqak5uA+JbtBo2p8=
+
+Name: icons/info.png
+SHA1-Digest: pDGkSsqGNk7CFS3wjf0/tH6D0VU=
+
+Name: icons/fav/fav_nodes.png
+SHA1-Digest: sGiZfvLkZ45B3NeIjsiMyPXfqEQ=
+
+Name: icons/knime_default.png
+SHA1-Digest: mSEciu2JRCBRx9yorN1lrzQjqbA=
+
+Name: icons/new_knime55.png
+SHA1-Digest: rSCBwotxBW4tuoFcNh7SWb5E/AI=
+
+Name: icons/sync.png
+SHA1-Digest: L/SHXmy8BQZM7wh/A4VSmpCFrJ8=
+
+Name: icons/error.png
+SHA1-Digest: XuDBW4YUuURR30P47h8x2OBRUYI=
+
+Name: icons/new_knime16.png
+SHA1-Digest: UgHw5SwayIzW5vYP3cSHqvlYemM=
+
+Name: icons/fav/clear_history.png
+SHA1-Digest: J3WYTlaA+OcRJrUreDdqZOzLfUU=
+
+Name: icons/prefs_export.png
+SHA1-Digest: ntWmIlpkgjve7fHW9y1N1K9lztE=
+
+Name: icons/knime_unknown.png
+SHA1-Digest: TgOmAks3u0qCFLWrCIsnx3/mpWE=
+
+Name: icons/node.png
+SHA1-Digest: 4VKjxMri31mcO+GSN9Lls+iVOnE=
+
+Name: icons/prefs_import.png
+SHA1-Digest: 6lYWSjo9X+aGwlshE9LK4+XYCdY=
+
+Name: workbench-ui.jar
+SHA1-Digest: eKWWlH7lLm7C8jWjbaXew70l0Fg=
+
+Name: icons/fav/remove_fav_disabled.png
+SHA1-Digest: K0n/5gYbch5VsWhdIt8W4LJapMI=
+
+Name: icons/workflow_projects.png
+SHA1-Digest: q6F5fwwDKY7+j6B6efjkRvQIXl8=
+
+Name: icons/knime_export.png
+SHA1-Digest: FpQVTtsyi87P2s3SQDsPs1N/6O8=
+
+Name: icons/project_configured.png
+SHA1-Digest: MBBe3THqbjBUUXegInw56nwV9pI=
+
+Name: icons/fav/expandall.png
+SHA1-Digest: yv4t6mVX0a1Vzfy5uXaCLgJLQMk=
+
+Name: icons/project_basic.png
+SHA1-Digest: P1kibPE0c9ETxsF9fSvb6aw6FjA=
+
+Name: plugin.xml
+SHA1-Digest: R63nIf2TSAc07529ywsG2R1sV6Y=
+
+Name: icons/startupMessages.png
+SHA1-Digest: 49jWyXGfFGm3xsOQ3sZ+vGkgEtU=
+
+Name: icons/fav/remove_fav.png
+SHA1-Digest: xJCoornQ4uuQ2RudmMUzhV4PE+4=
+

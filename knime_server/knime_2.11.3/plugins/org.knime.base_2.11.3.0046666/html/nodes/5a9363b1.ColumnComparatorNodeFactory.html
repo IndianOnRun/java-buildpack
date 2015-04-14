@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Column Comparator</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Column Comparator</h1>
+<p>
+		Compares the cell values of two selected columns row-wise. 
+		A number of different comparison methods are available: equal, not_equal, less, 
+		greater, less_equal, and greater_equal. A new column is appended holding 
+		either the left or right column value, a missing cell, 
+		or a user specified tag. The type of the appended column depends on the
+		selected content: If a user defined tag is selected, the
+		result column is of type string, in all other case the type is
+		determined by the type of the selected columns.
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Column Left</dt>
+<dd>Left column selected for comparison.
+		</dd>
+<dt>Column Right</dt>
+<dd>Right column selected for comparison.
+    	</dd>
+<dt>Operator</dt>
+<dd>Comparison is done based on the selected 
+    	operator option: equal, not_equal, less, greater, less_equal, or 
+    	greater_equal</dd>
+<dt>Replacement Method</dt>
+<dd>
+    	Depending on the result of the selected operator, a certain value is 
+    	set into the new column. Select one of the following options for the 
+    	operator result 'true' and 'false': LEFT_VALUE - the value of the left 
+    	column is set in the result column. RIGHT_VALUE - the value of the 
+    	selected right column is used. MISSING - a missing cell is set in the
+    	result column. USER_DEFINED - the text entered in the corresponding
+    	'Tag' field is set in the result column.</dd>
+<dt>New Column</dt>
+<dd>Name of the new appended column.</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Arbitrary input data.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+		Input data plus comparison column</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

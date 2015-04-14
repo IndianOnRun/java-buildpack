@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Many to One (PMML)</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Many to One (PMML)</h1>
+<p>
+        Transforms the values of multiple columns into a single column
+        depending on the include method and documents the transformation in PMML. 
+        If set to binary the condensed
+        column's value is set to the name of the first column with value 1.
+        If the include method is maximum or minimum the value of the
+        condensed column is set to the name of the column which, of all
+        included columns, has the largest or smallest value. If the include
+        method is binary and all columns are 0 the condensed column will
+        contain a missing value.
+        </p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Columns</dt>
+<dd>
+                The columns to be condensed into a single column using
+                the selected include method.
+            </dd>
+<dt>Condensed column name</dt>
+<dd>
+                The name of the appended column.
+            </dd>
+<dt>Include method</dt>
+<dd>
+                The method to condense multiple columns into one.<br/>
+                Binary: Name of first column with value 1<br/>
+                Maximum: Name of column with the largest value<br/>
+                Minimum: Name of column with the smallest value<br/>
+                RegExPattern: Name of first column that matches the given pattern (currently not supported in PMML,
+                uses option Binary within the generated PMML document)
+            </dd>
+<dt>Include pattern</dt>
+<dd>
+                When include method is RegExPattern, this is the pattern used.
+            </dd>
+<dt>Keep original columns</dt>
+<dd>
+                Determines whether the included columns are kept or not.
+            </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Data</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>PMML</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Data with transformed columns</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Transformed PMML input</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

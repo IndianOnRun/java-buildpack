@@ -1,0 +1,104 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: 676D/DtYNr+l63JQRMskrFxrhwc=
+Created-By: 1.7.0_76 (Oracle Corporation)
+SHA1-Digest-Manifest: cS5QJeDe2seCmkoJI6j6HRrLj0g=
+
+Name: intro/intro.xhtml
+SHA1-Digest: ds6AYhbLZe5dhANYzEgL96+41Fg=
+
+Name: lib/tagsoup-1.2.1.jar
+SHA1-Digest: arc4ShvhDNUHU/YoQvAetCywKoc=
+
+Name: LICENSE.txt
+SHA1-Digest: d3jcVAEYKU6/HXkEvcZKXp+IOL8=
+
+Name: knime-product.jar
+SHA1-Digest: C1DbkFlmrq97/XC0HecHy6Y2wBg=
+
+Name: update-sites.txt
+SHA1-Digest: Y55ernLh3Gzp0vKtrlhn+ykmpE4=
+
+Name: plugin_customization.ini
+SHA1-Digest: OY0SF4G5ETLS4hWCx97dOobJVKA=
+
+Name: icons/png/knime_about.png
+SHA1-Digest: 1mmgqQ3hgdodsxCN3Tewgw5r7FM=
+
+Name: icons/png/knime_16.png
+SHA1-Digest: N0PdvQ5o7enzjyXztKiTx9ghupc=
+
+Name: icons/install.ico
+SHA1-Digest: uWdtFQYDmPSrDClUnLoCGnVSzpw=
+
+Name: LICENSE.html
+SHA1-Digest: vYiktRZdeBTrtOyrQ9EOhSZhQbc=
+
+Name: icons/png/knime_48.png
+SHA1-Digest: ftGPI0dE2+xjQ2ehPECv+QZY6hE=
+
+Name: icons/png/knime_64.png
+SHA1-Digest: a0ZFNjPI5+0qIF924pFWoJZWCKQ=
+
+Name: intro/css/img/arrow.svg
+SHA1-Digest: LptAnO1HaOaAmSKRNhxciFRdZpU=
+
+Name: icons/knime_windows_256.ico
+SHA1-Digest: s7NP6qFJlbnNDGgQtj7Go/kwzvk=
+
+Name: icons/knime_linux_128.xpm
+SHA1-Digest: yf6pCTZD/d3gqv3lBb600V5O4/8=
+
+Name: intro/css/img/KNIME_logo.png
+SHA1-Digest: 79WY2DTG4MQrMxA7j4Oo8Y8Kz7c=
+
+Name: icons/png/knime_32.png
+SHA1-Digest: wBh44v4ry4uhUB2Po5Edj50Ae2A=
+
+Name: plugin.properties
+SHA1-Digest: OkbJOgrNPvC72Y/B9bD9FlLhrGk=
+
+Name: intro/css/img/close-button.svg
+SHA1-Digest: SYj2sLtHCTvatoIx1MwDApjEh78=
+
+Name: gs.css
+SHA1-Digest: Y5xPSJ4HQqiF9wjoGGdf+mIKTnQ=
+
+Name: about.ini
+SHA1-Digest: 7Aaj1g0r8/+Hl/O3VSRM7m4HRVs=
+
+Name: intro/css/img/arrow.png
+SHA1-Digest: VvN6OGLGOM/O3Oz+98MyWPsw9+o=
+
+Name: intro/css/img/close-button.png
+SHA1-Digest: JkWVco6NY2kf16Ssp441HfZtjLw=
+
+Name: intro/css/img/workflow.png
+SHA1-Digest: 4webKt7f4x4SYRe3YRdKcwM0QP0=
+
+Name: icons/uninstall.ico
+SHA1-Digest: B3l2qChSzaksdlYwfcShcY0MJik=
+
+Name: schema/splashExtension.exsd
+SHA1-Digest: 3ISA7iEV6bJwBImJaR3JJN7Zh58=
+
+Name: icons/knime_windows_128.ico
+SHA1-Digest: sKQdEX0YikgXw8DzwJX2dHATpac=
+
+Name: plugin.xml
+SHA1-Digest: NilEaaCwmogFdOuuSbr3OwYIrgs=
+
+Name: META-INF/p2.inf
+SHA1-Digest: e1vr040ZlUZeks3p1SFfyFHEtBA=
+
+Name: intro/css/knime.css
+SHA1-Digest: /MSf1AAk/+DMewtMx/nbuVjX2i4=
+
+Name: splash.bmp
+SHA1-Digest: +3NLW95+8g3Fq/xZWcROQTFT50s=
+
+Name: icons/knime_mac.icns
+SHA1-Digest: 0+iLD/YIq/p90qCzrPMKeJ8uzsI=
+
+Name: icons/png/knime_128.png
+SHA1-Digest: UiTFkKGkU4vS32BzUJltUt/wGwU=
+

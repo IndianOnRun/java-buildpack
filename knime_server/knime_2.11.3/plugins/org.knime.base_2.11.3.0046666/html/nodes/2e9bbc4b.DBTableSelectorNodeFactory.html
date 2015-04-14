@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node/v2.10" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Database Table Selector</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Database Table Selector</h1>
+<p>
+            This node takes a database connection as input and allows selecting a table based on the incoming database 
+            JDBC connection. The node outputs the incoming connection together with the query which can later on be used
+            in subsequent database manipulation nodes.
+        </p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>SQL Statement</dt>
+<dd>
+            Enter SQL statement being executed here, for example SELECT * FROM mytable.
+            <br/>
+            Additional SQL commands (create, drop, set parameter, etc.) can be added before the actual SELECT statement 
+            and are executed together line-by-line during configure and execute. Note, those additional SQL commands 
+            need to be separated by semicolon.
+        </dd>
+<dt>Database Browser</dt>
+<dd>
+            Click <i>Fetch Metadata</i> to connect to the database using the entered settings and to fetch all tables 
+            and display them grouped by type in the Database Browser.
+            <br/>
+            Click on any table to retrieve all contained columns. Double-click on a table or column to insert its name 
+            into the SQL query at the current cursor position.
+        </dd>
+<dt>Flow Variable List</dt>
+<dd>
+            The list contains the flow variables that are currently available at the node input. Double clicking any of 
+            the entries will insert the respective identifier at the current cursor position (replacing the
+            selection, if any).
+        </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>A database connection to select a table from</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>A database connection with an initial table</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

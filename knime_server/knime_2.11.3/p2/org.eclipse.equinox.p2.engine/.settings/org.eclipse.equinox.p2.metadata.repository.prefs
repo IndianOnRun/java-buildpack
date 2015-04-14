@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+repositories/https\:__jenkins.knime.org_jobs_org.knime.update.org-2.11_builds_151_archive_buckminster.output_org.knime.update.org/enabled=true
+repositories/https\:__jenkins.knime.org_jobs_org.knime.update.org-2.11_builds_151_archive_buckminster.output_org.knime.update.org/isSystem=false
+repositories/https\:__jenkins.knime.org_jobs_org.knime.update.org-2.11_builds_151_archive_buckminster.output_org.knime.update.org/name=KNIME.org Update Site
+repositories/https\:__jenkins.knime.org_jobs_org.knime.update.org-2.11_builds_151_archive_buckminster.output_org.knime.update.org/suffix=content.xml
+repositories/https\:__jenkins.knime.org_jobs_org.knime.update.org-2.11_builds_151_archive_buckminster.output_org.knime.update.org/type=org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository
+repositories/https\:__jenkins.knime.org_jobs_org.knime.update.org-2.11_builds_151_archive_buckminster.output_org.knime.update.org/uri=https\://jenkins.knime.org/jobs/org.knime.update.org-2.11/builds/151/archive/buckminster.output/org.knime.update.org/
+repositories/https\:__jenkins.knime.org_jobs_org.knime.update.org-2.11_builds_151_archive_buckminster.output_org.knime.update.org/version=1.0.0

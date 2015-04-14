@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>com.knime.enterprise</groupId>
+        <artifactId>mavenconfig</artifactId>
+        <version>4.0</version>
+    </parent>
+	<groupId>com.knime.enterprise</groupId>
+	<artifactId>client-glassfish</artifactId>
+	<name>KNIME Enterprise Server Client - Glassfish </name>
+    <version>${com.knime.enterprise.version}</version>	
+	<description>Contains glassfish dependent client code that is necessary for the EJB lookup.</description>
+	
+	<dependencies>
+		<!--
+			We are using glassfish 2.1.1 until the issues with v.3 are dealt with
+			by the glassfish developers. Hence or now the dependencies to
+			glassfish v3 are inactive and the v2 dependencies are managed "by
+			hand" as I could not find Maven artifacts for it. 
+		      <dependency>
+			     <groupId>org.glassfish.appclient</groupId>
+			     <artifactId>gf-client</artifactId> 
+			     <version>3.0</version>
+			  </dependency> 
+			  <dependency> 
+			     Naming this dependency explicitly is necessary as the POM of 
+			     gf-client-jar seems to mix up the versions of
+			     the corba dependencies. 
+			     <groupId>com.sun.corba</groupId>
+			     <artifactId>glassfish-corba-orb</artifactId>
+			     <version>3.0.0-b041</version> 
+			  </dependency>
+		-->
+		<dependency>
+			<groupId>com.knime.enterprise</groupId>
+			<artifactId>server</artifactId>
+			<version>${project.version}</version>
+			<type>ejb-client</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!--
+					Tell maven to use the provided manifest and not to generate one.
+				-->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+				<configuration>
+					<!--
+						<useDefaultManifestFile>true</useDefaultManifestFile>
+					-->
+					<archive>
+						<manifestFile>META-INF/MANIFEST.MF</manifestFile>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								${project.build.directory}/${dependency.dir}
+                            </outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${basedir}</directory>
+				<includes>
+					<include>META-INF</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+	<properties>
+		<dependency.dir>dependency</dependency.dir>
+		<!-- We only need the Client API here without any transitive 
+		  dependencies of the server. This has to be removed when switching
+		  to Glassfish v3. -->
+		<excludeTransitive>true</excludeTransitive>
+	</properties>
+</project>

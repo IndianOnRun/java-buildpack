@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node/v2.10" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Database Connector</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Database Connector</h1>
+<p>
+            This node creates a connection to an arbitrary JDBC database. You need to select an appropriate driver
+            (if not available, add your vendor-specific driver under File &gt; Preferences &gt; KNIME &gt; Database Driver) and 
+            the JDBC URL of the database (which is database specific). Login credentials can either be provided directly
+            in the configuration or via credentials set on the workflow.
+        </p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Connection settings</div>
+<dl>
+<dt>Database Driver</dt>
+<dd>
+                Enter the database driver here; it is a Java class (including the package path), for example: 
+                sun.jdbc.odbc.JdbcOdbcDriver
+                Additional driver can be registered via KNIME's preference page (Database Driver).
+            </dd>
+<dt>Database URL</dt>
+<dd>
+                Enter the database name here, for example jdbc:odbc:database_name or jdbc:mysql://host:port/database_name
+            </dd>
+<dt>Workflow Credentials</dt>
+<dd>
+                If checked, the credentials (user and password) are used as defined on the workflow. The credential name 
+                links to the specified user and password. Those can be replaced or edit using the 'Workflow Credentials'
+                menu available in the workflow context menu.
+            </dd>
+<dt>User Name</dt>
+<dd>
+                Your log-in user name for the database.
+            </dd>
+<dt>Password</dt>
+<dd>
+                Your log-in password for the database. Note, the password is de- and encrypted before handling it internally.
+            </dd>
+<dt>TimeZone</dt>
+<dd>
+                Select the TimeZone to convert the date, time or timestamp field into. The current implementation can't 
+                represent time zones. In order to support persisting those fields into a database, the time values can be 
+                changed according to the selected time zone, which is used as the offset (including the daylight saving time)
+                for the original values: <i>No Correction (use UTC)</i> is used for workflows (created before 2.8) and doesn't
+                apply any correction, <i>Use local TimeZone</i> uses the local time zone offset to correct the date field 
+                before reading or writing, and <i>TimeZone: </i> allows selecting the time zone to covert the date values into.  
+            </dd>
+<dt>Allow spaces in column names</dt>
+<dd>
+                Check this option if the database can handle spaces in column names. Otherwise KNIME will replaces them by
+                underscores.
+            </dd>
+<dt>Validate connection on close</dt>
+<dd>
+                Check this option if you want to validate the connection when closing the dialog.
+            </dd>
+<dt>Retrieve metadata in configure</dt>
+<dd>
+                This option controls subsequent nodes. Usually when a database node is configured it retrieves the metadata of the
+                current table or query from the database for usage in subsequent nodes. If metadata retrieval takes quite
+                some time it will slow down workflow configuration and execution noticeably, especially since metadata is
+                retrieved in both configure and execute. In such cases it's better to switch this option off and
+                only retrieve metadata during execute.
+            </dd>
+</dl>
+</div>
+<div class="group">
+<div class="groupname">Advanced</div>
+<dl>
+<dt>Database Type</dt>
+<dd>
+                <p>
+                This option allows you to explicitly define the type of database the node connects to. 
+                Depending on the database type the sql dialect, the supported data types and functions such as 
+                insert, update and delete as well as the aggregation functions might differ.
+                </p>
+                <p> 
+                The standard option is '&lt;based on database URL&gt;' where the database type is determined 
+                automatically based on the first part of the database URL. 
+                However some databases such as Hive and Impala share the same url schema but have different 
+                SQL dialects as well as offer different functionality e.g. different sets of aggregation functions. 
+                For these databases you have to manually select the appropriate type from the list of supported 
+                databases.
+                </p>
+                <p>
+                If your database type is not listed either select the '&lt;based on database URL&gt;' option or the 
+                'default' option, which uses standard sql syntax and basic aggregation functions. 
+                The 'default' type is also used if the url is unknown.
+                </p>
+                <p>
+                You can always verify the database type via the 'Connection' tab of the nodes database out port.
+                </p>
+            </dd>
+</dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>A database JDBC connection</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

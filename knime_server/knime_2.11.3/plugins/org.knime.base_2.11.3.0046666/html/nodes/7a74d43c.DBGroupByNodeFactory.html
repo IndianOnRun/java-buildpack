@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Database GroupBy</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Database GroupBy</h1>
+<p>
+           <p>
+			This node allows rows to be grouped by the selected columns from the input database table. 
+            Within the dialog, an SQL GROUP BY clause is interactively created by selecting the columns to group by
+			and the columns to aggregate.
+           </p>
+           <p>
+           The columns to aggregate can be either defined by selecting the columns directly, 
+           by name based on a search pattern or based on the data type. Input columns are handled in
+           this order and only considered once e.g. columns that are added directly on the
+           "Manual Aggregation" tab are ignored even if their name matches a search pattern on the 
+           "Pattern Based Aggregation" tab or their type matches a defined type on the
+           "Type Based Aggregation" tab. The same holds for columns that are added based on a search pattern. 
+           They are ignored even if they match a criterion that has been defined in the "Type Based Aggregation" tab.
+           </p>
+           <p>
+            The "Manual Aggregation" tab allows you to change the aggregation method of more than one 
+            column. In order to do so select the columns to change, open the context menu with a right mouse click
+            and select the aggregation method to use.
+           </p>
+           <p>
+            In the "Pattern Based Aggregation" tab you can assign aggregation methods to columns based on a  
+            search pattern. The pattern can be either a string with wildcards or a
+            <a href="http://www.java.sun.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">regular expression</a>.
+            Columns where the name matches the pattern but where the data type is not compatible with the
+            selected aggregation method are ignored. Only columns that have not been selected as group column or 
+            that have not been selected as aggregation column on the "Manual Aggregation" tab are considered.
+           </p>
+           <p>
+            The "Type Based Aggregation" tab allows to select an aggregation method for all columns of a certain 
+            data type e.g. to compute the mean for all numerical columns (DoubleCell). Only columns that have not 
+            been handled by the other tabs e.g. group, column based and pattern based are considered.
+            The data type list to choose from contains basic types e.g String, Double, etc. and all data types 
+            the current input table contains.
+           </p>
+            <p>
+            A detailed description of the available aggregation methods can be
+            found on the 'Description' tab in the node dialog.
+           </p>
+		</p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Groups</div>
+<dl>
+    		<dt>Group settings</dt>
+<dd>
+    			Select one or more column(s) according to which the group(s) is/are created.
+    		</dd>
+        </dl>
+</div>
+<div class="group">
+<div class="groupname">Advanced settings</div>
+<dl>
+            <dt>Column naming</dt>
+<dd>
+                The name of the resulting aggregation column(s) depends on the
+                selected naming schema.
+                <ul>
+                    <li>Keep original name(s):
+                        Keeps the original column names.
+                    </li>
+                    <li>Aggregation method (column name):
+                        Uses the aggregation method
+                        first and appends the column name
+                        in brackets
+                    </li>
+                    <li>Column name (aggregation method):
+                        Uses the column name first and
+                        appends the aggregation method
+                        in brackets
+                    </li>
+                </ul>
+            </dd>
+            <dt>Add COUNT(*)</dt>
+<dd>
+                Tick this option to add a column that contains the result for the COUNT(*) operation.
+            </dd>
+            <dt>column name</dt>
+<dd>
+                The name of the COUNT(*) column. Only enabled if the "Add COUNT(*)" option is selected.
+            </dd>
+        </dl>
+</div>
+<div class="group">
+<div class="groupname">Manual Aggregation</div>
+<dl>
+            <dt>Aggregation settings</dt>
+<dd>
+                Select one or more column(s) for aggregation from the available 
+                columns list. Change the aggregation method in the Aggregation 
+                column of the table. You can add the same column multiple
+                times. In order to change the aggregation method of more than one 
+                column select all columns to change, open the context menu with a 
+                right mouse click and select the aggregation method to use.
+            </dd>
+            <dt>Parameter</dt>
+<dd>
+                The parameter column shows an "Edit" button for all 
+                aggregation operators that require additional information. 
+                Clicking on the "Edit" button opens the parameter dialog 
+                which allows changing the operator specific settings.
+            </dd>
+        </dl>
+</div>
+<div class="group">
+<div class="groupname">Pattern Based Aggregation</div>
+<dl>
+            <dt>Aggregation settings</dt>
+<dd>
+                Use the "Add" button to add a new row with a search pattern to the aggregation settings.
+                The search pattern can either be a string with wildcards or a 
+                <a href="http://www.java.sun.com/javase/6/docs/api/java/util/regex/Pattern.html#sum">regular expression</a>.
+                Supported wildcards are * (matches any number of characters) and ? (matches one character) e.g. KNI*
+                would match all strings that start with KNI such as KNIME whereas KNI? would match only strings that start
+                with KNI followed by a fourth character. 
+                Double click the "Search pattern" cell to edit the pattern. 
+                The cell is colored in red if the pattern is invalid.
+            </dd>
+            <dt>RegEx</dt>
+<dd>Tick this option if the search pattern is a regular expression otherwise
+            it is treated as string with wildcards ('*' and '?').</dd>
+            <dt>Parameter</dt>
+<dd>
+                The parameter column shows an "Edit" button for all 
+                aggregation operators that require additional information. 
+                Clicking on the "Edit" button opens the parameter dialog 
+                which allows changing the operator specific settings.
+            </dd>
+        </dl>
+</div>
+<div class="group">
+<div class="groupname">Type Based Aggregation</div>
+<dl>
+            <dt>Aggregation Settings</dt>
+<dd>
+                Select one or more data type from the available type list. 
+                Change the aggregation method in the Aggregation 
+                column of the table. You can add the same data type multiple
+                times. The list contains standard types e.g. Double, String etc. and all types of the input table.
+            </dd>
+            <dt>Parameter</dt>
+<dd>
+                The parameter column shows an "Edit" button for all 
+                aggregation operators that require additional information. 
+                Clicking on the "Edit" button opens the parameter dialog 
+                which allows changing the operator specific settings.
+            </dd>
+        </dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			Table in database to apply group by
+		</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			Table in the database with grouped rows
+		</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

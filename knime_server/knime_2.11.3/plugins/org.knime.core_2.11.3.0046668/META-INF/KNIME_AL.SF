@@ -1,0 +1,41 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: 8jA6FVZLBFNtIyz9wgd7qmKCVJA=
+Created-By: 1.7.0_76 (Oracle Corporation)
+SHA1-Digest-Manifest: kqc/aK038h8EftOhFzUEgoDF6r0=
+
+Name: lib/schemas.jar
+SHA1-Digest: knmrRMgUZm2KlSkPIm3l+dE1VMI=
+
+Name: schema/WizardNodeView.exsd
+SHA1-Digest: KU7iYr8oW0+aQ7Sjk0Pcj3pnPys=
+
+Name: LICENSE.txt
+SHA1-Digest: d3jcVAEYKU6/HXkEvcZKXp+IOL8=
+
+Name: knime-core.jar
+SHA1-Digest: Wq6o1ptLXfXN86w/huk0rDz1YUE=
+
+Name: lib/saxon-he-9.2.0.5.jar
+SHA1-Digest: EycNkOi5LYR0WCOgN+Eilrj65/E=
+
+Name: schema/JDBCDriver.exsd
+SHA1-Digest: 5ylxv8KcDwPeTPdpWqskfIDFgOA=
+
+Name: plugin.xml
+SHA1-Digest: bG5gjKb1HYS5ozjDqUY/1uO6/e8=
+
+Name: schema/DatabaseUtility.exsd
+SHA1-Digest: cvX0xDbiN45/75srZ1ec+fqSr10=
+
+Name: lib/jcalendar-1.4.jar
+SHA1-Digest: qQ8fqJF7GtjLSmaZqzM9oG1BLPo=
+
+Name: schema/org.knime.core.NodeExecutionJobManagerFactory.exsd
+SHA1-Digest: 3n13DWJIzOX7Q+hQk+a6APOxmPA=
+
+Name: schema/DataValueRenderer.exsd
+SHA1-Digest: U8sUpMI8+CCO/iSrt9156xUbS+E=
+
+Name: schema/NodeFactoryClassMapper.exsd
+SHA1-Digest: 8unGR9y+zg4ORvZL+7JYbl8xogY=
+

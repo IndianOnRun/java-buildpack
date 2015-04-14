@@ -1,0 +1,162 @@
+Manifest-Version: 1.0
+Export-Package: org.knime.workbench.ui,org.knime.workbench.ui.builder,
+ org.knime.workbench.ui.database,org.knime.workbench.ui.favorites,org.
+ knime.workbench.ui.favorites.actions,org.knime.workbench.ui.masterkey
+ ,org.knime.workbench.ui.metainfo.editor,org.knime.workbench.ui.metain
+ fo.model,org.knime.workbench.ui.nature,org.knime.workbench.ui.navigat
+ or,org.knime.workbench.ui.navigator.actions,org.knime.workbench.ui.na
+ vigator.actions.selection,org.knime.workbench.ui.p2.actions,org.knime
+ .workbench.ui.perspective,org.knime.workbench.ui.preferences,org.knim
+ e.workbench.ui.startup,org.knime.workbench.ui.wfvars,org.knime.workbe
+ nch.ui.wizards.export,org.knime.workbench.ui.wizards.imports,org.knim
+ e.workbench.ui.wizards.project,org.knime.workbench.ui.wizards.workflo
+ wgroup,org.knime.workbench.ui.wrapper
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.6.0,4.0.0)
+ ",org.eclipse.ui;bundle-version="[3.6.1,4.0.0)",org.eclipse.core.reso
+ urces;bundle-version="[3.6.0,4.0.0)",org.eclipse.ui.ide;bundle-versio
+ n="[3.4.2,4.0.0)",org.knime.workbench.core;bundle-version="[2.10.1,3.
+ 0.0)",org.knime.workbench.repository;bundle-version="[2.5.0,3.0.0)",o
+ rg.eclipse.ui.forms;bundle-version="[3.5.2,4.0.0)",org.eclipse.ui.edi
+ tors;bundle-version="[3.6.0,4.0.0)",org.eclipse.equinox.p2.ui;bundle-
+ version="[2.0.0,3.0.0)",org.eclipse.equinox.p2.operations;bundle-vers
+ ion="[2.0.0,3.0.0)",org.eclipse.equinox.p2.metadata;bundle-version="[
+ 2.0.0,3.0.0)",org.eclipse.core.filesystem;bundle-version="[1.3.1,2.0.
+ 0)"
+Bundle-Vendor: KNIME GmbH, Konstanz, Germany
+Ant-Version: Apache Ant 1.8.4
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: workbench-ui.jar
+Bundle-Version: 2.11.0.0045346
+Bundle-Name: KNIME Workbench UI
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.knime.workbench.ui.KNIMEUIPlugin
+Created-By: 1.7.0_76-b13 (Oracle Corporation)
+Bundle-SymbolicName: org.knime.workbench.ui;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+
+Name: icons/project_executed.png
+SHA1-Digest: OdtMgVWbOnFVmquXF94WNfh0Sfg=
+
+Name: icons/project_closed2.png
+SHA1-Digest: ApjwwcWVCQwso41pJqWlcf/nlWI=
+
+Name: icons/sample.gif
+SHA1-Digest: AFju2Q2+1Vh+Fu1wE08m60Jwc0g=
+
+Name: LICENSE.txt
+SHA1-Digest: EBt/iHSoiomsFYWa4O2fpR6DhK4=
+
+Name: icons/knime_unknown_red.png
+SHA1-Digest: V1o6YlLYeKGj4mTLcmbUMix0HRs=
+
+Name: schema/multipleInstanceViews.exsd
+SHA1-Digest: 5tqkRr7FuBMZrgcTZVWn0LnzKVU=
+
+Name: icons/warning.gif
+SHA1-Digest: R+o6K/XNPq8HcPsACF/MbGorM3c=
+
+Name: schema/startupMessages.exsd
+SHA1-Digest: i7/FRslOGR+a9PBFI6qVsNwBx5o=
+
+Name: icons/knime_export55.png
+SHA1-Digest: 1/s09uWpjVASyLSfoEJ2iCza390=
+
+Name: icons/open_logfile.png
+SHA1-Digest: 7p7W/Bi7TUgOHcbJW3qYr0B+z8E=
+
+Name: icons/knime_import55.png
+SHA1-Digest: N+0wDvYJ+vl5xSQxG4nGnlsJlIY=
+
+Name: icons/knime_export16.png
+SHA1-Digest: dJ2bai+wLHn0FgQyyadW7IQzDso=
+
+Name: icons/project_error.png
+SHA1-Digest: MNc1Wu6/8cXsJFUU2vB11V3WdRo=
+
+Name: icons/fav/collapseall.png
+SHA1-Digest: liSxEz99jvJj2yxoOnwcyfZLX5A=
+
+Name: icons/meta_info_edit.png
+SHA1-Digest: yxNtrTHp/hiY8pf5GnuJM2HFQOg=
+
+Name: icons/project_executing.png
+SHA1-Digest: ntf+UGVJ5oAuN4UaaOwzfcCj4F0=
+
+Name: icons/knime_import.png
+SHA1-Digest: EOgxE16PVPmwhehwOG7qCd2vpb4=
+
+Name: icons/wf_set.png
+SHA1-Digest: 0pX+7M2VBpIkWbic8ndJopfY8HM=
+
+Name: icons/wf_group_new.png
+SHA1-Digest: fqyAORi+EMnIkxsYEPFYO25mrYE=
+
+Name: icons/new_knime48.png
+SHA1-Digest: Zy36GzVUOrpEo53IqgIZnHnB4OA=
+
+Name: icons/info.png
+SHA1-Digest: PjN8j5cl5WsMOijRlDL5bEkOg3s=
+
+Name: icons/fav/fav_nodes.png
+SHA1-Digest: a1m7259b5TmSJfEmMCHqKfwGJSw=
+
+Name: icons/knime_default.png
+SHA1-Digest: FvFmAaHFfCQQ7dl3Amzt0iexqZE=
+
+Name: icons/new_knime55.png
+SHA1-Digest: gyD2SGybicErtfXslI7g4pe2xnU=
+
+Name: icons/sync.png
+SHA1-Digest: CNx1jqnX1oKA20BGN5VEcS8Bzs0=
+
+Name: icons/error.png
+SHA1-Digest: 6dcO/EbJUbp25o/AlZAKl68SVSg=
+
+Name: icons/fav/clear_history.png
+SHA1-Digest: lhRH7rs+HpZ1hgLLd0ul/GSWGLc=
+
+Name: icons/new_knime16.png
+SHA1-Digest: w43++NzwQ3O9r1c5dbs400mWrbY=
+
+Name: icons/prefs_export.png
+SHA1-Digest: GESMZfW6QS5pDCmvYiXdkT5y2jk=
+
+Name: icons/knime_unknown.png
+SHA1-Digest: ABk0NibXWQSSpOTv+OofJKuCtD0=
+
+Name: icons/prefs_import.png
+SHA1-Digest: Y8zShmNS8kh3IUBARbk5FTI7iOs=
+
+Name: icons/node.png
+SHA1-Digest: SJxawrrYd16xV5oUSiO+DqtvZiM=
+
+Name: workbench-ui.jar
+SHA1-Digest: C+Gw6CgX4Vk3xEGK4FY0jIaDvjc=
+
+Name: icons/fav/remove_fav_disabled.png
+SHA1-Digest: wsLNBjwhvHsWVbQFAP/LJ0wu5AE=
+
+Name: icons/workflow_projects.png
+SHA1-Digest: uLxhG1kSTQaSfDGAhe4bY9sFgMg=
+
+Name: icons/knime_export.png
+SHA1-Digest: dJ2bai+wLHn0FgQyyadW7IQzDso=
+
+Name: icons/project_configured.png
+SHA1-Digest: kdTCBWljjRUCZKVaQ1bcM63JxA8=
+
+Name: plugin.xml
+SHA1-Digest: uf4pnHlbt5vVd87QiaE5xa46S14=
+
+Name: icons/project_basic.png
+SHA1-Digest: S/jgI2p5InDQKow9EnGKq2mdQIc=
+
+Name: icons/fav/expandall.png
+SHA1-Digest: BRcZsY2BCuXnXSLxNPKSybdJIJE=
+
+Name: icons/startupMessages.png
+SHA1-Digest: 7AKTHFiYcZmkernwY/kU7hOb49c=
+
+Name: icons/fav/remove_fav.png
+SHA1-Digest: ieKPQ+YsBZxeBJJcJhi5SfQePQg=
+

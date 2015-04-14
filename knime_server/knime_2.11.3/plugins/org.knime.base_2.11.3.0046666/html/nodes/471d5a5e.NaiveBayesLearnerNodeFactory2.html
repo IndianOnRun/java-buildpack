@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Naive Bayes Learner</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Naive Bayes Learner</h1>
+<p>
+			The node creates a <a href="http://en.wikipedia.org/wiki/Naive_Bayes_classifier">Bayesian model</a> from 
+			the given training data. It
+			calculates the number of rows per attribute value per class for
+			nominal attributes and the Gaussian distribution for numerical
+			attributes. The created model could be used in the naive Bayes
+			predictor to predict the class membership of unclassified data.
+            
+            The node displays a warning message if any columns are ignored due to unsupported data types.
+            For example Bit Vector columns are ignored when the PMML compatibility flag is enabled since they are 
+            not supported by the PMML standard.
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Classification Column</dt>
+<dd>
+		    The class value column.
+	    </dd>
+<dt>Maximum number of unique nominal values per attribute</dt>
+<dd>
+            All nominal columns with more unique values than the defined number
+            will be skipped during learning.
+        </dd>
+<dt>Default probability</dt>
+<dd>
+            A probability of zero for a given attribute/class value pair requires special attention. 
+            Without adjustment, a probability of zero would exercise an absolute veto over a likelihood in which that 
+            probability appears as a factor. Therefore, the Bayes model incorporates a default probability parameter 
+            that specifies a default (usually very small) probability to use in lieu of zero probability for a 
+            given attribute/class value pair. Set to zero for no correction.
+        </dd>
+<dt>Ignore missing values</dt>
+<dd>
+            By default the node uses the missing value information to improve the prediction result.
+            Since the PMML standard does not support this option and ignores missing values this option is disabled 
+            if the PMML compatibility option is selected and missing values are ignored.
+        </dd>
+<dt>Create PMML 4.2 compatible model</dt>
+<dd>
+			Select this option to create a model which is compliant with the 
+            <a href="http://www.dmg.org/v4-2/NaiveBayes.html">PMML 4.2 standard</a>.
+            The PMML 4.2 standard ignores missing values and does not support bit vectors. Therefore bit vector columns
+            and missing values are ignored during learning and prediction if this option is selected.
+            <p>
+            Even if this option is not selected the node creates a valid PMML model. However the model contains 
+            KNIME specific information to store missing value and bit vector information. This information is used in 
+            the KNIME Naive Bayes Predictor to improve the prediction result but ignored by any other PMML compatible 
+            predictor which might result in different prediction results.
+            </p>
+	    </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Training data</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+            Optional PMML port object containing preprocessing operations.
+        </td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+		  Learned naive Bayes model. The model can be used to classify data with unknown target (class) attribute.
+          To do so, connect the model out port to the "Naive Bayes Predictor" node.
+        </td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+            Data table with attribute statistics e.g. counts per attribute class pair, mean and standard deviation.
+        </td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Naive Bayes Learner View</dt>
+<dd>
+		The view displays the learned model with the number of rows per class
+	    attribute. The number of rows per attribute per class for nominal
+	    attributes and the Gaussian distribution per class
+	    for numerical attributes.
+		</dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

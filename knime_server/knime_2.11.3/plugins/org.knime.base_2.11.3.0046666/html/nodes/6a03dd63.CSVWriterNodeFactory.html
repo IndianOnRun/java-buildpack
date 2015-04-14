@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node/v2.10" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    CSV Writer</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>CSV Writer</h1>
+<p>
+ 		This node writes out the input data table into a file or to a remote location denoted by an URL. The node
+        provides many options to customize the output format (see below). But there is no checking done on the
+        settings, so it is possible to write out the data in a format that makes it	impossible to read it in again
+         (e. g. if you specify no data separator).<br/>
+         Note that if the destination location is a remote URL not all options are available because in general it's
+         not possible to determine whether the remote location exists. In this case it will always be overwritten.
+ 		</p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Settings</div>
+<div class="group-description">
+ 		    General settings regarding the output file location and formats.
+ 		</div>
+<dl>
+<dt>Output location</dt>
+<dd>Enter a valid file name or URL. 
+			You can also choose a previously selected location from the drop-down list,
+			or select a local file from the "Browse..." dialog.
+			</dd>
+<dt>Write column header</dt>
+<dd>If checked, the column names will be
+ 			written out in the first line of the output file.
+			</dd>
+<dt>Don't write column headers if file exists</dt>
+<dd>
+ 			If checked, the column headers will not be written when the output
+ 			is appended to the already existing output file. 
+ 			This is particularly useful when the CSV Writer is
+ 			used in a loop to report results. This option is ignored
+ 			when the column header is not written anyway or the file append option
+ 			is unchecked (see below).
+			</dd>
+<dt>Write row ID</dt>
+<dd>If checked, the row IDs will be
+ 			added to the output, as first item in each line.
+		</dd>
+<dt>Compress output file (gzip)</dt>
+<dd>Compress the output file
+ 		    in gzip format. If enabled, you will not be able to append to an
+ 		    existing file.
+		</dd>
+<dt>If file exists...</dt>
+<dd>Specify the behavior of the node in 
+ 		    case the output file already exists. <i>Overwrite</i> will replace any 
+ 		    existing file, <i>Append</i> will append the input table to the end
+ 		    of the file (possibly skipping the column header) and <i>Abort</i>
+ 		    will issue an error during the node's execution (to prevent
+ 		    unintentional overwrite).</dd>
+</dl>
+</div>
+<div class="group">
+<div class="groupname">Advanced</div>
+<div class="group-description">
+		  In the Advanced tab, you can specify the character(s) that will be written 
+		  out between the data items.
+		</div>
+<dl>
+<dt>Data Separator</dt>
+<dd> You can use "\t" for a tab or "\n" 
+            for a new line character (and must use "\\" for a backslash) in 
+            any character sequence.
+        </dd>
+<dt>Missing Value Pattern</dt>
+<dd>In the Advanced tab, enter a pattern 
+ 			that will be written out for missing data values. Note, the missing
+ 			value pattern will never be put into quotes (see below).
+			</dd>
+</dl>
+</div>
+<div class="group">
+<div class="groupname">Quotes</div>
+<div class="group-description">In the Quotes tab, you can enter a left
+		    and right quotation mark pattern. Also, select a mode, which determines
+		    when quotation marks should be placed around the data item. When quotes
+		    are used (in every mode other than "never") you must also specify a 
+		    replacement pattern for the right quote. If it appears in the data
+		    item, it must be replaced (so it won't be confused with the actual
+		    closing quote). 
+	    </div>
+<dl>
+<dt>Quote Mode: always</dt>
+<dd>Every data item written out is
+		    placed between quotation marks. (The missing value pattern is not
+		    quoted though.)
+			</dd>
+<dt>Quote Mode: if needed</dt>
+<dd>Quotes are only placed around a 
+		    data item that contains the data separator (specified in the Advanced
+		    tab) or if it equals the missing value pattern. The right quote pattern
+		    will be replaced if it appears in a quoted data item.
+			</dd>
+<dt>Quote Mode: non-numerical only</dt>
+<dd>Integer and floating point 
+		    numbers are not quoted, all other data items are. (Selecting the decimal
+		    point as data separator will lead to an output that can't be read in 
+		    again.) The right quote is replaced in quoted items.
+			</dd>
+<dt>Quote Mode: never</dt>
+<dd>No data item is placed between quotation
+		    marks. You should specify a replacement pattern for the data separator,
+		    if it occurs in the data item.
+			</dd>
+</dl>
+</div>
+<div class="group">
+<div class="groupname">Comment Header</div>
+<div class="group-description">In the Comment Header tab you can add a 
+		    comment header to the beginning of the output. Either specify your 
+		    own comment line(s) or choose from the predefined items. 
+		    If you check one of the options you must also enter a comment begin 
+		    and comment end pattern.
+		</div>
+<dl>
+<dt>Header Content: the current creation time</dt>
+<dd>If checked, a
+		    comment line with the current time and date is added.
+			</dd>
+<dt>Header Content: the user account name</dt>
+<dd>If checked, the login
+		    name of the user that created the file (probably you!) is inserted.
+			</dd>
+<dt>Header Content: the input table name</dt>
+<dd>If checked, a comment
+		    line is added showing the name of the table the data was read from.
+			</dd>
+<dt>Header Content: this text</dt>
+<dd>If you check this, you can enter
+		    any text, that will be added then to the comment header. Use "\n" to
+		    start a new line, and "\t" to insert a tab character (and "\\" to
+		    produce a backslash).
+			</dd>
+<dt>Comment Pattern</dt>
+<dd>
+		    If you have checked at least one of the content options, you must
+		    provide comment begin and end patterns that are placed around the
+		    comment header then. If you omit the end pattern the begin pattern
+		    is placed at the beginning of each comment line (assuming single
+		    line comments, in contrast to block comment if you specify both
+		    patterns).
+			</dd>
+</dl>
+</div>
+<div class="group">
+<div class="groupname">Decimal Separator</div>
+<div class="group-description">
+		    In the tab "decimal separator" you can enter a character that is used as 
+		    decimal separator for floating point numbers. It replaces the default 
+		    character '.' then.
+	    </div>
+<dl>
+<dt>Line Ending</dt>
+<dd>
+            In the tab "Advanced" you can select the line endings that are written to the file. Default value is the
+            system default value, which is system dependent (LF on Linux/Unix systems, CR+LF on Windows systems). You 
+            can enforce a certain line ending to generate a file that is readable on a different operating system. 
+        </dd>
+</dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>The data table to write out.</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

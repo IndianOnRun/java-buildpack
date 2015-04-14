@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node/v2.8" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Rule Engine</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Rule Engine</h1>
+<p>
+			This node takes a list of user-defined rules and tries to match them
+			to each row in the input table. If a rule matches, its outcome value
+			is added into a new column.
+			The first matching rule in order of definition determines the outcome.
+			<p>
+				Each rule is represented by a line.
+				The comments start with
+				<tt>//</tt>
+				in a line, and anything after that is not interpreted as a rule in
+				that line.
+				Rules consist of a condition part (antecedent), which must
+				evaluate to
+				<i>true</i>
+				or
+				<i>false</i>
+				, and an outcome (consequent, after the =&gt; symbol) which is put into
+				the new column if the rule matches.
+			</p>
+			<p>The outcome of a rule may be any of the following: a string, a number, a boolean constant, a reference
+                to another column or the value of a flow variable value.
+				The type of the outcome column is the common super
+				type of all possible
+				outcomes (including the rules that can never
+				match).
+				If no rule matches, the outcome is a missing value.
+			</p>
+			<p>
+				Columns are given by their name surrounded by $, numbers are given
+				in the usual decimal representation. Note that strings must not
+				contain (double-)quotes. Flow variables are represented by
+				<b>$${</b>
+				TypeCharacterAndFlowVarName
+				<b>}$$</b>
+				.
+				The TypeCharacter should be 'D' for double (real) values, 'I' for
+				integer values and 'S' for strings.
+                You can insert column names or flow variables by hand or by clicking in the respective lists in the
+                dialog.
+			</p>
+            <p>The logical expressions can be grouped with parentheses. The
+                precedence rules for them are the following: <tt>NOT</tt> binds most, <tt>AND</tt>,
+                <tt>XOR</tt> and finally <tt>OR</tt> the least.
+                Comparison operators always take
+                precedence over logical connectives.
+                All operators (and their names)
+                are case-sensitive.
+            </p>
+			<p>
+				The
+				<tt>ROWID</tt>
+				represents the row key string, the
+				<tt>ROWINDEX</tt>
+				is a the index of the row (first row has
+				<tt>0</tt>
+				value), while
+				<tt>ROWCOUNT</tt>
+				stands for the number of rows in the table.
+			</p>
+			<p>Some example rules (each should be in one line):</p>
+			<pre>
+// This is a comment
+$Col0$ &gt; 0 =&gt; "Positive"
+</pre>
+			When the values in Col0 are greater than 0, we assign Positive to the
+			result column value (if no previous rule matched).
+			<pre>
+$Col0$ = "Active" AND $Col1$ &lt;= 5 =&gt; "Outlier"
+</pre>
+			You can combine conditions.
+			<pre>
+$Col0$ LIKE "Market Street*" AND 
+    ($Col1$ IN ("married", "divorced") 
+        OR $Col2$ &gt; 40) =&gt; "Strange"
+$Col0$ MATCHES $${SFlowVar0}$$ OR $$ROWINDEX$$ &lt; $${IFlowVar1}$$ =&gt;
+    $Col0$
+</pre>
+			With parentheses you can combine multiple conditions. The result in
+			the second case comes from one of the columns.
+			<pre>
+$Col0$ &gt; 5 =&gt; $${SCol1}$$
+</pre>
+			The result can also come from a flow variable.
+			<p>
+				You can use either Ctrl+Space to insert predefined parts, or
+				select them from the upper controls.
+			</p>
+			
+			<p>
+			The following comparisons result true
+			(other values are neither less, nor greater or equal to missing and NaN values):
+			<ul>
+			<li>
+<b>?</b> =,&lt;=,&gt;= <b>?</b>
+</li>
+			<li>
+<b>NaN</b> =,&lt;=,&gt;= <b>NaN</b>
+</li>
+			</ul>
+			</p>
+		</p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Rule Editor</div>
+<dl>
+			<dt>Column List</dt>
+<dd>Available columns, which can be used as variables
+				in a rule.
+			</dd>
+			<dt>Flow Variable List</dt>
+<dd>Available flow variables, which can be used as
+				variables in a rule.
+			</dd>
+			<dt>Category</dt>
+<dd>The operator categories.</dd>
+			<dt>Function</dt>
+<dd>A list of valid operators in the selected
+				category.
+			</dd>
+			<dt>Description</dt>
+<dd>Short help about the operator.</dd>
+			<dt>Expression</dt>
+<dd>The rule editor. You can complete the expressions
+				with Ctrl+Space. Each row represents a rule. A red background of the
+				line signals an error and the left side of the editor then shows an error icon.
+			</dd>
+			<dt>Append Column</dt>
+<dd>Name of the newly appended column,
+				which contains the outcome of the rules.
+			</dd>
+			<dt>Replace Column</dt>
+<dd>The column to replace</dd>
+		</dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Any datatable</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>The input table with an additional
+			column containing the outcome of the matching rule for each row.
+		</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Java Snippet Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

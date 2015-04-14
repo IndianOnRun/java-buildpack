@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Scorer</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Scorer</h1>
+<p>
+			Compares two columns by their attribute value pairs and shows the 
+		    confusion matrix, i.e. how many rows of which attribute and their 
+		    classification match. 
+		    Additionally, it is possible to hilight cells of this matrix to
+		    determine the underlying rows.
+		    The dialog allows you to select two columns for comparison;
+			the values from the first selected column are represented in the 
+			confusion matrix's rows and the values from the second column by the
+			confusion matrix's columns. The output of the node is the confusion 
+			matrix with the number of matches in each cell.
+			Additionally, the second out-port reports a number of 
+			<a href="http://en.wikipedia.org/wiki/Information_retrieval">
+			accuracy statistics</a> such as True-Positives, False-Positives, 
+			True-Negatives, False-Negatives, Recall, Precision, Sensitivity, 
+			Specificity, F-measure, as well as the overall accuracy and Cohen's kappa.
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>First column</dt>
+<dd>The first column represents the real classes of the data.</dd>
+<dt>Second column</dt>
+<dd>The second column represents the predicted classes of the data.</dd>
+<dt>Sorting strategy</dt>
+<dd>Whether to sort the labels according to their appearance, or use the lexical/numeric ordering.</dd>
+<dt>Reverse order</dt>
+<dd>Reverse the order of the elements.</dd>
+<dt>Use name prefix</dt>
+<dd>The scores (i.e. accuracy, error rate, number of correct and wrong classification) are exported
+        as flow variables with a hard coded name. This option allows you to define a prefix for these variable identifiers so that name
+        conflicts are resolved.</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Table containing at least two columns to compare.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>The confusion matrix.</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>The accuracy statistics table.</td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Confusion Matrix</dt>
+<dd>
+			Displays the confusion matrix in a table view. It is possible
+			to hilight cells of the matrix which propagates highlighting
+			to the corresponding rows. Therefore, it is possible for example to 
+			identify wrong predictions.
+		</dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Joiner</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Joiner</h1>
+<p>
+            This node joins two tables in a database-like way. The join is based 
+            on the joining columns of both tables.
+        </p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Joiner settings</div>
+<dl>
+            <dt>Join mode</dt>
+<dd>
+                If a row from the left table cannot be joined with a row from the right table (and vice versa) there are
+                several options of handling this situation. After an
+                <b>Inner Join</b>
+                only matching rows will show up in the output table. A
+                <b>Left Outer Join</b>
+                will fill up the columns that come from the right table with missing values if no matching row exists in
+                the right table. Likewise, a
+                <b>Right Outer Join</b>
+                will fill up the columns from the left table with missing values if no matching row in the left table
+                exists. A
+                <b>Full Outer Join</b>
+                will fill up columns from both the left and right table with missing values if a row cannot be joined.
+            </dd>        
+            <dt>Joining columns</dt>
+<dd>
+                Select the columns from the left input table and the right input 
+                table that should be used for joining. You may selected a real
+                column or the table's row ID here. You must make sure, that the type 
+                of selected columns matches. The row IDs are interpreted as 
+                StringCells.
+                <br/>
+                <b>Match all of the following:</b> 
+                A row of the left input table and a row of the right input table 
+                match if they match in all specified column pairs.
+                <br/>
+                <b>Match any of the following:</b>
+                A row of the left input table and a row of the right input table 
+                match if they match in at least one specified column pairs.            
+            </dd>
+            <dt>Performance Tuning</dt>
+<dd>
+                <b>Maximum number of open files:</b> The maximum number of opened
+                temporary files. Increase it for better performance.
+                <b>Enable hiliting:</b> Select, if hiliting is enabled between 
+                input and output data. Disable, for reducing memory consumption.
+            </dd>
+            <dt>Row ID separator in joined table</dt>
+<dd>
+                The row IDs of the joined table are a concatenation of the row ID
+                of the left input table, this separator and the row ID of the right
+                input table.
+            </dd>        
+        </dl>
+</div>
+<div class="group">
+<div class="groupname">Column selection</div>
+<dl>
+            <dt>Column Selection (Left Table and Right Table)</dt>
+<dd>
+                <br/>
+                <b>Exclude:</b> This list contains the column names of the input table that are 
+                excluded.
+                <br/>
+                <b>Select:</b> Use these buttons to move columns between the Include and Exclude 
+                list.
+                <br/>
+                <b>Include:</b> This list contains the column names that are included.
+                <br/>
+                <b>Search:</b> Use one of these fields to search either within the Include
+                or Exclude list for certain column names or name substrings.
+                Repeated clicking of the search button marks the next column that 
+                matches the search text. The check box 'Select all search hits' causes
+                all matching columns to be selected making them movable between
+                the two lists.
+                <br/>
+                <b>Always include all columns:</b> If set, all columns are moved to
+                the include list and if input changes all new columns will be in the 
+                include list, too.
+            </dd>        
+            <dt>Duplicate column handling</dt>
+<dd>
+                The option allows you to change the behaviour if the include
+                lists of both input tables contain columns with the same name. 
+                <br/>
+                <b>Filter duplicates:</b> Only the columns from the left input table
+                will show up in the output table.
+                <br/>
+                <b>Don't execute:</b> Don't allow to execute this node if there are
+                duplicate column names in the include lists. 
+                <br/>
+                <b>Append suffix:</b> Append a suffix to the duplicate column names
+                from the right input table so that they also show up in the output
+                table.
+            </dd>
+            <dt>Joining columns handling</dt>
+<dd>
+                The option allows filtering the left/right joining columns, i.e. the
+                joining columns defined in the Joiner Settings tab will not show up
+                in the output table.
+            </dd>
+        </dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Table contributing to the left part of the output table</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Table contributing to the right part of the output table</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Joined Table</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

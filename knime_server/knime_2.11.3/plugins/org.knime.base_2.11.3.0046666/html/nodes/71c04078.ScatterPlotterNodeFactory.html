@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Scatter Plot</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Scatter Plot</h1>
+<p>		
+	    <p>Creates a scatterplot of two selectable attributes. Then each datapoint is
+	    displayed as a dot at its corresponding place, dependent on it's values
+	    of the selected attributes. The dots are displayed in the color defined by
+        the Color Manager, the size defined by the Size Manager, and the shape
+        defined by the Shape Manager.
+		</p>
+		
+	   <p>
+<b>Only columns with a valid domain are available in this view.
+        Make sure that the predecessor node is executed or set the domain 
+        with the DomainCalculator node!</b>
+</p>
+		
+		<h3>HiLiting:</h3>
+		<p> The data points may be selected by either dragging
+		a rectangle with the mouse over the points or 
+		by clicking on points.
+		Hold control pressed for multiple selection. 
+		The selected datapoints may be 
+		hilited by either right-click to get the context menu or via the hilite
+		menu in the menu bar.</p>
+		
+		<h3>Tooltip</h3>
+		<p>
+		Move the mouse over the data points to get detailed information about 
+		the data point (Row ID, and the x and y value).
+		</p>
+		
+		<h3>Properties: </h3>
+		<p>Default Settings:
+			<ul>
+			<li>Mouse Mode: choose "Selection" to select the datapoints or
+			"Zooming" to zoom in. If you have zoomed in you may choose "Moving" 
+			to navigate in the zoomed display.</li>
+			<li>"Fit to screen" fits the display again to the available space.</li>
+			<li>"Background color lets you choose the background color of the display. </li>
+			<li>"Anti-aliasing": Check if the view should enable anti-aliasing
+        (make a smoother drawing). This will slow down performance as well.</li>
+			</ul>
+		</p>
+		<p>Column Selection:
+		Choose the columns you want to have displayed as x and y coordinate.
+		With the "X attribute" and "Y attribute" spinners the range of the axes
+		can be adjusted. The left spinner changes the lower end, the right 
+		spinner the upper end.
+		</p>
+		<p>Appearance:
+			<ul>
+			<li>"Dot Size" lets you define the size of the dots.</li>
+			<li>"Jitter": if a nominal column is selected you may adjust how much
+			the values are jittered (scattered around there origin).</li>
+			</ul>
+		</p>
+		
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Nr. of rows to display</dt>
+<dd>Enter the maximum number of rows
+		the plotter should display. Setting a higher value than the default value 
+		might dramatically decrease performance.</dd>
+<dt>Ignore columns with more nominal values than:</dt>
+<dd>
+			Enter the maximum number of distinct nominal values that the
+			view should consider. Columns with more values than the
+			specified number will be ignored and can't be selected in
+			the view. Please also note that nominal values must be
+			present in the table specification of the input table (check
+			it by inspecting the table spec tab of the predecessor's
+			outport view). If no nominal values are present in the
+			table, execute the predecessor or consider to use the 
+			"Domain Calculator" node and to enforce the determination of 
+			the nominal values.
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Datatable with data to display</td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Scatter Plot</dt>
+<dd>
+			The scatterplot displaying the data.
+		</dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

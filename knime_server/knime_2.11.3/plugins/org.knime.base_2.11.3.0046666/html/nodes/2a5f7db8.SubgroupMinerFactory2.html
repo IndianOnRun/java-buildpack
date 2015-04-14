@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Association Rule Learner</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Association Rule Learner</h1>
+<p>
+			Searches for frequent itemsets meeting the user-defined minimum 
+			support criterion and, optionally, creates association rules from 
+			them. The column containing the transactions (BitVectors or 
+			Collections) has to be selected. The minimum 
+			support as an absolute number must be provided (therefore check the number
+			of transactions to obtain a sensible criterion). If the frequent itemsets
+			should be free (unconstrained) or closed or maximal has also be defined.
+			Closed itemsets are frequent itemsets, which have no superset with the 
+			same support, thus providing all the information from free itemsets 
+			in a compressed form. Maximal itemsets are sets which have no 
+			frequent superset at all. The maximal itemset length must also be 
+			defined. If association rules are generated, a confidence value has to be
+			provided. The confidence is a value to define how often the rule is 
+			right. Association rules generated here are in the form to have only one
+			item in the consequence.
+			The underlying data structure used by the algorithm can be either an
+			ARRAY or a TIDList. Choose the former when there are many 
+			transactions an less items, and	the latter if the structure of the 
+			input data is vice versa.		
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Column containing transactions</dt>
+<dd>
+		Select the column containing the transactions (BitVector or Collection)
+		to mine for frequent itemsets or association rules. There must be at 
+		least one, since this is the only valid input for the subgroup miner.
+	</dd>
+<dt>Minimum support (0-1)</dt>
+<dd>
+		An itemset is considered to be frequent if there are at least "minimum
+		support" transactions, where the itemset occurs. Make sure, to have here
+		a meaningful number in proportion of the number of rows of the input.
+	</dd>
+<dt>Underlying data structure</dt>
+<dd>
+        Either ARRAY or TIDList: ARRAY is recommended when the number of 
+        transactions (rows) is larger than the number of items, and the TIDList
+        if the number of rows is small and the number of items large. In
+        general, the ARRAY option needs more memory and is faster, whereas the 
+        TIDList need less memory but is slower.
+    </dd>
+<dt>Itemset type</dt>
+<dd>
+		Choose either free, closed or maximal. Free are mostly redundant, closed
+		provide the most information and maximal may hide some information.
+	</dd>
+<dt>Maximal itemset length</dt>
+<dd>
+		The maximal length of the resulting itemsets. A lower value may reduce 
+		the runtime if there are very long frequent itemsets.
+	</dd>
+<dt>Output association rules</dt>
+<dd>
+		Check if association rules should be generated out of the frequent 
+		itemsets. Note: association rules are always generated from free 
+		frequent itemsets and are constrained to have only one item in the
+		consequence.
+	</dd>
+<dt>Minimum confidence</dt>
+<dd>
+		The confidence is a measure for "how often the rule is right". Thus, how
+		often, if the items in the antecedence appeared also the consequence 
+		occurred in the transactions.
+	</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Datatable containing transactions.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Datatable with discovered frequent itemsets or association rules.</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

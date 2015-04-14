@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Cell Replacer</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Cell Replacer</h1>
+<p>
+			<p>Replaces cells in a column according to dictionary table
+			(2nd input). The node has two inputs: The first input contains a
+			target column whose values are to be replaced using the dictionary 
+			table (2nd input). From the dictionary table, choose one column 
+			(or the rowID column) that is used as lookup criterion. Any 
+			occurrence in the target column (1st input) that matches the lookup
+			value is replaced by the corresponding value of the output column,
+			which is another column in the dictionary table.
+			</p>
+			
+			<p>Missing values are treated as ordinary values, that is, they are
+			valid as lookup and replacement value. If there are duplicates in 
+			the	lookup column in the dictionary table, the last occurrence 
+			(bottom most row) defines the replacement pair.
+			</p>
+			
+			<p>If the input/lookup column is a collection type, each of the 
+			contained values in the collection is a search element.
+			</p>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Input table, Target column</dt>
+<dd>The column in the first input
+            table whose values will be replaced.</dd>
+<dt>Dictionary table, Input (Lookup)</dt>
+<dd>Search column in the 
+            second input table.</dd>
+<dt>Dictionary table, Output (Replacement)</dt>
+<dd>Column in the  
+            second input table containing the replacement values.</dd>
+<dt>If no element matches use</dt>
+<dd>Define how values in the 
+            input table, which do not match any search pattern, are treated. 
+            "Input" will leave the value unmodified, "Missing" replaces the 
+            value by a missing value.</dd>
+<dt>Append/Replace Result Column</dt>
+<dd>Select the checkbox and 
+            enter a new column name that will contain the mapped output. 
+            If unselected, the result will replace the target column.</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Table containing column whose 
+            values are to be replaced.
+        </td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Dictionary table containing 
+            two columns: one lookup column and one replacement column.
+        </td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            Input table with replaced target column.
+         </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

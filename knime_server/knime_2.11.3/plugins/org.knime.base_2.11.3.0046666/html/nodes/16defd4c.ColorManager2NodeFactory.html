@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Color Manager</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Color Manager</h1>
+<p>
+	    Colors can be assigned for either nominal (possible values
+	    have to be available) or numeric columns (with lower and upper bounds).
+	    If these bounds are not available, a <i>'?'</i> is provided as a minimum
+	    and maximum value. The values are then computed during execute.
+	    If a column attribute is selected, the color can be changed with the
+        color chooser.
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Column(s): </dt>
+<dd>
+	    Select the column whose possible values or ranges should be used for 
+	    color selection.
+    </dd>
+<dt>Nominal: </dt>
+<dd>
+	    Assigns colors based on the possible attribute values of the selected 
+	    column. The colors are set independently for each attribute value.
+    </dd>
+<dt>Range: </dt>
+<dd>
+	    Assigns a color gradient based on a numeric attribute. If 
+	    the range is known, the minimum and maximum are displayed in the list,
+	    otherwise a '?' is shown. The color is determined by the position of 
+	    the attribute's value within the numeric range: the corresponding color 
+	    is set at the same position in the gradient.
+    </dd>
+<dt>Alpha: </dt>
+<dd>
+        Adjust the color's alpha component in the range of 0..255. Please note,
+        alpha composition is expensive in cases when operations performed are 
+        not hardware-accelerated.
+    </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Table to which color should be applied</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Same table with color information appended to one attribute</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Color settings applied to the input table</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

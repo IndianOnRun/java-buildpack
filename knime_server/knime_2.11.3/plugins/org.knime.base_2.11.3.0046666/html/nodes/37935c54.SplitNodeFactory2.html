@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Column Splitter</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Column Splitter</h1>
+<p>
+			This node splits the columns of the input table into two output tables. Specify in the
+		    dialog which columns should occur in the top table (left list), 
+		    and the bottom table (right list). Use the buttons to move columns 
+		    from one list to the other.
+		</p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Column Filter</div>
+<dl>      
+		
+		<dt>Top</dt>
+<dd>
+            A list of column names that make up the first output table (top 
+            output port).
+        </dd>
+        
+        <dt>Enforce Exclusion (Top)</dt>
+<dd>
+            Select this option to enforce the current top list to stay
+            the same even if the input table specification changes. If some
+            of the included columns are not available anymore, a warning
+            is displayed. (New columns will automatically be added to the
+            bottom list.)
+        </dd>
+        
+        <dt>Select</dt>
+<dd>
+            Use these buttons to move columns between the Top and Bottom 
+            list.
+        </dd>
+        
+        <dt>Search</dt>
+<dd>
+            Use one of these fields to search either within the Top
+            or Bottom list for certain column names or name substrings.
+            Repeated clicking of the search button marks the next column that 
+            matches the search text. The check box 'Mark all search hits' causes
+            all matching columns to be selected making them movable between
+            the two lists.
+        </dd>
+        
+        <dt>Bottom</dt>
+<dd>
+            A list of column names that make up the second output table (bottom 
+            output port).
+        </dd>
+
+        <dt>Enforce Inclusion (Bottom)</dt>
+<dd>
+            Select this option to enforce the current exclusion list to stay
+            the same even if the input table specification changes. If some
+            of the bottom columns are not available anymore, a warning
+            is displayed. (New columns will automatically be added to the
+            Top list.)
+        </dd>
+        </dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Table to split.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input table with the columns as defined in the dialog's left list.</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Input table with the columns as defined in the dialog's right list.</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

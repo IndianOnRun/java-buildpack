@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    File Reader</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>File Reader</h1>
+<p>		
+		This node can be used to read data from an ASCII file or URL location.
+		It can be configured to read various formats.<br/>
+		When you open the node's configuration dialog and provide a filename, 
+		it tries to guess
+		the reader's settings by analyzing the content of the file.
+		Check the results of these settings in the preview table. If the 
+		data shown is not correct or an error is reported, you can adjust the
+		settings manually (see below).<br/>
+		<p/>
+		The file analysis runs in the background and can be cut short by clicking
+		the "Quick scan", which shows if the analysis takes longer.
+		In this case the file is not analyzed completely, but only the first 
+		fifty lines are taken into account. It could happen then, that
+		the preview appears looking fine, but the execution of the File Reader
+		fails, when it reads the lines it didn't analyze. Thus it is recommended
+		you check the settings, when you cut an analysis short. <br/>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>ASCII file location</dt>
+<dd>Enter a valid file name or URL. When
+			you press ENTER, the file is analyzed and the settings pre-set.
+			You can also choose a previously read file from the drop-down list,
+			or select a file from the "Browse..." dialog.
+			</dd>
+<dt>Preserve user settings</dt>
+<dd> If checked, the checkmarks and
+		    column names/types you explictly entered are preserved even if 
+		    you select a new file. By default, the analyzer starts with fresh
+		    default settings for each new file location.
+		    </dd>
+<dt>Read row IDs</dt>
+<dd>If checked, the first column in the file
+			is used as row IDs. If not checked, default row headers are
+			created.</dd>
+<dt>Read column headers</dt>
+<dd>If checked, the items in the first 
+			line of the file are used as column names. 
+			Otherwise default column names are created.</dd>
+<dt>Column delimiter</dt>
+<dd>Enter the character(s) that separate
+	    	the data tokens in the file, or select a delimiter from the list.
+			</dd>
+<dt>Ignore spaces and tabs</dt>
+<dd>If checked, spaces and the TAB
+		    characters are ignored (not in quoted strings though).
+		    </dd>
+<dt>Java style comment</dt>
+<dd>Everything between '/*' and '*/' is
+	    	ignored. Also everything after '//' until the end of the line.
+			</dd>
+<dt>Single line comment</dt>
+<dd>Enter one or more characters that
+	    	will indicate the start of a comment (ended by a new line).
+			</dd>
+<dt>Advanced...</dt>
+<dd>Opens a new dialog with advanced settings.
+	    	There is support for quotes, different decimal separators in 
+	    	floating point numbers, and character encoding. Also, for 
+	    	ignoring whitespaces, for allowing rows with too few data items, 
+	    	for making row IDs unique (not recommended for huge files), 
+	    	for a global missing value pattern,
+	    	and for limiting the number	of rows read in.	    
+			</dd>
+<dt>Click on the table header</dt>
+<dd>If the column header in the 
+	    	preview table is clicked, a new dialog 
+	    	opens where column properties can be set: name 
+	    	and type can be changed (and will be fixed then).
+	     	A pattern can be entered that will cause a "missing
+	        cell" to be created when it's read for this column. Additionally,
+	        possible values of the column domain can be updated by selecting
+	        "Domain". And, you can choose to skip this column entirely, i.e. it
+	        will not be included in the output table then.
+		    </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Datatable just read from the file</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

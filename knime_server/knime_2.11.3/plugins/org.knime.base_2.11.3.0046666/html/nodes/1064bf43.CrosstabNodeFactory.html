@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Crosstab</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Crosstab</h1>
+<p>
+			<p>Creates a cross table (also referred as 
+			     <a href="http://en.wikipedia.org/wiki/Contingency_table">
+			     contingency table</a> or cross tab). It can be used to analyze
+			    the relation of two columns with categorical data and does 
+			    display the frequency distribution of the categorical variables
+			    in a table.</p>
+			<p>This node provides chi-square test statistics and, in case of a
+				cross tabulation of 2x2 dimension, Fisher's exact test. Both
+				statistics test the null hypothesis of no association between the
+				row variable and the column variable. The p-values are provided in
+				the view and in the second output port.</p>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Row variable</dt>
+<dd>
+			The input column used as the row variable in the
+			cross-tabulation. 
+		</dd>
+<dt>Column variable</dt>
+<dd>
+			The input column used as the column variable in
+			the cross-tabulation. 
+		</dd>
+<dt>Weight column</dt>
+<dd>
+			Applies a numeric weight for each record in the
+			input causing the Crosstab node to treat each record as if it were
+			repeated WEIGHT number of times. 
+        </dd>
+<dt>Enable hiliting</dt>
+<dd>
+			If enabled, the hiliting of a cell in the crosstab will hilite all
+			cells with same categories in attached views. Depending on the number
+			of rows, enabling this feature might consume a lot of memory.
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			Input table containing columns with
+			categorical data.
+        </td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			The cross table in list form.
+		</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+			The table with the statistics.
+		</td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Cross tabulation</dt>
+<dd>
+			The following properties are displayed in the cross tabulation view:
+			<br/>
+			<i>Frequency:</i> The cell frequency.
+			<br/>
+			<i>Expected:</i> The expected frequency which is computed as 
+			  (<i>column total</i> / <i>total</i>) * <i>row total</i>.
+			<br/>
+			<i>Deviation:</i> The deviation is computed as
+			  <i>Frequency</i> - <i>Expected</i>.
+			<br/>
+			<i>Percent:</i> The percent is the relative frequency computed as
+			  <i>Frequency</i> / <i>total</i>.
+			<br/>
+			<i>Row Percent:</i> The row percent is computed as
+			  <i>Frequency</i> / <i>row total</i>.
+			<br/>
+			<i>Column Percent:</i> The column percent is computed as
+			  <i>Frequency</i> / <i>column total</i>.
+			<br/>
+			<i>Cell Chi-Square:</i> The contribution of this cell to the value
+			of the Chi-Square statistic. The Cell Chi-Square sums up to the
+			value of the Chi-Square statistic.
+			<br/>
+			<br/>
+			For some properties the row totals and column totals are displayed
+			beside the table and underneath the table, respectively.
+			<br/>
+			You can control the size of the displayed table with the 
+			<i>Max rows</i> and the <i>Max columns</i> controls.
+			<br/>
+			<br/>
+			The statistics table provides chi-square test statistics and, in 
+			case of a cross tabulation of 2x2 dimension, Fisher's exact test. 
+			Both statistics test the null hypothesis of no association between 
+			the row	variable and the column variable. You can reject the null 
+			hypothesis when the p-value (Prop) is less than a significance value
+			which is typically 0.01 or 0.05. In this case the result is said to
+			be statistically significant. Please bear in mind that the 
+			Chi-Square test	is based on	<a href="http://en.wikipedia.org/wiki/Pearson%27s_chi-square_test#Assumptions">
+				some assumptions</a>.
+
+		</dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

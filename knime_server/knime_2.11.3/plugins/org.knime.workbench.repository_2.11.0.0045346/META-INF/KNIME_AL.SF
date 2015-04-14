@@ -1,0 +1,42 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: e7ftIY6sKDD1m6/uYKryKDpyG34=
+Created-By: 1.7.0_76 (Oracle Corporation)
+SHA1-Digest-Manifest: xnfDVi3PCCD7XOHTSgJ5cICTdl8=
+
+Name: lib/schemas.jar
+SHA1-Digest: J4mohIXLxSr26LKXcKPw8aTjIpA=
+
+Name: icons/node_repository.png
+SHA1-Digest: Oq81wguyoB4emBwvXdbW+0sMfmY=
+
+Name: src/eclipse/org/knime/workbench/repository/util/node_description
+ _howto.html
+SHA1-Digest: KfugGGU/Jjr/3PYGNRQG0wftFLg=
+
+Name: LICENSE.txt
+SHA1-Digest: d3jcVAEYKU6/HXkEvcZKXp+IOL8=
+
+Name: icons/search.gif
+SHA1-Digest: MtQlWQxZuXxtOJLEZtlIGuBDO5o=
+
+Name: plugin.xml
+SHA1-Digest: dmy8puQ/YPVzsLBiz/GICipuWwU=
+
+Name: schema/metanode.exsd
+SHA1-Digest: /Di08OIXnKxGKD2RERQcXkBAgkU=
+
+Name: schema/registeredFileExtensions.exsd
+SHA1-Digest: X2TXEzgrUHa0L1xPHTn4r9g/J6U=
+
+Name: schema/Category.exsd
+SHA1-Digest: ygFBpp13LZfwpt6YES99QiMNvmM=
+
+Name: schema/Node.exsd
+SHA1-Digest: U0j0NxKmWByiReHHa3lBtkNyJdk=
+
+Name: schema/nodesets.exsd
+SHA1-Digest: +Werxiu93OoI6/mBltZwBD7S8E4=
+
+Name: knime-workbench-repository.jar
+SHA1-Digest: eo/rD8/mkzQxyNW/nmDWYra7Amo=
+

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Polynomial Regression Learner</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Polynomial Regression Learner</h1>
+<p>
+            This node performs polynomial regression on the input data and computes the coefficients that minimize the
+            squared error. The user must choose one column as target (dependent variable) and a number of independent variables. By
+            default, polynomials with degree 2 are computed, which can be changed in the dialog.
+            <br/>
+            If the optional PMML inport is connected and contains 
+    		preprocessing operations in the TransformationDictionary those are 
+    		added to the learned model.
+        </p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">Regression settings</div>
+<dl>
+            <dt>Target column</dt>
+<dd>The column that contains the dependent "target" variable.</dd>
+            <dt>Polynomial degree</dt>
+<dd>The maximum degree the polynomial regression function should have.</dd>
+            <dt>Column Selection</dt>
+<dd>Select the columns containing the independent variables and
+                move them to the "include" list. </dd>                
+        </dl>
+</div>
+<div class="group">
+<div class="groupname">View settings</div>
+<dl>
+            <dt>Number of data points to show in view</dt>
+<dd>
+                This option can be use to change the number of data points in
+                the node view if e.g. there are too many points. The default
+                value is 10,000 points.            
+            </dd>
+        </dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            The input samples, which of the columns are used as independent variables can be configured in the dialog.
+             The input must not contain missing values, you have to fix them by e.g. using the Missing Values node.
+        </td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Optional PMML port object containing preprocessing operations.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            The computed regression coefficients as a PMML model for use in the Regression Predictor.
+        </td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+            Training data classified with the learned model and the corresponding errors.
+        </td>
+</tr>
+<tr>
+<td class="dt">2</td>
+<td>
+            The computed regression coefficients as a table with statistics related to the training data.
+        </td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Learned Coefficients</dt>
+<dd>Shows all learned coefficients all attributes.</dd>
+<dt>Scatter Plot</dt>
+<dd>
+            Shows the data points and the regression function in one dimension.
+        </dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

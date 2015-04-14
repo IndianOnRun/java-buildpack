@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    RProp MLP Learner</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>RProp MLP Learner</h1>
+<p>		
+	Implementation of the RProp algorithm for multilayer feedforward networks.
+	RPROP performs a local adaptation of the weight-updates according to the
+	behavior of the error function.
+	For further details see: Riedmiller, M.   Braun, H. : "A direct adaptive method for faster
+	backpropagation learning: theRPROP algorithm",Proceedings of the IEEE 
+	International Conference on Neural Networks (ICNN) (Vol. 16, pp. 586-591).
+	Piscataway, NJ: IEEE.
+	This node provides a view of the error plot. <br/>
+	If the optional PMML inport is connected and contains 
+    preprocessing operations in the TransformationDictionary those are 
+    added to the learned model.
+	</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Maximum number of iterations</dt>
+<dd>
+	The number of learning iterations.
+    </dd>
+<dt>Number of hidden layers</dt>
+<dd>
+	Specifies the number of hidden layers in the architecture of the neural
+	network.
+    </dd>
+<dt>Number of hidden neurons per layer</dt>
+<dd>
+	Specifies the number of neurons contained in each hidden layer.
+    </dd>
+<dt>Class column</dt>
+<dd>
+	Choose the column that contains the target variable: it can either be 
+	nominal or numerical. All nominal class values are extracted and assigned to 
+	output neurons.
+	If you use a numerical target variable (regression), please make sure it is normalized!
+    </dd>
+<dt>Ignore missing values</dt>
+<dd>
+	If this checkbox is set, rows with missing values will not be used for 
+	training.
+    </dd>
+<dt>Use seed for random initialization</dt>
+<dd>
+    If this checkbox is set, a seed (see next field) can be set for initializing the weights and thresholds can be set.
+    </dd>
+<dt>Random seed</dt>
+<dd>
+    Seed for the random number generator.
+    </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Datatable with training data</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Optional PMML port object 
+            containing preprocessing operations.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>RProp trained Neural Network</td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Error Plot</dt>
+<dd>
+			Displays the error for each iteration.
+		</dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

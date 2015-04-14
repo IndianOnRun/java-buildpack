@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Export-Package: com.knime.enterprise.utility,com.knime.enterprise.util
+ ity.metainfo,com.knime.enterprise.utility.oda,com.knime.enterprise.ut
+ ility.webservice
+Require-Bundle: org.knime.core.util;bundle-version="[5.0.0,6.0.0)"
+Bundle-Vendor: KNIME.com, Zurich, Switzerland
+Ant-Version: Apache Ant 1.8.4
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: knime-server-utility.jar,lib/commons-codec-1.4.jar
+Bundle-Version: 3.10.0.0045346
+Eclipse-BuddyPolicy: registered
+Bundle-Name: KNIME Server Utility
+Bundle-ManifestVersion: 2
+Created-By: 1.7.0_76-b13 (Oracle Corporation)
+Bundle-SymbolicName: com.knime.enterprise.utility;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+
+Name: lib/commons-codec-1.4.jar
+SHA1-Digest: QhavFtOEZburDz3/jvoUIE96OZo=
+
+Name: knime-server-utility.jar
+SHA1-Digest: wmU+5urx0u4luX94f6Ie4wX+A18=
+

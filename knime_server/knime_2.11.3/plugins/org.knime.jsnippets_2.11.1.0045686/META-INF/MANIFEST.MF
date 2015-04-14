@@ -1,0 +1,97 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.core.resources;bundle-version="[3.6.0,4.0.
+ 0)",org.eclipse.jdt.core;bundle-version="[3.6.1,4.0.0)",org.apache.co
+ mmons.lang3;bundle-version="[3.2.1,4.0.0)",org.fife.rsyntaxtextarea;b
+ undle-version="[2.5.0,2.6.0)",org.knime.core.pmml;bundle-version="[2.
+ 8.0,3.0.0)",org.knime.core;bundle-version="[2.8.0,3.0.0)",org.knime.b
+ ase;bundle-version="[2.9.0,3.0.0)",org.knime.ext.sun;bundle-version="
+ [2.5.3,3.0.0)";visibility:=reexport,org.eclipse.help;resolution:=opti
+ onal,org.eclipse.help.ui;resolution:=optional
+Export-Package: org.knime.base.node.preproc.stringmanipulation,org.kni
+ me.base.node.preproc.stringmanipulation.manipulator,org.knime.base.no
+ de.rules.engine.pmml,org.knime.base.node.rules.engine.rsyntax;x-frien
+ ds:="org.fife.rsyntaxtextarea",org.knime.base.node.util
+Bundle-Vendor: KNIME GmbH, Konstanz, Germany
+Ant-Version: Apache Ant 1.8.4
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: knime-jsnippets.jar,lib/prompt.jar
+Bundle-Version: 2.11.1.0045686
+Bundle-Name: KNIME Java Snippet Nodes
+Bundle-ManifestVersion: 2
+Created-By: 1.7.0_76-b13 (Oracle Corporation)
+Bundle-SymbolicName: org.knime.jsnippets;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+
+Name: tocs/flowcontrol_variables$nodes.xml
+SHA1-Digest: wfQiGC0Tsnb4fIN/KYxheuSMjG8=
+
+Name: schema/templaterepository.exsd
+SHA1-Digest: m6Pe6UGrdTVhQbz8qn+hUmpSl8E=
+
+Name: jsnippets/org.knime.base.node.jsnippet.JavaSnippetNodeFactory/Li
+ ne Total_1e40c7f7-673d-4023-8c7e-df116734837a.xml
+SHA1-Digest: OkOlyLAmA7VPGMrHQWqTnK0hOJU=
+
+Name: icons/preview.png
+SHA1-Digest: iqA5x4LhwoPUiNCE+vBLHH9WsWI=
+
+Name: lib/snippet_inc/readme.txt
+SHA1-Digest: OKlQrCjjagaU4ouPjNjuipkglgY=
+
+Name: LICENSE.txt
+SHA1-Digest: EBt/iHSoiomsFYWa4O2fpR6DhK4=
+
+Name: tocs/manipulation_column_column-transform$nodes.xml
+SHA1-Digest: Zxq/0I5rDGudsSufT9J3NQnt85Y=
+
+Name: html/nodes/2d2ba2c2.RuleEngineNodeFactory.html
+SHA1-Digest: DlR0dldYZf6cmwAj934uU6B0JUQ=
+
+Name: README.TXT
+SHA1-Digest: vOKWw+ND4KeGl9Uh/UOHYFWvqWQ=
+
+Name: knime-jsnippets.jar
+SHA1-Digest: zi2YrW2zqp7+OsYljEaugwHLo8s=
+
+Name: tocs/manipulation_row_row-other$nodes.xml
+SHA1-Digest: alaWi0JmgtKEtzHd95u9nJXPRko=
+
+Name: html/nodes/51df1722.RuleEngineVariableNodeFactory.html
+SHA1-Digest: G//O0cIBwgz4DCzmBLnQ/d4w7G4=
+
+Name: html/nodes/21ae3223.PMMLRuleEditorNodeFactory.html
+SHA1-Digest: s5hT18aT24xq7P26CJdRCDuNZR8=
+
+Name: tocs/manipulation_pmml$nodes.xml
+SHA1-Digest: Q3ZHzvN+9N3TgTrOi+WaV5Cby+Y=
+
+Name: html/nodes/2ebab801.JavaEditVarNodeFactory.html
+SHA1-Digest: tOYLBI5h9pqF9c+Np9b4tdqjFkE=
+
+Name: html/nodes/a6a879f.JavaSnippetNodeFactory.html
+SHA1-Digest: mkpZi5ztMj4hXinyHLqb6biIyfg=
+
+Name: plugin.xml
+SHA1-Digest: 11ga8AJIei4R0FVGXyBlcrmc5Wk=
+
+Name: lib/prompt.jar
+SHA1-Digest: eLyT7hdcse03AEc/8mSLBH8Rg3A=
+
+Name: tocs/misc_java-snippet$nodes.xml
+SHA1-Digest: GB+mAkLKfNE+mRKX88q7wWkdXA0=
+
+Name: tocs/manipulation_row_row-filter$nodes.xml
+SHA1-Digest: 2w2M/RIqxlYYcMK47GoQoDMJQds=
+
+Name: html/nodes/4b932548.StringManipulationNodeFactory.html
+SHA1-Digest: 3tZKGH/Llo05J8tTuO1LU3C1zik=
+
+Name: html/nodes/22be7690.PMMLRuleSetPredictorNodeFactory.html
+SHA1-Digest: Z02gRNnPV1DWNEvRS/Buy+vIDf0=
+
+Name: html/nodes/b3dba09.RuleEngineSplitterNodeFactory.html
+SHA1-Digest: pu3p5o/7poU5TBh+n5lvN9IVDDE=
+
+Name: html/nodes/85969da.RuleEngineFilterNodeFactory.html
+SHA1-Digest: Dpgtz2xOTejqdjcZWaxb8I5t40A=
+

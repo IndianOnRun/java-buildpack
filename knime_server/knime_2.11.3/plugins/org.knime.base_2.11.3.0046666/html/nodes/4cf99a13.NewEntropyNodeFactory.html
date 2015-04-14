@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Entropy Scorer</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Entropy Scorer</h1>
+<p>
+			Scorer for clustering results given a reference clustering.
+			Connect the table containing the reference clustering to the
+			first input port (the table should contain a column with the
+			cluster IDs) and the table with the clustering results to
+			the second input port (it should also contain a column with
+			some cluster IDs). Select the respective columns in both
+			tables from the dialog. After successful execution, the view
+			will show entropy values (the smaller the better) and some
+			quality value (in [0,1] - with 1 being the best possible
+			value, as used in
+			<a href="http://www.inf.uni-konstanz.de/bioml2/publications/Papers2007/WiBe07_fcum_ijar.pdf">
+				Fuzzy Clustering in Parallel Universes
+			</a>
+			, section 6: "Experimental results").
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Reference column</dt>
+<dd>
+			Column containing the reference clustering. This column is
+			provided by the first input table.
+		</dd>
+<dt>Clustering column</dt>
+<dd>
+			Column containing the cluster IDs to evaluate. This column
+			is provided by the second input table.
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			Table containing reference clustering.
+		</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+			Table containing clustering (to score).
+		</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+			Table containing entropy values for each cluster. The last row
+			contains statistics on the entire clustering. It corresponds to
+			the table show in the Statistics View.
+		</td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Statistics View</dt>
+<dd>
+			Simple statistics on the clustering such as number of
+			clusters being found, number of objects in clusters, number
+			of reference clusters, and total number of objects. Further
+			statistics include:
+			<ul>
+				<li>
+					Entropy: The accumulated entropy of all identified
+					clusters, weighted by the relative cluster size. The
+					entropy is not normalized and may be greater than 1.
+				</li>
+				<li>
+					Quality: The quality value according to the formula
+					referenced above. It is the sum of the weighted
+					qualities of the individual clusters, whereby the
+					quality of a single cluster is calculated as (1 -
+					normalized_entropy). The domain of the quality value
+					is [0,1].
+				</li>
+			</ul>
+			The table at the bottom of the view provides statistics on
+			<i>cluster size</i>, <i>cluster entropy</i>, 
+			<i>normalized cluster entropy</i> and <i>quality</i>. The
+			<i>entropy</i> of a clusters is based on the reference clustering (provided
+			at the first input port) and the <i>normalized entropy</i>
+			is this value scaled to an interval [0, 1]. More precisely,
+			it is the entropy divided by log2(number of different
+			clusters in the reference set). The quality value is only available
+			in the last row (showing the overall statistics).
+		</dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

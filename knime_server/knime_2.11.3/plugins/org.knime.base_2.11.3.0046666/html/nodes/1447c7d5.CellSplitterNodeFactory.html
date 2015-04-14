@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Cell Splitter</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Cell Splitter</h1>
+<p>This node uses a user-specified delimiter character to
+		split the content of a selected column into parts. It appends either a 
+		fixed number of columns to the input table, each carrying one part of the 
+		original column, or a single column containing a collection (list or 
+		set) of cells with the split output. It can be specified whether the
+		output consists of one or more columns, only one column containing 
+		list cells, or only one column containing set cells in which duplicates
+		are removed.<br/>
+		If the column contains more delimiters than needed 
+		(leading to more parts than appended columns are available) the 
+		additional delimiters are ignored (resulting in the last column containing
+		the unsplit rest of the column).<br/>
+		If the selected column contains too
+		few delimiters (leading to less parts than expected), empty columns
+		will be created in that row.<br/>
+		Based on the delimiters and the resulting parts the collection cells
+		can have different sizes.
+		The content of the new columns will be trimmed if specified 
+		(i.e. leading and trailing spaces will be deleted).
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Column selection</dt>
+<dd> 
+			Select the column whose values are split.
+		</dd>
+<dt>Delimiter</dt>
+<dd>Specify the delimiter in the value, that 
+		splits each part.
+		</dd>
+<dt>Use escape character</dt>
+<dd>If enabled, the backslash ("\")
+        can be used to escape characters, such as "\t" for tabs. You can use
+        the full escape capabilities of Java.
+        </dd>
+<dt>Quotation character</dt>
+<dd>Specify the quotation character, if 
+	    the different parts in the value are quoted. (The character to escape
+	    quotes is always the backslash.) If no quotation character
+	    is needed leave it empty.
+		</dd>
+<dt>remove leading and trailing white space chars (trim)</dt>
+<dd>
+        If checked, leading and trailing white spaces of each part (token) will 
+        be deleted.
+        </dd>
+<dt>Output - as list</dt>
+<dd>
+        If selected, the output will consist of one column containing list
+        collection cells in which the split parts are stored. Duplicates
+        can occur in list cells.
+        </dd>
+<dt>Output - as set (remove duplicates)</dt>
+<dd>
+        If selected, the output will consist of one column containing set
+        collection cells in which the split parts are stored. Duplicates
+        are removed and can not occur in set cells.
+        </dd>
+<dt>Output - as new columns</dt>
+<dd>
+        If selected, the output will consist of one or more columns, each 
+        containing a split part.
+        </dd>
+<dt>Set Array Size</dt>
+<dd>Check this and specify the number of columns
+		to append. All created columns will be of type String. (See above for 
+		what happens if the split produces a different number of parts.)
+		</dd>
+<dt>Guess Size and Column Types</dt>
+<dd>If this is checked, the node
+		performs an additional scan through the entire data table and computes 
+		the number of columns needed to hold all parts of the split. In addition
+		it determines the column type of the new columns. 
+		</dd>
+<dt>Missing Value Handling</dt>
+<dd>If select, the node creates 
+		empty string cell instead of missing value cells. 
+        </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input data table with column containing the cells to split</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Output data table with additional columns.</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node/v2.10" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Table Validator (Reference)</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Table Validator (Reference)</h1>
+<p>
+      This node ensures a certain table structure and table content. The base for a configuration is
+      given by a reference specification which must be connected to the input port during
+      configuration and provides the basic template for the output table. It is ensured that the
+      result table structure is mostly identical to the reference specification. That is done by
+      resorting of columns, the insertion of missing columns (filled with missing values) and
+      optional removal of additional columns. You can also choose for each column (or a group of
+      them) if it is required and if the data type or the domain should be checked/converted. To
+      make use of this second approach, select a column or a list of columns to be handling, drag
+      them to the appearing "+" button, and set the parameters. To remove this extra handling (and
+      instead use the default handling), click the "Remove" button for this column. If the
+      validation succeeds, data gets output to the first port (potentially renamed, sorted according
+      to the reference specification and with converted types). If the validation fails, the first
+      port is inactive and the second port contains a table that lists all conflicts or the node
+      fails. All options mentioned below marked with
+      <i>Data</i>
+      forces also a traversal of the input data.
+    </p>
+<h2>Dialog Options</h2>
+<div class="group">
+<div class="groupname">General settings</div>
+<dl>
+<dt>Behavior on validation issues</dt>
+<dd>
+        Defines how validation faults should influence the following workflow.
+        <ul>
+          <li>
+            <i>Fail node</i>
+            - Forces the node to fail; the exception carries a appropriate message containing
+            detailed descriptions about the validation faults. A traversal of the data is canceled
+            if the structural comparison already failed.
+          </li>
+          <li>
+            <i>Deactivate first output port</i>
+            - The node will never fail but the first output port is set inactive. Validation results
+            are presented at the second output port as a data table which contains the
+            <i>Column</i>
+            name, an
+            <i>Error ID (one of: COLUMN_NOT_CONTAINED, CONTAINS_MISSING_VALUE, INVALID_DATATYPE,
+              CONVERTION_FAILED, OUT_OF_DOMAIN)</i>
+            and an human readable
+            <i>Description</i>
+            for each validation fault. The data is completely traversed, independent of potential
+            structural differences. This option is useful if a complete validation of the input data
+            is desired. For example if the workflow is used within the WebPortal, to avoid try and
+            error passes.
+          </li>
+        </ul>
+      </dd>
+<dt>Handling of unkown colums</dt>
+<dd>
+        Removes columns which are not included in the reference table spec.
+        <ul>
+          <li>
+            <i>Don't allow unknown columns</i>
+            - Unknown columns will force a validation issue.
+          </li>
+          <li>
+            <i>Remove unkown columns</i>
+            - Unknown columns will be removed.
+          </li>
+          <li>
+            <i>Sort them to the end</i>
+            - Unknown columns will shifted to the end of the table.
+          </li>
+        </ul>
+      </dd>
+</dl>
+</div>
+<div class="group">
+<div class="groupname">Validation Settings</div>
+<dl>
+<dt>Fail if column is missing (Structure)</dt>
+<dd>
+        Ensures that the configured columns exist in the input table. If
+        <i>case insensitive name matching</i>
+        is selected the first matching column will satisfy this condition.
+      </dd>
+<dt>Case insensitive name matching (Structure)</dt>
+<dd>
+        Also columns with an similar name will be considered to be validated according to this
+        configuration. Users should take attention if using this option as the assignment from a
+        column to a configuration is not trivial computed at runtime. The rules are explained in the
+        following.
+        <ol>
+          <li>
+            <i>Exact name match</i>
+            - Assigns the configuration with the exact name. The name is marked as used and cannot
+            match any following input columns again.
+          </li>
+          <li>
+            <i>First matching configuration</i>
+            - Assigns the first configuration to the column with a matching name, the name is marked
+            as used and cannot match any following input columns again.
+          </li>
+        </ol>
+      </dd>
+<dt>Fail on missing value (Data)</dt>
+<dd> Fails if the columns contains any missing value.</dd>
+<dt>Check data type (Structure|Data)</dt>
+<dd>
+        Ensures a correct data type.
+        <ul>
+          <li>
+            <i>Fail if different</i>
+            - Fails if the reference data type is not a super type of the input column spec. I.e. it
+            checks that the input column implements all DataValue classes that are also implemented
+            by the reference column's data type.
+          </li>
+          <li>
+            <i>Try to convert; fail if not compatible</i>
+          </li>
+          <li>
+            <i>Try to convert; insert missing if not compatible</i>
+          </li>
+        </ul>
+      </dd>
+<dt>Check possible values (Data)</dt>
+<dd>
+        Checks if each data object is contained in the possible values of the reference domain. The
+        option is only enabled if any configured column defines possible values.
+        <ul>
+          <li>
+            <i>Fail if out of domain</i>
+          </li>
+          <li>
+            <i>Replace with missing values</i>
+          </li>
+        </ul>
+      </dd>
+<dt>Check min &amp; max (Data)</dt>
+<dd>
+        Checks if each data object is between min and max defined by the domain of the reference
+        specification. The option is only enabled if any configured column defines possible values.
+        <ul>
+          <li>
+            <i>Fail if out of domain</i>
+          </li>
+          <li>
+            <i>Replace with missing values</i>
+          </li>
+        </ul>
+      </dd>
+<dt>Set input table as reference</dt>
+<dd> Sets the input table specification as reference specification.</dd>
+</dl>
+</div>
+<div class="group">
+<div class="groupname">Reference Spec</div>
+<dl>
+<dt>Reference Spec</dt>
+<dd> The reference specification.</dd>
+<dt>Input Spec</dt>
+<dd> The input specification. Only visible if it differs from the reference
+        specification.
+      </dd>
+</dl>
+</div>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Table to be validated.</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Table that is used as the reference.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+      Table with corrected and validated structure. Depending on the validation result and the
+      <i>Behavior if validation fails</i>
+      settings, this port may be inactive.
+    </td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+      Table where missing values have been handled. Depending on the validation result and the
+      <i>Behavior if validation fails</i>
+      settings, this port may be inactive.
+    </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

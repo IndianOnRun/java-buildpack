@@ -1,0 +1,78 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: Efx1UJA5DATI4dBwjbFPAx9dnro=
+Created-By: 1.7.0_76 (Oracle Corporation)
+SHA1-Digest-Manifest: uBNA3g3zybARAgFGimxFajo7Go0=
+
+Name: tocs/flowcontrol_variables$nodes.xml
+SHA1-Digest: d0U2jNlSySLvs2vi8y6duA0ZnX0=
+
+Name: schema/templaterepository.exsd
+SHA1-Digest: wpBDra8ueL11H6ZT3Ng+6ltZSYQ=
+
+Name: jsnippets/org.knime.base.node.jsnippet.JavaSnippetNodeFactory/Li
+ ne Total_1e40c7f7-673d-4023-8c7e-df116734837a.xml
+SHA1-Digest: DFbycWRFi5+Uwx63o/8lCzyB1jQ=
+
+Name: icons/preview.png
+SHA1-Digest: 53RkzhRB+qyEKXMYW+9n1n2KoCI=
+
+Name: lib/snippet_inc/readme.txt
+SHA1-Digest: Y0eUCQQzhMXXIsWMa3a7fqZWwjk=
+
+Name: LICENSE.txt
+SHA1-Digest: d3jcVAEYKU6/HXkEvcZKXp+IOL8=
+
+Name: tocs/manipulation_column_column-transform$nodes.xml
+SHA1-Digest: y+Ac3Lorr3toZkE40jf0cuYUQuQ=
+
+Name: html/nodes/2d2ba2c2.RuleEngineNodeFactory.html
+SHA1-Digest: AdA7eXdWvdyEm71mZ9ariLTVk+0=
+
+Name: README.TXT
+SHA1-Digest: 3PX8BTkbE8JEr4ZDSTuda0UWYvI=
+
+Name: knime-jsnippets.jar
+SHA1-Digest: 9KbQ3mC5mVPbWd8DSK4TgkcR87g=
+
+Name: tocs/manipulation_row_row-other$nodes.xml
+SHA1-Digest: sWmkJR/RdQikNYINMZgSZtEWI2Q=
+
+Name: html/nodes/51df1722.RuleEngineVariableNodeFactory.html
+SHA1-Digest: N0FJnWFoYRAe2hgBsGOPxf4mq80=
+
+Name: html/nodes/21ae3223.PMMLRuleEditorNodeFactory.html
+SHA1-Digest: 1a9a/+EC4JbBcX8s+3P02G2RdGw=
+
+Name: html/nodes/a6a879f.JavaSnippetNodeFactory.html
+SHA1-Digest: wDp+YsqVtHWX9kmyWG/+k/7NFjI=
+
+Name: html/nodes/2ebab801.JavaEditVarNodeFactory.html
+SHA1-Digest: sRzzn2nSjuTq3eUm618rl2orrwg=
+
+Name: tocs/manipulation_pmml$nodes.xml
+SHA1-Digest: 3MRALR7Uo5Wcll+yUALJyxdokNY=
+
+Name: plugin.xml
+SHA1-Digest: tS1kwAFvhUm/wDbJ+soJfB3PzfM=
+
+Name: lib/prompt.jar
+SHA1-Digest: VAEujit54bu4ZNCcHO9kOFXobN8=
+
+Name: tocs/misc_java-snippet$nodes.xml
+SHA1-Digest: 5cP5hIywi1QYI2A8znMkFPTiNK0=
+
+Name: html/nodes/4b932548.StringManipulationNodeFactory.html
+SHA1-Digest: 5OIC+3XXfNt8MkNSeBHJ5wDDpLc=
+
+Name: tocs/manipulation_row_row-filter$nodes.xml
+SHA1-Digest: gEL3dbKxHJTfP43J+RqjpGafLnw=
+
+Name: html/nodes/b3dba09.RuleEngineSplitterNodeFactory.html
+SHA1-Digest: 0sSdpQCpQVskg/UYgi56SszPvRU=
+
+Name: html/nodes/22be7690.PMMLRuleSetPredictorNodeFactory.html
+SHA1-Digest: tS+C/fxk5tV6mlQh5tHcek4mzec=
+
+Name: html/nodes/85969da.RuleEngineFilterNodeFactory.html
+SHA1-Digest: isCW49vg0teZaHWlZ/j4f5W4iak=
+

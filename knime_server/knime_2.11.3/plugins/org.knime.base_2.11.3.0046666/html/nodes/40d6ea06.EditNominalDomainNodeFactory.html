@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node/v2.8" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Edit Nominal Domain</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Edit Nominal Domain</h1>
+<p>
+			<p>
+				Resorts and/or inserts interactively possible values to the
+				domain
+				of a
+				certain column
+				of the input table. This allows the configuration
+				of
+				downstream
+				nodes on an amended domain list,
+				e.g. a histogram that
+				should show an empty bin for a value that is not
+				actually present in
+				the data. Also,
+				the sorting on the domain values can be changed. This
+				might be useful
+				for instance for many predictor nodes,
+				which add a new
+				column for each possible value to the prediction output
+				table,
+				whereby the order of the
+				columns is determined by the ordering in the
+				domain.
+			</p>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Select column</dt>
+<dd>
+			Selects the column for which the domain values
+			should be edited.
+			Non-string typed
+			columns are filtered out. A column name with red border indicates that the
+			domain values for this
+			columns were previously configured but the column either no longer
+			exists or has a different type (no string column anymore). Red written
+			domain value orderings can
+			be edited
+			as
+			others and in addition deleted.
+			(See the
+			<b>Reset/Delete</b>
+			option)
+		</dd>
+<dt>Add</dt>
+<dd>
+			Creates a new cell with the given value and
+			inserts it at the selected
+			position. Self created cells are
+			green
+			marked in the possible value list.
+		</dd>
+<dt>Remove</dt>
+<dd>
+			Removes all selected self created cells (green
+			marked)
+			or cells which are not contained in the possible
+			value set of
+			the original column specification (red marked). It is not
+			possible to
+			remove
+			other possible values, i.e. the possible values defined by the
+			original column specification, as that might corrupt the table
+			consistency.
+		</dd>
+<dt>Sort alphabetical [A-Z, Z-A]</dt>
+<dd>
+			Sorts the elements in alphabetical order ascending
+			(A-Z)
+			or descending (Z-A).
+		</dd>
+<dt>Move one step [Up, Down]</dt>
+<dd>
+			Moves the selected element(s) one up or down. If
+			the top or the bottom
+			of the list is reached, the selected element(s)
+			is/are enqueued on the
+			other end of the table again.
+		</dd>
+<dt>Move first/last</dt>
+<dd>
+			Moves the selected element(s) to the top or at the
+			end of the table.
+		</dd>
+<dt>Reset/Delete</dt>
+<dd>
+			Restores the original domain value list as in the
+			input table. If a not existing but previously configured column is
+			selected (written in red), this button is labeled
+			with 'Delete' and
+			deletes the stored configuration for the selected column.
+		</dd>
+<dt>If a configured columns is not present in data</dt>
+<dd>
+			Determines if the execution should either fail or
+			the column should be ignored if a configured column does not exist in
+			the input table.
+		</dd>
+<dt>If a configured columns has an incompatible type</dt>
+<dd>
+			Determines if the execution should either fail or
+			the column should be ignored if
+			the types of a configured column are
+			not equal.
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input data</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input data with changed
+			specification.
+		</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

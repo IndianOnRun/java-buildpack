@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Java Edit Variable</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Java Edit Variable</h1>
+<p>
+            <p>
+              Edit or add flow variables using java code. The node is analogous to
+              the Java Snippet node: In the central panel, added java code
+              to add or modify variables. The variables available
+              at the input are listed on the left.
+            </p>
+            <p>It is also possible to use external java libraries (that is, 
+            libraries that are not part of java boot classpath). In order to 
+            include such external jar or zip files, add their location in the 
+            "Additional Libraries" tab using the control buttons.</p>
+            <p>You can define reusable templates with the "Create templates..." 
+            button. Templates are stored in the
+            users workspace by default and can be accessed via the "Templates"
+            tab.</p>            
+        </p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Flow Variable List</dt>
+<dd>
+          The list contains the flow variables that are currently available at
+          the node input. Double clicking any of the entries will insert the
+          respective identifier at the current cursor position (replacing the
+          selection, if any).
+        </dd>
+<dt>Snippet text area</dt>
+<dd>
+          Enter your java code here. You can access input flow
+          variables by defining them in the <b>Snippet fields for input</b>. A
+          second way is to use the method <i>getFlowVariable(name, type)</i> 
+          where <i>name</i> is the name of the flow variable, respectively. 
+          You can use the following values for the <i>type</i> parameter. <br/>          
+          <i>tString</i> : String <br/>
+          <i>tInt</i>  : Integer <br/>
+          <i>tDouble</i> : Double <br/>
+
+          <br/>
+          <b>Java Snippet Methods:</b>
+<br/>
+          <i>getFlowVariable(name, type)</i> : Get value of a flow variable by name<br/>
+		  <i>getFlowVariables(type)</i> : Get all flow variables by type. A name to value map is returned.<br/>
+		  <i>flowVariableExists(name)</i> : Check if a flow variable with given name exists<br/>
+		  <i>isFlowVariableOfType(name, type)</i> : Check if a flow variable is of type<br/>          
+          
+          <p>You can hit <i>ctrl+space</i> to get an auto completion box with all
+          available classes, methods and fields. When you select a class and hit
+          <i>enter</i> a import statement will be generated if missing.</p>    
+          <p>Note, that the snippet allows defining custom global variables and
+          custom imports.</p>
+          <p>Exceptions in the snippet are caught by the framework and will 
+          cause the execution to fail. If you want to stop execution, please use an 
+          exception of class <tt>Abort</tt>. It gives the user a nice
+          error message.</p>          
+        </dd>
+<dt>Input</dt>
+<dd>
+          Define system input fields for the snippet text area. Every field 
+          represents a flow variable of the input. 
+        </dd>
+<dt>Output</dt>
+<dd>  
+          Define flow variables that will be added to stack of flow variables
+          at the output. Every row in the <b>Output</b> table
+          defines a java field bound to a flow variable. Values assigned to this field
+          in the snippet will set the value of the flow variable at the output.
+        </dd>
+<dt>Run only on execution</dt>
+<dd>  
+          If unselected, the snippet is run as soon as the node is configured (default). If selected, the snippet is 
+          run only once when the node is being executed (going from yellow to green state).  In this case variables 
+          are populated later, often causing downstream nodes to be not configurable as the created variables have a
+          meaningless default value. However, sometimes this is necessary when for instance the snippet involves
+          heavy computation, network access or other type of I/O. If unsure, leave unselected. 
+        </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            Input variables (optional).</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>
+            Output variables.
+        </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Java Snippet Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Recursive Loop End (2 ports)</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Recursive Loop End (2 ports)</h1>
+<p>
+        
+        Using the recursive loop construct you have the possibility to receive a data table passed to a 
+        corresponding loop end back in the loop start node. 
+        
+        First the loop start node needs an initialization table. This table is output in the first iteration of the recursive loop.
+        
+        The corresponding loop end receives a data table and passes it back to the loop start node.
+        Starting with the second iteration of the recursive loop the loop start node outputs the data as inserted into the loop end in the previous run.
+        <br/>
+        The data passed to port 0 is collected and passed to the output. <br/>
+        The data in port 1 and 2 is returned to the recursive loop start.
+        </p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Maximal number of iterations</dt>
+<dd>The loop will stop after these number of iterations, to ensure no endless loop is created.</dd>
+<dt>Minimal number of rows</dt>
+<dd>The minimal number of rows passed back to the loop start. If the input contains less rows, the loop ends.</dd>
+<dt>Collect data from last iteration only</dt>
+<dd>If this option is checked only the last input to the collecting data port is passed through to the outport. Hence, the data of earlier iterations is discarded.</dd>
+<dt>End loop</dt>
+<dd>Use a flow variable for this option if you want to have an optional possibility to stop the loop.</dd>
+<dt>Add iteration column</dt>
+<dd>Allows you to add a column containing the iteration number to the output table.</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Data to be collected for the output.</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Data to be passed back to loop start.</td>
+</tr>
+<tr>
+<td class="dt">2</td>
+<td>Data to be passed back to loop start.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td> The rows collected from the first in port. </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

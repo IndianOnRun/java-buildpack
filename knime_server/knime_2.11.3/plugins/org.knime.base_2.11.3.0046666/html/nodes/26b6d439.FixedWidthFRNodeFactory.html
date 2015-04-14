@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Fixed Width File Reader</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Fixed Width File Reader</h1>
+<p>		
+		This node can be used to read data from an ASCII file or URL location.
+		It reads files where a column is defined by the number of characters
+		and not by a column delimiter.<br/>
+		When you open the node's configuration dialog and provide a filename, 
+		the reader creates one column. This column shows only the remaining characters 
+		in the preview table and won't be appended to the output table.<br/>
+		
+		<p/>
+
+		The preview shows only the first couple of lines. It could happen then, that
+		the preview appears looking fine, but the execution of the Fixed Width File Reader
+		fails. <br/>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>ASCII file location</dt>
+<dd>Enter a valid file name or URL. When
+			you press ENTER, a preview of the file is shown.
+			You can also choose a previously read file from the drop-down list,
+			or select a file from the "Browse..." dialog.
+			</dd>
+<dt>Preserve user settings</dt>
+<dd> If checked, the checkmarks and
+		    column names/types you entered are preserved even if 
+		    you select a new file. By default, the dialog starts with fresh
+		    default settings for each new file location.
+		    </dd>
+<dt>Click on add</dt>
+<dd>A new dialog opens where column properties can be set: 
+			<ul>
+			<li>Number of columns to add: Specify a number of columns you would like to add.</li>
+			<li>Name/Prefix: Set a unique column name or prefix if more than one column should be added.</li>
+			<li>Width: The width of the column in number of characters.</li>
+			<li>Type: Choose a type. </li>
+			<li>Missing Value Pattern: Pattern for which a "missing cell" will be created.</li>
+			<li>DON'T include: The Fixed Width File reader skips this column.</li>
+			</ul>
+			</dd>
+<dt>Click on edit</dt>
+<dd>A new dialog opens with the column settings set. Each entry 
+			can be changed and the current column will be replaced.
+			</dd>
+<dt>Click on remove</dt>
+<dd>The selected columns will be removed. <br/>
+			Note: You can't remove the first column if "Read row IDs" is selected.</dd>
+<dt>Read row IDs</dt>
+<dd>If checked, the first column in the file
+			is used as row IDs. If not checked, a default row headers are
+			created.</dd>
+<dt>Read column headers</dt>
+<dd>If checked, the items in the first 
+			line of the file are used as column names. 
+			Otherwise default column names are created.</dd>
+<dt>Click on the table header</dt>
+<dd>If the column header in the 
+	    	preview table is clicked the edit dialog will open.
+		    </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Datatable just read from the file</td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

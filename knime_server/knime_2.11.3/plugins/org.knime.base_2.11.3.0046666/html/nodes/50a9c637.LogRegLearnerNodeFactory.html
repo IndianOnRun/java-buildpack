@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node/v2.10" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    Logistic Regression Learner</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>Logistic Regression Learner</h1>
+<p>
+            Performs a multinomial logistic regression. Select in the dialog a 
+            target column (combo box on top), i.e. the response. The two
+            lists in the center of the dialog allow you to include only certain 
+            columns which represent the (independent) variables.
+            Make sure the columns you want to have included being in the right
+            "include" list.
+            
+            See article in wikipedia about 
+            <a href="http://en.wikipedia.org/wiki/Logistic_regression">logistic regression</a>
+            for an overview about the topic.
+            
+            This particular implementation uses an iterative optimization procedure
+            termed Fisher's scoring in order to compute the model. 
+            <br/>
+            If the optional PMML inport is connected and contains 
+    		preprocessing operations in the TransformationDictionary those are 
+    		added to the learned model.
+        <h4>Potential Errors and Error Handling</h4>
+        The computation of the model is an iterative optimization process that requires some properties of the data set.
+        This requires a reasonable distribution of the target values and non-constant, uncorrelated columns. While
+        some of these properties are checked during the node execution you may still run into errors during the 
+        computation. The list below gives some ideas what might go wrong and how to avoid such situations.
+        <ul>
+        <li>
+            <b>Insufficient Information</b> This is the case when the data does not provide enough information about
+            one or more target categories. Try to get more data or remove rows for target categories that may cause 
+            the error. If you are interested in a model for one target category make sure to group the target
+            column before. For instance, if your data contains as target categories the values "A", "B", ..., "Z" but 
+            you are only interested in getting a model for class "A" you can use a rule engine node to convert your
+            target into "A" and "not A".
+        </li>
+        <li>
+            <b>Violation of Independence</b> Logistic Regression is based on the assumption of statistical independence.
+            A common preprocessing step is to us a correlation filter to remove highly correlated learning columns. 
+            Use a "Linear Correlation" along with a "Correlation Filter" node to remove redundant columns, whereby often
+            it's sufficient to compute the correlation model on a subset of the data only.
+        </li>
+        <li>
+            <b>Separation</b> Please see <a href="http://en.wikipedia.org/wiki/Separation_(statistics)"> this article 
+            about separation</a> for more information.
+        </li>
+        </ul>
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Target</dt>
+<dd>
+            Select the target column. Only columns with nominal data are allowed. The reference category is empty
+            if the domain of the target column is not available. In this case the node determines the domain values right 
+            before computing the logistic regression model and chooses the last domain value as the targets reference 
+            category.<br/>
+            By default the target domain values are sorted lexicographically in the output, but you can enforce the 
+            order of the target column domain to be preserved by checking the box.
+            <br/>
+            Note, if a target reference column is selected in the dropdown, the checkbox will have no influence on the
+            coefficients of the model except that the output representation (e.g. order of rows in the coefficient table)
+            may vary.
+        </dd>
+<dt>Values</dt>
+<dd>
+            Specify the independent columns that should be included in the regression model. 
+            Numeric and nominal data can be included.<br/>
+            By default the domain values (categories) of nominal valued columns are sorted lexicographically, 
+            but you can check that the order from the column domain is used. Please note that the first
+            category is used as a reference when creating the 
+            <a href="http://en.wikipedia.org/wiki/Categorical_variable#Categorical_variables_in_regression">
+            dummy variables</a>.
+        </dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Table on which to perform regression. The input must not contain missing values, you have to fix them by e.g. using the Missing Values node.</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Optional PMML port object containing preprocessing operations.</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Model to connect to a predictor node.</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>Coefficients and statistics of the logistic regression model.</td>
+</tr>
+</table>
+</div>
+</dl>
+<h2>Views</h2>
+<dl>
+<dt>Logistic Regression Result View</dt>
+<dd>
+    		Displays the estimated coefficients and error statistics. Note, 
+    		that the estimated coefficients are not reliable when the standard
+    		error is high.
+		</dd>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

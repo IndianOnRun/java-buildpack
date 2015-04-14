@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns:t="http://knime.org/node2012" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+                    Node description for
+                    PCA Compute</title>
+<style type="text/css">body {
+	background-color: #fff;
+	font-family: Tahoma, Arial, Helvetica; 
+	font-size: 10pt;
+	padding: 0.1em 0.1em 1.5em 0.1em;
+}
+
+tt, pre {
+	font-family: Courier New, Courier, Arial, Helvetica; 
+	font-size: 110%;
+}
+
+p {
+	text-align: justify;
+	/*padding: 0 10px;*/
+}
+
+
+
+h1{
+	font-size: 200%;
+	text-align: center;
+	border-bottom: thick solid #ffd600;
+}
+
+h2{
+	font-size: 140%;
+	/*padding-left: 5px;*/
+	border-bottom: thin dotted #ffd600;
+}
+
+.deprecated {
+	color: red; font-style: italic;
+}
+
+dl{
+	margin-left: 1px;
+	padding: 0;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: 0.3em;
+}
+
+dd{
+	margin-bottom: 1em;
+	margin-left: 1.5em; 
+}
+
+table{
+	font-size:100%;
+}
+
+table.introtable {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666666;
+    border-collapse:collapse;
+}
+
+
+table.introtable tr td,th {
+    padding: 0.5em 0.5em;
+    border: 1px solid #666666;
+}
+
+
+table.introtable tr th {
+    background-color: #EEEEEE;
+}
+
+
+td{
+	padding: 0.5em 0.5em;
+	vertical-align:top;
+}
+
+
+.dt {
+	font-weight: bold;
+}
+
+a{
+	color: #000;
+}
+	
+a:visited{
+	color: #666;
+}
+
+.warn{
+	color: #cf0000;
+}
+
+div.group {
+    border: 1px solid #ffd600;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+div.groupname {
+    text-align: center;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    padding: 0.3em;
+}
+
+div.group-description {
+    background-color: #F8F8F8;
+    padding: 0.4em;
+    border-top: 1px solid #AAAAAA;
+}
+
+
+div#origin-bundle {
+    color: #cccccc;
+    font-size: 70%;
+    margin-top: 2em;
+    padding-top: 0.5em;
+    border-top: 1px solid #bbbbbb;
+}
+</style>
+</head>
+<body>
+<h1>PCA Compute</h1>
+<p>
+			This node performs a
+			<a href="http://en.wikipedia.org/wiki/Principal_component_analysis">
+				principal component analysis (PCA)</a>
+			on the given input data.
+			The directions of maximal variance (the principal components) are
+			extracted and can be used in the PCA Apply node
+			to project the input into a space of lower dimension while preserving a
+			maximum of information.
+		</p>
+<h2>Dialog Options</h2>
+<dl>
+<dt>Fail if missing values are encountered</dt>
+<dd>
+			If checked, execution fails, when the selected columns contain missing
+			values.
+			By default, rows containing missing values are ignored and not
+			considered in the computation of the principal components.
+		</dd>
+<dt>Columns</dt>
+<dd>
+			Select the columns that are included in the analysis of principal
+			components, i.e. the numerical features of the data.
+		</dd>
+</dl>
+<h2>Ports</h2>
+<dl>
+<div class="group">
+<div class="groupname">Input Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Input data for the PCA</td>
+</tr>
+</table>
+</div>
+<div class="group">
+<div class="groupname">Output Ports</div>
+<table>
+<tr>
+<td class="dt">0</td>
+<td>Covariance matrix of the input columns</td>
+</tr>
+<tr>
+<td class="dt">1</td>
+<td>
+			Table containing parameters extracted from the PCA. Each row in the
+			table represents one principal component, whereby the rows are sorted
+			with decreasing eigenvalues, i.e. variance along the corresponding
+			principal axis. The first column in the table contains the component's
+			eigenvalue, a high value indicates a high variance (or in other words,
+			the respective component dominates the orientation of the input data).
+			<br/>
+		    Each subsequent column (labeled with the name of the selected 
+		    input column) contains a coefficient representing the influence
+		    of the respective input dimension to the principal component. 
+		    The higher the absolute value, the higher the influence of the
+		    input dimension on the principal component. 
+			<br/>
+		    The mapping of the input rows to, e.g. the first principal axis, 
+		    is computed as follows (all done in the PCA Apply node): 
+		    For each dimension in the original space subtract the dimension's
+		    mean value and then multiply the resulting vector with the vector 
+		    given by this table (the first row in the spectral decomposition 
+		    table to get the value on the first PC, the second row for the 
+		    second PC and so on).    
+		</td>
+</tr>
+<tr>
+<td class="dt">2</td>
+<td>Model with projection to principal
+			components, used in the PCA Apply node to apply the transformation
+			to, e.g. another validation set.
+	    </td>
+</tr>
+</table>
+</div>
+</dl>
+<div id="origin-bundle">
+                    This node is contained in <em>KNIME Base Nodes</em>
+                    provided by <em>KNIME GmbH, Konstanz, Germany</em>.
+                </div>
+</body>
+</html>

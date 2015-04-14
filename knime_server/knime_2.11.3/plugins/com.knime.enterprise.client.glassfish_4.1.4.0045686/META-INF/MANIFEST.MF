@@ -1,0 +1,152 @@
+Manifest-Version: 1.0
+Export-Package: com.knime.enterprise.client.beanlookup
+Require-Bundle: com.knime.enterprise.utility;bundle-version="[3.6.0,5.
+ 0.0)",com.knime.enterprise.client.api;bundle-version="[3.9.0,4.0.0)",
+ org.eclipse.core.runtime;bundle-version="[3.6.0,3.8.0)",org.eclipse.c
+ ore.resources;bundle-version="[3.6.0,4.0.0)",org.apache.log4j;bundle-
+ version="[1.2.15,1.3.0)",org.knime.core;bundle-version="[2.10.0,3.0.0
+ )"
+Bundle-Vendor: KNIME.com, Zurich, Switzerland
+Ant-Version: Apache Ant 1.8.4
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: knime-enterprise-client-glassfish.jar,lib/appserv-ad
+ min.jar,lib/appserv-deployment-client.jar,lib/appserv-ext.jar,lib/app
+ serv-rt.jar,lib/bean-validator.jar,lib/glassfish-api.jar,lib/grizzly-
+ comet.jar,lib/grizzly-cometd.jar,lib/j2ee.jar,lib/javax.annotation.ja
+ r,lib/javax.ejb.jar,lib/javax.enterprise.deploy.jar,lib/javax.jms.jar
+ ,lib/javax.management.j2ee.jar,lib/javax.persistence.jar,lib/javax.re
+ source.jar,lib/javax.security.auth.message.jar,lib/javax.security.jac
+ c.jar,lib/javax.servlet.jar,lib/javax.servlet.jsp.jar,lib/javax.servl
+ et.jsp.jstl.jar,lib/javax.transaction.jar,lib/jaxb-api-osgi.jar,lib/j
+ axb-osgi.jar,lib/jersey-gf-bundle.jar,lib/jersey-gf-statsproviders.ja
+ r,lib/jersey-multipart.jar,lib/jmxremote_optional.jar,lib/jsf-api.jar
+ ,lib/jsf-impl.jar,lib/jsr311-api.jar,lib/jstl-impl.jar,lib/webservice
+ s-api-osgi.jar,lib/webservices-connector.jar,lib/webservices-osgi.jar
+ ,lib/webservices.security.jar,lib/weld-osgi-bundle.jar
+Bundle-Version: 4.1.4.0045686
+Bundle-Name: KNIME Enterprise Client Glassfish Lookup
+Bundle-ManifestVersion: 2
+Created-By: 1.7.0_76-b13 (Oracle Corporation)
+Bundle-SymbolicName: com.knime.enterprise.client.glassfish;singleton:=
+ true
+Eclipse-RegisterBuddy: com.knime.enterprise.client.api,com.knime.enter
+ prise.utility,com.knime.oda.serverdriver
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+
+Name: lib/jersey-gf-statsproviders.jar
+SHA1-Digest: Q9JEgwzHNerFmHYlLwnsrdWMI4g=
+
+Name: lib/j2ee.jar
+SHA1-Digest: tIikPlKlc11O5xaop31scogO3fM=
+
+Name: lib/webservices-connector.jar
+SHA1-Digest: SgW3/LhE1wGYy8iYSDBDW1FsOF8=
+
+Name: lib/jsf-api.jar
+SHA1-Digest: IbQOuj0BdzlJ75TcXoNwgnziuO8=
+
+Name: lib/javax.persistence.jar
+SHA1-Digest: fSTYtzJuwmNiwF9Ls2IdrWVamtc=
+
+Name: lib/jsf-impl.jar
+SHA1-Digest: SGicYeMnfdPjU4FYNuFda3yp+iU=
+
+Name: knime-enterprise-client-glassfish.jar
+SHA1-Digest: KljEeZd6dh2Jtysb7j+eXsB2jyE=
+
+Name: lib/javax.annotation.jar
+SHA1-Digest: 0HxnDAswx99WIlNbEzZGJARZEYk=
+
+Name: lib/appserv-deployment-client.jar
+SHA1-Digest: Hrc6XpvaoPUNnGY+RhseUMqlQuo=
+
+Name: lib/javax.servlet.jsp.jstl.jar
+SHA1-Digest: 4gdRmJM2bS0MMhz80Z9/7iwxNWs=
+
+Name: lib/grizzly-comet.jar
+SHA1-Digest: 1opZEknkUZBGvxjV3z5ZH6EpIfU=
+
+Name: lib/javax.servlet.jar
+SHA1-Digest: T1BjgvOTeVMNy6dyhtRU1Q8GyGo=
+
+Name: lib/javax.ejb.jar
+SHA1-Digest: 3P/VwXyrmsGwo3jNTiNLhqkgalM=
+
+Name: lib/javax.security.auth.message.jar
+SHA1-Digest: TaVPx7Edw13MFtk7CfzYtnQpjLM=
+
+Name: lib/appserv-admin.jar
+SHA1-Digest: wHgN8/LORlo/GIcx84X/gGttEj0=
+
+Name: lib/jersey-multipart.jar
+SHA1-Digest: gfX2vIxXImeTtzv3aLMr9g/v3W0=
+
+Name: lib/jsr311-api.jar
+SHA1-Digest: o82Gf8EqaPihzotTXOBVWyQJxR0=
+
+Name: lib/jstl-impl.jar
+SHA1-Digest: 3uVThkfwWclPBlTqyTfvjU90Gyc=
+
+Name: lib/weld-osgi-bundle.jar
+SHA1-Digest: MCeEnHynTkte2yFRehsxBqqQrOY=
+
+Name: lib/grizzly-cometd.jar
+SHA1-Digest: VUmphcxxZpbpTIbMoCENciP8HKI=
+
+Name: lib/jmxremote_optional.jar
+SHA1-Digest: Ne+3pVyZngZii/xH1MwbiejSalE=
+
+Name: lib/jersey-gf-bundle.jar
+SHA1-Digest: jXHrBChRrqTKSAYWnODQITk5ueE=
+
+Name: lib/appserv-rt.jar
+SHA1-Digest: SXo/fCecpZcsRXhG3zCKSuo35hk=
+
+Name: lib/javax.jms.jar
+SHA1-Digest: +reiIs61mv1jCju4SR0em5U6Lek=
+
+Name: lib/javax.security.jacc.jar
+SHA1-Digest: kGJ3gx2QJOYloY/8Jhz2lsiKw4E=
+
+Name: lib/webservices-osgi.jar
+SHA1-Digest: j/7B5NR/6FNcwFrwXI4GlyM/nCE=
+
+Name: lib/javax.enterprise.deploy.jar
+SHA1-Digest: 55pflA5OALSwcZsRXfeYF79kyUY=
+
+Name: lib/jaxb-api-osgi.jar
+SHA1-Digest: 63fTZk7qJ9Z7eZ7SjLdmtNCXFQU=
+
+Name: lib/bean-validator.jar
+SHA1-Digest: 0o4NlpuvXycyEaV5Y6x4Eg8xQHc=
+
+Name: lib/javax.resource.jar
+SHA1-Digest: aBrmJEU3ZhWKekhG0sv5lxowvKI=
+
+Name: lib/javax.servlet.jsp.jar
+SHA1-Digest: Z2RZqLJydQC0xqX51ncYk3VeZ0A=
+
+Name: lib/webservices-api-osgi.jar
+SHA1-Digest: pXRJcazh9EoPxxzLk95TDLMCKWU=
+
+Name: lib/javax.management.j2ee.jar
+SHA1-Digest: kECkQneqfsC4w3XNFgg0a0pckBg=
+
+Name: pom.xml
+SHA1-Digest: 97YcorgcBVJKPgLxEPvHHElgpUM=
+
+Name: lib/appserv-ext.jar
+SHA1-Digest: iQGv079vBhy5jJrW1iB1cCPYCNQ=
+
+Name: lib/javax.transaction.jar
+SHA1-Digest: jz1JzjrIzapwa18t1MQjWB8/x+w=
+
+Name: lib/webservices.security.jar
+SHA1-Digest: RMuCu2JnF38mQIxVIXzw5er/VFs=
+
+Name: lib/jaxb-osgi.jar
+SHA1-Digest: eERrtDrIMi2YISyCa+jx3iYL6g8=
+
+Name: lib/glassfish-api.jar
+SHA1-Digest: Fw+owJlgnH4sd4rQN3MJrEKMcWo=
+
