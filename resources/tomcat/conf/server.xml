@@ -17,9 +17,16 @@
 -->
 
 <Server port='-1'>
+<!-- TomEE plugin for Tomcat -->
+<Listener className="org.apache.tomee.catalina.ServerListener" />
 
-  <!-- TomEE plugin for Tomcat -->
-  <Listener className="org.apache.tomee.catalina.ServerListener" />
+    <GlobalNamingResources>
+        <Resource name="UserDatabase" auth="Container"
+                  type="org.apache.catalina.UserDatabase"
+                  description="User database that can be updated and saved"
+                  factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+                  pathname="conf/tomcat-users.xml" />
+    </GlobalNamingResources>
 
     <Service name='Catalina'>
         <Connector port='${http.port}' bindOnInit="false"/>
@@ -29,6 +36,10 @@
             <Valve className="com.gopivotal.cloudfoundry.tomcat.logging.access.CloudFoundryAccessLoggingValve"
                    pattern='[ACCESS] %{org.apache.catalina.AccessLog.RemoteAddr}r %l %t %D %F %B %S vcap_request_id:%{X-Vcap-Request-Id}i'
                    enabled="${access.logging.enabled}"/>
+            <Realm className="org.apache.catalina.realm.LockOutRealm">
+              <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+                     resourceName="UserDatabase" digest="sha-256"/>
+            </Realm>    
             <Host name='localhost'>
                 <Listener className="com.gopivotal.cloudfoundry.tomcat.lifecycle.ApplicationStartupFailureDetectingLifecycleListener"/>
             </Host>

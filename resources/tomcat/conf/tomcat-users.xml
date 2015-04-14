@@ -33,11 +33,20 @@
   <user username="both" password="tomcat" roles="tomcat,role1"/>
   <user username="role1" password="tomcat" roles="role1"/>
 -->
-  <!-- Activate those lines to get access to TomEE GUI -->
+		
+ <!-- Activate those lines to get access to TomEE GUI -->
+ <!-- 
+  <role rolename="tomee-admin" />
+  <user username="tomee" password="tomee" roles="tomee-admin,manager-gui" />
+ -->
+ 
+  <!--User for KNIME Server -->
+  <role rolename="knime"/>
+  <user username="user" password="0600c79833cc723f51a26a1c39b46fcc6bb909a6db9b8c9a3885469f8aaa3fc2" roles="knime"/>
   
-  <role rolename="admin" />
-  <role rolename="knime" />
-  <user username="user" password="user" roles="admin,knime" />
-  
+    <!--Admin for KNIME Server -->
+  <role rolename="admin"/>
+  <user username="admin" password="0600c79833cc723f51a26a1c39b46fcc6bb909a6db9b8c9a3885469f8aaa3fc2" roles="knime,admin"/>
+ 
 </tomcat-users>
 
