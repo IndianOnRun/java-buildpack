@@ -70,18 +70,46 @@ module JavaBuildpack
 
     #Arun
     def create_custom_dirs
-      puts "++++++ Creating 'knime_executor' folder..."
-      FileUtils.mkdir_p 'knime_executor'
 
-      puts "++++++ Creating 'server-repository','config' & 'licenses' folders..."
-      FileUtils.mkdir_p 'server-repository/config'
-      FileUtils.mkdir_p 'server-repository/licenses'
 
-      puts "++++++ Copying KNIME Server 'config' & 'licenses' files"
-      FileUtils.cp_r '/tmp/buildpacks/java-buildpack/knime_server/.', 'repos'
+      puts "++++++ Creating '.ssh' folder..."
+      FileUtils.mkdir_p '$HOME/.ssh'
+
+      # puts "++++++ Copying SSH Key..."
+      # # FileUtils.cp_r '/tmp/buildpacks/java-buildpack/sshfs_data/.', '.ssh'
+      # FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '.ssh'
+
+      # puts "++++++ Setting permissions on SSH Key..."
+      # system 'chmod 700 .ssh'
+      # system 'chmod 600 .ssh/id_rsa'
+
+      # puts "++++++ Creating 'server-repository-tmp' folder..."
+      # FileUtils.mkdir_p 'server-repository-tmp'
+      # system 'chmod 777 server-repository-tmp'
+
+      # puts "++++++ Trying to SSH to the Remote Server'..."
+      # system 'ssh -vT -i .ssh/id_rsa cpadmusr@160.153.90.23'
+
+      # puts "++++++ Mounting remote folder to 'server-repository-tmp'..."
+      # system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -odebug,sshfs_debug,loglevel=debug ubuntu@ec2-52-11-241-162.us-west-2.compute.amazonaws.com:/home/ubuntu/knimerepo server-repository-tmp'
+      # system 'sshfs cpadmusr@160.153.90.232:sshfs server-repository-tmp -o IdentityFile=.ssh/sshfs_rsa -o idmap=user -odebug,sshfs_debug,loglevel=debug'
+      # puts "++++++ Creating 'knime-executor' folder..."
+      # FileUtils.mkdir_p 'knime-executor'
+      # puts "++++++ Creating 'knime_executor' folder..."
+      # FileUtils.mkdir_p 'knime_executor'
+
+      # puts "++++++ Creating 'server-repository','config' & 'licenses' folders..."
+      # FileUtils.mkdir_p 'server-repository/config'
+      # FileUtils.mkdir_p 'server-repository/licenses'
+
+      # puts "++++++ Copying KNIME Server 'config' & 'licenses' files"
+      # FileUtils.cp_r '/tmp/buildpacks/java-buildpack/knime_server/.', 'repos'
 
       #puts "++++++ Copying KNIME Executor files"
       #FileUtils.cp_r '/tmp/buildpacks/java-buildpack/knime_executor/.', 'knime_executor'
+
+
+
     
     end
 
