@@ -92,7 +92,7 @@ module JavaBuildpack
 
       puts "++++++ Mounting remote folder to 'server-repository-tmp'..."
       # system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -odebug,sshfs_debug,loglevel=debug ubuntu@ec2-52-11-241-162.us-west-2.compute.amazonaws.com:/home/ubuntu/knimerepo server-repository-tmp'
-      system 'sshfs cpadmusr@160.153.90.232:sshfs server-repository-tmp -o IdentityFile=app/.ssh/sshfs_rsa -o idmap=user -odebug,sshfs_debug,loglevel=debug'
+      system 'sshfs cpadmusr@160.153.90.232:sshfs server-repository-tmp -o IdentityFile=app/.ssh/sshfs_rsa  -o StrictHostKeyChecking=no -o idmap=user -odebug,sshfs_debug,loglevel=debug'
       # system 'sshfs ubuntu@ec2-52-11-241-162.us-west-2.compute.amazonaws.com:/home/ubuntu/knimerepo server-repository-tmp -C -f -o IdentityFile=app/.ssh/TestSSH.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=app/.ssh/known_hosts -o idmap=user -o cache=yes -o kernel_cache -o compression=no -o large_read -odebug,sshfs_debug,loglevel=debug'
       
       # puts "++++++ Creating 'knime-executor' folder..."
