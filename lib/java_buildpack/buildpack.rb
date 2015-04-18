@@ -73,7 +73,7 @@ module JavaBuildpack
 
 
       puts "++++++ Creating '.ssh' folder..."
-      FileUtils.mkdir_p '@application.root/.ssh'
+      FileUtils.mkdir_p(app_dir + '.ssh')
 
       # puts "++++++ Copying SSH Key..."
       # # FileUtils.cp_r '/tmp/buildpacks/java-buildpack/sshfs_data/.', '.ssh'
