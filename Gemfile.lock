@@ -51,7 +51,6 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
     yard (0.8.7.6)
-    net-ssh (2.7.0)
 
 PLATFORMS
   ruby
