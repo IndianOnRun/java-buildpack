@@ -26,16 +26,6 @@ require 'java_buildpack/buildpack'
 build_dir = ARGV[0]
 
 
-net_ssh
-
-private
-
-def net_ssh
-  puts "++++++ Gem Install Net::SSH..."
-  system 'gem install net-ssh'
-end
-
-
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
 end
