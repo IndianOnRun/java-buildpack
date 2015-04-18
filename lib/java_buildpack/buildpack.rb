@@ -83,8 +83,8 @@ module JavaBuildpack
       system 'chmod 644 app/.ssh/*'
       system 'chmod 600 app/.ssh/sshfs_rsa'
 
-      # puts "++++++ Creating 'server-repository-tmp' folder..."
-      # FileUtils.mkdir_p 'server-repository-tmp'
+      puts "++++++ Creating 'server-repository-tmp' folder..."
+      FileUtils.mkdir_p 'server-repository-tmp'
       # system 'chmod 777 server-repository-tmp'
 
       # puts "++++++ Trying to SSH to the Remote Server'..."
