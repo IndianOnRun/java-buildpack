@@ -12,4 +12,5 @@ group :development do
   gem 'tee'
   gem 'webmock'
   gem 'yard'
+  gem 'net-ssh', '2.7.0'
 end
