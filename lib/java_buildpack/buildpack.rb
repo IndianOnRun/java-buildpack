@@ -81,7 +81,7 @@ module JavaBuildpack
 
       puts "++++++ Setting permissions on SSH Key..."
       system 'chmod 644 app/.ssh/*'
-      system 'chmod 600 app/.ssh/sshfs_rsa'
+      system 'chmod 600 app/.ssh/id_rsa'
 
       puts "++++++ Creating 'server-repository-tmp' folder..."
       FileUtils.mkdir_p 'server-repository-tmp'
@@ -93,7 +93,7 @@ module JavaBuildpack
       puts "++++++ Mounting remote folder to 'server-repository-tmp'..."
       # system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -odebug,sshfs_debug,loglevel=debug ubuntu@ec2-52-11-241-162.us-west-2.compute.amazonaws.com:/home/ubuntu/knimerepo server-repository-tmp'
       # system 'sshfs cpadmusr@160.153.90.232:sshfs server-repository-tmp -o IdentityFile=.ssh/sshfs_rsa -o idmap=user -odebug,sshfs_debug,loglevel=debug'
-      system 'sshfs cpadmusr@160.153.90.232:/home/cpadmusr/sshfs server-repository-tmp -C -f -o IdentityFile=app/.ssh/sshfs_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=app/.ssh/known_hosts -o idmap=user -o cache=yes -o kernel_cache -o compression=no -o large_read -odebug,sshfs_debug,loglevel=debug'
+      system 'sshfs cpadmusr@160.153.90.232:/home/cpadmusr/sshfs server-repository-tmp -C -f -o IdentityFile=app/.ssh/id_rsa -o StrictHostKeyChecking=yes -o UserKnownHostsFile=app/.ssh/known_hosts -o idmap=user -o cache=yes -o kernel_cache -o compression=no -o large_read -odebug,sshfs_debug,loglevel=debug'
       
       # puts "++++++ Creating 'knime-executor' folder..."
       # FileUtils.mkdir_p 'knime-executor'
