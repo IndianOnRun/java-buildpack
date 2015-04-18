@@ -81,14 +81,14 @@ module JavaBuildpack
 
       puts "++++++ Setting permissions on SSH Key..."
       system 'chmod 644 app/.ssh/*'
-      system 'chmod 600 app/.ssh/id_rsa'
+      system 'chmod 600 app/.ssh/sshfs_rsa'
 
       # puts "++++++ Creating 'server-repository-tmp' folder..."
       # FileUtils.mkdir_p 'server-repository-tmp'
       # system 'chmod 777 server-repository-tmp'
 
       puts "++++++ Trying to SSH to the Remote Server'..."
-      system 'ssh -vT -i app/.ssh/id_rsa cpadmusr@160.153.90.23'
+      system 'ssh -vT -i app/.ssh/sshfs_rsa cpadmusr@160.153.90.23'
 
       # puts "++++++ Mounting remote folder to 'server-repository-tmp'..."
       # system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -odebug,sshfs_debug,loglevel=debug ubuntu@ec2-52-11-241-162.us-west-2.compute.amazonaws.com:/home/ubuntu/knimerepo server-repository-tmp'
