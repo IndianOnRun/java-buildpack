@@ -73,18 +73,18 @@ module JavaBuildpack
 
 
       puts "++++++ Creating '.ssh' folder..."
-      FileUtils.mkdir_p ('/home/vcap/app/.ssh')
+      FileUtils.mkdir_p ('/home/vcap/.ssh')
 
       puts "++++++ Copying SSH Key..."
       # # FileUtils.cp_r '/tmp/buildpacks/java-buildpack/sshfs_data/.', '.ssh'
-      FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '/home/vcap/app/.ssh'
+      FileUtils.cp_r '/tmp/buildpacks/java-buildpack/.ssh/.', '/home/vcap/.ssh'
 
       puts "++++++ Setting permissions on SSH Key..."
-      system 'chmod 644 /home/vcap/app/.ssh/*'
-      system 'chmod 600 /home/vcap/app/.ssh/TestSSH.pem'
+      system 'chmod 644 /home/vcap/.ssh/*'
+      system 'chmod 600 /home/vcap/.ssh/sshfs_rsa'
 
       puts "++++++ Creating 'server-repository-tmp' folder..."
-      FileUtils.mkdir_p '/home/vcap/app/server-repository-tmp'
+      FileUtils.mkdir_p '/home/vcap/server-repository-tmp'
       # system 'chmod 777 server-repository-tmp'
 
       # puts "++++++ Trying to SSH to the Remote Server'..."
@@ -92,7 +92,7 @@ module JavaBuildpack
 
       puts "++++++ Mounting remote folder to 'server-repository-tmp'..."
       # system 'sshfs -o IdentityFile=.ssh/sshfs_rsa -odebug,sshfs_debug,loglevel=debug ubuntu@ec2-52-11-241-162.us-west-2.compute.amazonaws.com:/home/ubuntu/knimerepo server-repository-tmp'
-      system 'sshfs cpadmusr@160.153.90.232:sshfs /home/vcap/app/server-repository-tmp -o IdentityFile=/home/vcap/app/.ssh/sshfs_rsa  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/home/vcap/app/.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug'
+      system 'sshfs cpadmusr@160.153.90.232:sshfs /home/vcap/server-repository-tmp -o IdentityFile=/home/vcap/.ssh/sshfs_rsa  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/home/vcap/.ssh/known_hosts -o idmap=user -odebug,sshfs_debug,loglevel=debug'
       # system 'sshfs ubuntu@ec2-52-11-241-162.us-west-2.compute.amazonaws.com:/home/ubuntu/knimerepo server-repository-tmp -C -f -o IdentityFile=app/.ssh/TestSSH.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=app/.ssh/known_hosts -o idmap=user -o cache=yes -o kernel_cache -o compression=no -o large_read -odebug,sshfs_debug,loglevel=debug'
       
       # puts "++++++ Creating 'knime-executor' folder..."
